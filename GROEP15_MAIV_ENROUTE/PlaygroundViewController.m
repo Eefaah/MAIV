@@ -72,6 +72,7 @@
             break;
         case 3:
             //imagepicker tonen
+            // testderdest
             [self showCamera];
             break;
         case 4:
