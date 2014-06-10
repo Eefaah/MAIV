@@ -1,0 +1,26 @@
+//
+//  DrawingView.h
+//  GROEP15_MAIV_ENROUTE
+//
+//  Created by Sophia Verhoeff on 05/06/14.
+//  Copyright (c) 2014 devine. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface DrawingView : UIView
+
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *backgroundImage;
+
+@property (nonatomic, strong) UIImageView *tempDrawImage;
+@property (nonatomic, strong) UIImageView *mainImage;
+
+@property (nonatomic, strong) UIButton *btnSave;
+
+@property (nonatomic, strong) UIImageView *startImage;
+@property (nonatomic, strong) UIImageView *endImage;
+
+- (id)initWithFrame:(CGRect)frame andImage:(UIImage *)image;
+
+@end
