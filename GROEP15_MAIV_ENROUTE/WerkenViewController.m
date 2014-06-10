@@ -22,7 +22,7 @@
         // Custom initialization
         
         [self.view.btnStart addTarget:self action:@selector(btnStartTapped :) forControlEvents:UIControlEventTouchUpInside];
-        [self.view.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
+        [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }

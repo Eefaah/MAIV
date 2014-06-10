@@ -21,17 +21,14 @@
         [self addSteps];
         [self addButton];
         [self footer];
-        [self addBackButton];
-
     }
     return self;
 }
 
 - (void) navigationBar{
-    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar"];
-    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-    [self addSubview:navBarImageView];
+    UIImage *titel = [UIImage imageNamed:@"opdracht7_titel"];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
+    [self addSubview:self.navBar];
 }
 
 - (void) footer{
@@ -81,12 +78,6 @@
     [self addSubview:self.btnStart];
 }
 
-- (void)addBackButton{
-    self.btnBack = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.btnBack.frame = CGRectMake(30, 30, 70, 40);
-    [self.btnBack setTitle:@"back" forState:UIControlStateNormal];
-    [self addSubview:self.btnBack];
-}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

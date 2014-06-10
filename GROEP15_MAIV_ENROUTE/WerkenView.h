@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
 
 @interface WerkenView : UIView
 
 @property (nonatomic, strong) UIButton *btnStart;
 @property (nonatomic, strong) UIButton *btnBack;
+@property (nonatomic,strong) NavigationBar *navBar;
 
 @end

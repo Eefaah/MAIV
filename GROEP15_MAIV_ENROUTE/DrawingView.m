@@ -20,8 +20,8 @@
         
         [self addBGImage];
         
-        UIImage *startImage = [UIImage imageNamed:@"opdracht1_img_start"];
-        UIImage *endImage = [UIImage imageNamed:@"opdracht1_img_stop"];
+        UIImage *startImage = [UIImage imageNamed:@"startbord"];
+        UIImage *endImage = [UIImage imageNamed:@"stopbord"];
         
         self.startImage = [[UIImageView alloc] initWithImage:startImage];
         self.endImage = [[UIImageView alloc] initWithImage:endImage];

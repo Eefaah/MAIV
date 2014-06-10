@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
 
 @interface SecondInfoView : UIView
 
@@ -15,6 +16,6 @@
 @property (nonatomic, strong) UILabel *lblNiew;
 @property (nonatomic, strong) UILabel *lblTekenIdee;
 @property (nonatomic, strong) UIButton *btnTekenen;
-
+@property (nonatomic,strong) NavigationBar *navBar;
 
 @end

@@ -77,7 +77,7 @@
 - (void)navigationBar{
     UIImage *titel = [UIImage imageNamed:@"opdracht1_titel"];
     
-    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
     [self addSubview:self.navBar];
 }
 

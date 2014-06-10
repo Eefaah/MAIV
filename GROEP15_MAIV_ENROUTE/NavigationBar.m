@@ -10,7 +10,7 @@
 
 @implementation NavigationBar
 
-- (id)initWithFrame:(CGRect)frame andTitleImage:(UIImage *)title
+- (id)initWithFrame:(CGRect)frame andTitleImage:(UIImage *)title andAddBtn:(BOOL)add
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -25,16 +25,19 @@
         titelImageView.frame = CGRectMake(self.frame.size.width/2 - titel.size.width/2, navBarImage.size.height/2 - titel.size.height/2, titel.size.width, titel.size.height);
         [self addSubview:titelImageView];
         
-        UIImage *btn_backToMap = [UIImage imageNamed:@"btn_backToMap"];
-        
-        self.btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.btnBack setBackgroundImage:btn_backToMap forState:UIControlStateNormal];
-        self.btnBack.frame = CGRectMake(9, 35, btn_backToMap.size.width, btn_backToMap.size.height);
-        //[self.btnBack setTitle:@"back" forState:UIControlStateNormal];
-        [self addSubview:self.btnBack];
+        if(add){
+            UIImage *btn_backToMap = [UIImage imageNamed:@"btn_backToMap"];
+            
+            self.btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.btnBack setBackgroundImage:btn_backToMap forState:UIControlStateNormal];
+            self.btnBack.frame = CGRectMake(9, 35, btn_backToMap.size.width, btn_backToMap.size.height);
+            //[self.btnBack setTitle:@"back" forState:UIControlStateNormal];
+            [self addSubview:self.btnBack];
+        }
     }
     return self;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

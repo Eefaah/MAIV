@@ -26,8 +26,7 @@
 }
 
 - (void)addImageToScrollView{
-    
-    UIImage *infoImage = [UIImage imageNamed:@"opdracht1_uitleg2_path"];
+    UIImage *infoImage = [UIImage imageNamed:@"opdracht7_path"];
     UIImageView *infoImageView = [[UIImageView alloc] initWithImage:infoImage];
     infoImageView.frame = CGRectMake(30, 0, infoImage.size.width, infoImage.size.height);
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, self.frame.size.width, self.frame.size.height)];
@@ -38,10 +37,9 @@
 }
 
 - (void) navigationBar{
-    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar"];
-    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-    [self addSubview:navBarImageView];
+    UIImage *titel = [UIImage imageNamed:@"opdracht7_titel"];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:NO];
+    [self addSubview:self.navBar];
 }
 
 - (void)skyline{
@@ -77,7 +75,7 @@
 }
 
 - (void)addButton{
-    UIImage *btnTekenen = [UIImage imageNamed:@"btn_tekenen"];
+    UIImage *btnTekenen = [UIImage imageNamed:@"btn_start"];
     self.btnTekenen = [UIButton buttonWithType:UIButtonTypeCustom];
     self.btnTekenen.frame = CGRectMake(self.frame.size.width/2 - btnTekenen.size.width/2, 500, btnTekenen.size.width, btnTekenen.size.height);
     [self.btnTekenen setBackgroundImage:btnTekenen forState:UIControlStateNormal];
