@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DrawingView.h"
-
+#import "EndDrawViewController.h"
 
 @interface DrawingViewController : UIViewController
 
 @property (nonatomic, strong) DrawingView *view;
+@property (nonatomic, strong) EndDrawViewController *endDrawVC;
+
 @property (nonatomic, strong) UIImage *image;
 
 @property (nonatomic) CGPoint lastPoint;
@@ -23,6 +25,6 @@
 @property (nonatomic) BOOL beginDraw;
 @property (nonatomic) BOOL endDraw;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImage:(UIImage *)image;
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+- (void)updateWithImage:(UIImage *)image;
 @end

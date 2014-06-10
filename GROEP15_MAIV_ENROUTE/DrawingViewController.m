@@ -14,14 +14,20 @@
 
 @implementation DrawingViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImage:(UIImage *)image
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.image = image;
+        
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnAgainTapped :) name:@"BTN_AGAIN_TAPPED" object:nil];
     }
     return self;
+}
+
+- (void)updateWithImage:(UIImage *)image{
+    
+    self.image = image;
 }
 
 - (BOOL)prefersStatusBarHidden{
@@ -110,9 +116,23 @@
         self.view.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
         self.view.tempDrawImage.image = nil;
         UIGraphicsEndImageContext();
+        
+        // notification uitzenden
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+        [userInfo setObject:self.view.mainImage.image forKey:@"drawnImage"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CALL_END_DRAW_VIEW_CONTROLLER" object:self userInfo:userInfo];
+        
     }else{
         self.view.tempDrawImage.image = nil;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)btnAgainTapped:(id)sender{
+    self.view.mainImage.image = nil;
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "WerkenView.h"
 #import "DrawingViewController.h"
+#import "EndDrawViewController.h"
+#import "DrawingScrollViewController.h"
+#import "SecondInfoViewController.h"
 
 @interface WerkenViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) WerkenView *view;
 @property (nonatomic, strong) DrawingViewController *drawingVC;
+@property (nonatomic, strong) UIImage *drawnImage;
+@property (nonatomic, strong) EndDrawViewController *endDrawVC;
+@property (nonatomic, strong) UIImage *photo;
+@property (nonatomic, strong) DrawingScrollViewController *drawingScrollVC;
+@property (nonatomic, strong) SecondInfoViewController *secondInfoVC;
 
 @end

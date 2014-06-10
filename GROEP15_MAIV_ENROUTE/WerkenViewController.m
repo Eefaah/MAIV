@@ -7,6 +7,7 @@
 //
 
 #import "WerkenViewController.h"
+#import "MainViewController.h"
 
 @interface WerkenViewController ()
 
@@ -21,7 +22,7 @@
         // Custom initialization
         
         [self.view.btnStart addTarget:self action:@selector(btnStartTapped :) forControlEvents:UIControlEventTouchUpInside];
-        [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
+        [self.view.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -53,13 +54,11 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.photo = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self dismissViewControllerAnimated:YES completion:^{}];
     
-    self.drawingVC = [[DrawingViewController alloc] initWithNibName:nil bundle:nil andImage:image];
-    [self.navigationController pushViewController:self.drawingVC animated:YES];
-    
-    NSLog(@"klaaaar");
+    self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:self.secondInfoVC animated:YES];
 }
 
 - (void)btnBackTapped:(id)sender{    
@@ -75,12 +74,69 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addEndDrawVC :) name:@"CALL_END_DRAW_VIEW_CONTROLLER" object:self.drawnImage];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnAgainTapped :) name:@"BTN_AGAIN_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnSaveTapped :) name:@"BTN_SAVE_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addDrawing :) name:@"ADD_DRAWING" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnTekenenTapped :) name:@"BTN_TEKENEN_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMenu :) name:@"BACK_TO_MENU" object:nil];
+    
+}
+
+- (void)backToMenu:(id)sender{
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    //MainViewController *mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    //[self.navigationController pushViewController:mainVC animated:YES];
+}
+
+- (void)btnTekenenTapped:(id)sender{
+    NSLog(@"add drawing screen");
+    self.drawingVC = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.drawingVC updateWithImage:self.photo];
+    [self.navigationController pushViewController:self.drawingVC animated:YES];
+}
+
+- (void)addEndDrawVC:(NSNotification *) notification
+{
+    NSLog(@"end draw");
+
+    if ([notification.name isEqualToString:@"CALL_END_DRAW_VIEW_CONTROLLER"])
+    {
+        NSDictionary* userInfo = notification.userInfo;
+        self.drawnImage = [userInfo objectForKey:@"drawnImage"];
+        self.endDrawVC = [[EndDrawViewController alloc] initWithNibName:nil bundle:nil andImage:self.drawnImage];
+        [self.navigationController pushViewController:self.endDrawVC animated:YES];
+    }
+}
+
+- (void)btnAgainTapped:(id)sender{
+    self.drawingVC = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.drawingVC updateWithImage:self.photo];
+    [self.navigationController pushViewController:self.drawingVC animated:YES];
+}
+
+- (void)btnSaveTapped:(id)sender{
+    NSLog(@"Werken view controller - btn save tapped");
+    self.drawingScrollVC = [[DrawingScrollViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:self.drawingScrollVC animated:YES];
+}
+
+- (void)addDrawing:(id)sender{
+    self.drawingVC = [[DrawingViewController alloc] initWithNibName:nil bundle:nil];
+    [self.drawingVC updateWithImage:self.photo];
+    [self.navigationController pushViewController:self.drawingVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 /*

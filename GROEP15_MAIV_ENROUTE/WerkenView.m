@@ -22,22 +22,16 @@
         [self addButton];
         [self footer];
         [self addBackButton];
-        
+
     }
     return self;
 }
 
 - (void) navigationBar{
-    
-    UIImage *titel = [UIImage imageNamed:@"opdracht1_titel"];
-    
-    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel];
-    [self addSubview:self.navBar];
-    
-//    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar_werken"];
-//    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-//    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-//    [self addSubview:navBarImageView];
+    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar"];
+    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
+    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
+    [self addSubview:navBarImageView];
 }
 
 - (void) footer{

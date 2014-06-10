@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920BF4661947BFA7001BBAA6 /* WerkenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4631947BFA7001BBAA6 /* WerkenViewController.m */; };
+		920BF4671947BFA7001BBAA6 /* WerkenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4651947BFA7001BBAA6 /* WerkenView.m */; };
+		920BF4781947BFAE001BBAA6 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4691947BFAE001BBAA6 /* DrawingViewController.m */; };
+		920BF4791947BFAE001BBAA6 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF46B1947BFAE001BBAA6 /* DrawingView.m */; };
+		920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF46D1947BFAE001BBAA6 /* SecondInfoViewController.m */; };
+		920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF46F1947BFAE001BBAA6 /* SecondInfoView.m */; };
+		920BF47C1947BFAE001BBAA6 /* EndDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4711947BFAE001BBAA6 /* EndDrawViewController.m */; };
+		920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4731947BFAE001BBAA6 /* EndDrawView.m */; };
+		920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */; };
+		920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */; };
 		921EABC5194118F800DBE329 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921EABC4194118F800DBE329 /* QuartzCore.framework */; };
 		92694D32194785D20021E63D /* ResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D25194785D20021E63D /* ResultView.m */; };
 		92694D33194785D20021E63D /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D27194785D20021E63D /* ResultViewController.m */; };
@@ -38,10 +48,6 @@
 		EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC53FAD6193F636B0056C41D /* RegisterView.m */; };
 		EC53FADA193F63750056C41D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC53FAD9193F63750056C41D /* RegisterViewController.m */; };
 		EC53FADD193F743B0056C41D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC53FADC193F743B0056C41D /* Images.xcassets */; };
-		EC53FAE3193FD5690056C41D /* WerkenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC53FAE2193FD5690056C41D /* WerkenViewController.m */; };
-		EC53FAEA193FD5850056C41D /* WerkenView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC53FAE9193FD5850056C41D /* WerkenView.m */; };
-		EC8FBAEC19408AAB0099F25A /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FBAEB19408AAB0099F25A /* DrawingViewController.m */; };
-		EC8FBAF219408ABF0099F25A /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8FBAF119408ABF0099F25A /* DrawingView.m */; };
 		EC8FBAF4194092F00099F25A /* TidyHand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC8FBAF3194092F00099F25A /* TidyHand.ttf */; };
 		ECBDACCD193FF2BB00D4F903 /* casual_hardcore-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECBDACCC193FF2BB00D4F903 /* casual_hardcore-webfont.ttf */; };
 /* End PBXBuildFile section */
@@ -58,6 +64,26 @@
 
 /* Begin PBXFileReference section */
 		65488CE31B214EA5882BD3E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		920BF4621947BFA7001BBAA6 /* WerkenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WerkenViewController.h; sourceTree = "<group>"; };
+		920BF4631947BFA7001BBAA6 /* WerkenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WerkenViewController.m; sourceTree = "<group>"; };
+		920BF4641947BFA7001BBAA6 /* WerkenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WerkenView.h; sourceTree = "<group>"; };
+		920BF4651947BFA7001BBAA6 /* WerkenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WerkenView.m; sourceTree = "<group>"; };
+		920BF4681947BFAE001BBAA6 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		920BF4691947BFAE001BBAA6 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
+		920BF46A1947BFAE001BBAA6 /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
+		920BF46B1947BFAE001BBAA6 /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
+		920BF46C1947BFAE001BBAA6 /* SecondInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondInfoViewController.h; sourceTree = "<group>"; };
+		920BF46D1947BFAE001BBAA6 /* SecondInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondInfoViewController.m; sourceTree = "<group>"; };
+		920BF46E1947BFAE001BBAA6 /* SecondInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondInfoView.h; sourceTree = "<group>"; };
+		920BF46F1947BFAE001BBAA6 /* SecondInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondInfoView.m; sourceTree = "<group>"; };
+		920BF4701947BFAE001BBAA6 /* EndDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndDrawViewController.h; sourceTree = "<group>"; };
+		920BF4711947BFAE001BBAA6 /* EndDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndDrawViewController.m; sourceTree = "<group>"; };
+		920BF4721947BFAE001BBAA6 /* EndDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndDrawView.h; sourceTree = "<group>"; };
+		920BF4731947BFAE001BBAA6 /* EndDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndDrawView.m; sourceTree = "<group>"; };
+		920BF4741947BFAE001BBAA6 /* DrawingScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingScrollViewController.h; sourceTree = "<group>"; };
+		920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollViewController.m; sourceTree = "<group>"; };
+		920BF4761947BFAE001BBAA6 /* DrawingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingScrollView.h; sourceTree = "<group>"; };
+		920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollView.m; sourceTree = "<group>"; };
 		921EABC4194118F800DBE329 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		92694D24194785D20021E63D /* ResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultView.h; sourceTree = "<group>"; };
 		92694D25194785D20021E63D /* ResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultView.m; sourceTree = "<group>"; };
@@ -106,14 +132,6 @@
 		EC53FAD8193F63750056C41D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		EC53FAD9193F63750056C41D /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		EC53FADC193F743B0056C41D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EC53FAE1193FD5690056C41D /* WerkenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WerkenViewController.h; sourceTree = "<group>"; };
-		EC53FAE2193FD5690056C41D /* WerkenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WerkenViewController.m; sourceTree = "<group>"; };
-		EC53FAE8193FD5850056C41D /* WerkenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WerkenView.h; sourceTree = "<group>"; };
-		EC53FAE9193FD5850056C41D /* WerkenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WerkenView.m; sourceTree = "<group>"; };
-		EC8FBAEA19408AAB0099F25A /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
-		EC8FBAEB19408AAB0099F25A /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
-		EC8FBAF019408ABF0099F25A /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
-		EC8FBAF119408ABF0099F25A /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		EC8FBAF3194092F00099F25A /* TidyHand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TidyHand.ttf; sourceTree = "<group>"; };
 		ECBDACCC193FF2BB00D4F903 /* casual_hardcore-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "casual_hardcore-webfont.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,10 +305,10 @@
 		EC53FADF193FD5280056C41D /* werken */ = {
 			isa = PBXGroup;
 			children = (
-				EC53FAE1193FD5690056C41D /* WerkenViewController.h */,
-				EC53FAE2193FD5690056C41D /* WerkenViewController.m */,
-				EC53FAE8193FD5850056C41D /* WerkenView.h */,
-				EC53FAE9193FD5850056C41D /* WerkenView.m */,
+				920BF4621947BFA7001BBAA6 /* WerkenViewController.h */,
+				920BF4631947BFA7001BBAA6 /* WerkenViewController.m */,
+				920BF4641947BFA7001BBAA6 /* WerkenView.h */,
+				920BF4651947BFA7001BBAA6 /* WerkenView.m */,
 				EC8FBAE91940892F0099F25A /* screens */,
 			);
 			name = werken;
@@ -299,10 +317,22 @@
 		EC8FBAE91940892F0099F25A /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				EC8FBAEA19408AAB0099F25A /* DrawingViewController.h */,
-				EC8FBAEB19408AAB0099F25A /* DrawingViewController.m */,
-				EC8FBAF019408ABF0099F25A /* DrawingView.h */,
-				EC8FBAF119408ABF0099F25A /* DrawingView.m */,
+				920BF4681947BFAE001BBAA6 /* DrawingViewController.h */,
+				920BF4691947BFAE001BBAA6 /* DrawingViewController.m */,
+				920BF46A1947BFAE001BBAA6 /* DrawingView.h */,
+				920BF46B1947BFAE001BBAA6 /* DrawingView.m */,
+				920BF46C1947BFAE001BBAA6 /* SecondInfoViewController.h */,
+				920BF46D1947BFAE001BBAA6 /* SecondInfoViewController.m */,
+				920BF46E1947BFAE001BBAA6 /* SecondInfoView.h */,
+				920BF46F1947BFAE001BBAA6 /* SecondInfoView.m */,
+				920BF4701947BFAE001BBAA6 /* EndDrawViewController.h */,
+				920BF4711947BFAE001BBAA6 /* EndDrawViewController.m */,
+				920BF4721947BFAE001BBAA6 /* EndDrawView.h */,
+				920BF4731947BFAE001BBAA6 /* EndDrawView.m */,
+				920BF4741947BFAE001BBAA6 /* DrawingScrollViewController.h */,
+				920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */,
+				920BF4761947BFAE001BBAA6 /* DrawingScrollView.h */,
+				920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -444,22 +474,28 @@
 				EC53FAA1193F623B0056C41D /* AppDelegate.m in Sources */,
 				92694D34194785D20021E63D /* SaveOrRetakeView.m in Sources */,
 				92694D36194785D20021E63D /* CameraOverlayView.m in Sources */,
-				EC8FBAF219408ABF0099F25A /* DrawingView.m in Sources */,
+				920BF4781947BFAE001BBAA6 /* DrawingViewController.m in Sources */,
+				920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */,
 				EC53FAA4193F623B0056C41D /* GROEP15_MAIV_ENROUTE.xcdatamodeld in Sources */,
 				92694D37194785D20021E63D /* PlaygroundViewController.m in Sources */,
+				920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
 				92694D3B19478FB00021E63D /* NavigationBar.m in Sources */,
-				EC53FAE3193FD5690056C41D /* WerkenViewController.m in Sources */,
-				EC8FBAEC19408AAB0099F25A /* DrawingViewController.m in Sources */,
 				92694D38194785D20021E63D /* PlaygroundView.m in Sources */,
 				EC53FADA193F63750056C41D /* RegisterViewController.m in Sources */,
 				EC53FACE193F63530056C41D /* MainViewController.m in Sources */,
+				920BF4661947BFA7001BBAA6 /* WerkenViewController.m in Sources */,
 				92694D41194793380021E63D /* LabelDataFactory.m in Sources */,
 				92694D32194785D20021E63D /* ResultView.m in Sources */,
+				920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */,
 				92694D42194793380021E63D /* LabelData.m in Sources */,
-				EC53FAEA193FD5850056C41D /* WerkenView.m in Sources */,
+				920BF4671947BFA7001BBAA6 /* WerkenView.m in Sources */,
 				EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */,
 				92694D33194785D20021E63D /* ResultViewController.m in Sources */,
+				920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */,
+				920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */,
+				920BF47C1947BFAE001BBAA6 /* EndDrawViewController.m in Sources */,
+				920BF4791947BFAE001BBAA6 /* DrawingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

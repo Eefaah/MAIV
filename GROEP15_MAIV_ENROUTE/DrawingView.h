@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EndDrawViewController.h"
 
 @interface DrawingView : UIView
 
@@ -20,7 +21,11 @@
 
 @property (nonatomic, strong) UIImageView *startImage;
 @property (nonatomic, strong) UIImageView *endImage;
+@property (nonatomic, strong) UIImageView *bgImageView;
+
+@property (nonatomic, strong) EndDrawViewController *endDrawVC;
 
 - (id)initWithFrame:(CGRect)frame andImage:(UIImage *)image;
+- (void)approveOrDisapproveDrawing;
 
 @end
