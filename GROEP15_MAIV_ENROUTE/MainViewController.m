@@ -82,6 +82,7 @@
 //    }
 //    
     self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
+    
 //    PeopleViewController *peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
 //    GPSViewController *gpsVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
     PlaygroundViewController *playgroundVC = [[PlaygroundViewController alloc] initWithNibName:nil bundle:nil];
@@ -97,6 +98,12 @@
 //    }
     else if ([className isEqualToString:@"Speeltuin"]){
         [self.navigationController pushViewController:playgroundVC animated:YES];
+    }else if([className isEqualToString:@"Zintuigen"]){
+        
+        // hier wordt beslist welk zintuig deze groep krijgt
+        
+        self.zintuigVC = [[MainZintuigViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:self.zintuigVC animated:YES];
     }
     
     //[self.navigationController pushViewController:self.werkenVC animated:YES];
@@ -112,7 +119,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
+    //NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
     
     CGPoint offset = scrollView.contentOffset;
     float yOffset = offset.y;
@@ -154,7 +161,7 @@
     
     if(self.view.scrollView.contentOffset.y < 1674){
         self.xBoot = 320 - (1647-yOffset);
-        NSLog(@"x van de boot = %f",self.xBoot);
+        //NSLog(@"x van de boot = %f",self.xBoot);
         self.view.boot.layer.position = CGPointMake(self.xBoot, 1803);
         
         if(yOffset < 1528){

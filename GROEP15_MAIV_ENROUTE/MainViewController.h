@@ -11,6 +11,7 @@
 #import "RegisterViewController.h"
 #import "WerkenViewController.h"
 #import "PlaygroundViewController.h"
+#import "MainZintuigViewController.h"
 
 @interface MainViewController : UIViewController <UIScrollViewDelegate>
 
@@ -20,6 +21,8 @@
 @property (nonatomic, strong) NSString *className;
 @property (nonatomic) float xduif;
 @property (nonatomic, strong) WerkenViewController *werkenVC;
+@property (nonatomic,strong) MainZintuigViewController *zintuigVC;
+
 @property (nonatomic) float xBoot;
 
 @end

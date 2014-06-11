@@ -27,7 +27,7 @@
         for(UIImage *image in self.arrDrawings){
             
             UIImageView *drawingView = [[UIImageView alloc] initWithImage:image];
-            drawingView.frame = CGRectMake(xPos, 170, image.size.width/2, image.size.height/2);
+            drawingView.frame = CGRectMake(xPos, 145, image.size.width/2, image.size.height/2);
             [self.scrollView addSubview:drawingView];
             xPos += image.size.width/2;
         }
@@ -43,34 +43,33 @@
 }
 
 - (void) navigationBar{
-    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar"];
-    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-    [self addSubview:navBarImageView];
+    UIImage *titel = [UIImage imageNamed:@"opdracht7_titel"];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
+    [self addSubview:self.navBar];
 }
 
 - (void)addLabel{
     
-    UIFont *dosis = [UIFont fontWithName:TIDY_HAND size:25];
+    UIFont *dosis = [UIFont fontWithName:TIDY_HAND size:17];
     self.lblJullieTekeningen = [[UILabel alloc] init];
-    self.lblJullieTekeningen.text = @"DIT ZIJN JULLIE TEKENINGEN";
-    self.lblJullieTekeningen.frame = CGRectMake(self.frame.size.width/2 - 140, 130, 300, 30);
+    self.lblJullieTekeningen.text = @"Dit zijn jullie tekeningen";
+    self.lblJullieTekeningen.frame = CGRectMake(54, 130, 300, 30);
     self.lblJullieTekeningen.font = dosis;
-    self.lblJullieTekeningen.textColor = [UIColor colorWithRed:0.03 green:0.66 blue:0.51 alpha:1];
+    self.lblJullieTekeningen.textColor = [UIColor blackColor];
     [self addSubview:self.lblJullieTekeningen];
 }
 
 - (void)addButtons{
     
-    UIImage *addImage = [UIImage imageNamed:@"btn_add"];
+    UIImage *addImage = [UIImage imageNamed:@"btn_toevoegen"];
     self.btnAdd = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnAdd.frame = CGRectMake(35, 470, addImage.size.width, addImage.size.height);
+    self.btnAdd.frame = CGRectMake(35, 462, addImage.size.width, addImage.size.height);
     [self.btnAdd setBackgroundImage:addImage forState:UIControlStateNormal];
     [self addSubview:self.btnAdd];
     
-    UIImage *okImage = [UIImage imageNamed:@"btn_ok"];
+    UIImage *okImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnOk = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnOk.frame = CGRectMake(self.frame.size.width  - okImage.size.width - 30, 470, okImage.size.width, okImage.size.height);
+    self.btnOk.frame = CGRectMake(self.frame.size.width - okImage.size.width - 30, 455, okImage.size.width, okImage.size.height);
     [self.btnOk setBackgroundImage:okImage forState:UIControlStateNormal];
     [self addSubview:self.btnOk];
 }

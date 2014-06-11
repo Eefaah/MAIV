@@ -12,5 +12,6 @@
 @interface SecondInfoViewController : UIViewController
 
 @property (nonatomic, strong) SecondInfoView *view;
+@property (nonatomic,strong) NSMutableArray *labels;
 
 @end

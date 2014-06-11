@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
 
 @interface EndDrawView : UIView
 
 @property (nonatomic, strong) UIButton *btnAgain;
 @property (nonatomic, strong) UIButton *btnOk;
 @property (nonatomic, strong) UILabel *lblJouwTekening;
+@property (nonatomic,strong) NavigationBar *navBar;
 
 @property (nonatomic, strong) UIImage *drawnImage;
 

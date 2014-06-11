@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationBar.h"
+#import "UitlegView.h"
 
 @interface SecondInfoView : UIView
 
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UILabel *lblOud;
-@property (nonatomic, strong) UILabel *lblNiew;
-@property (nonatomic, strong) UILabel *lblTekenIdee;
-@property (nonatomic, strong) UIButton *btnTekenen;
 @property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UitlegView *uitleg;
+@property (nonatomic,strong) NSMutableArray *labels;
+
+- (id)initWithFrame:(CGRect)frame andLabels:(NSMutableArray *)labels;
 
 @end

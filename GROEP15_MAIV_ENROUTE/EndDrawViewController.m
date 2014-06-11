@@ -23,9 +23,6 @@
         self.drawnImage = drawnImage;
         
         self.arrDrawings = [NSMutableArray array];
-        
-        [self.view.btnAgain addTarget:self action:@selector(btnAgainTapped :) forControlEvents:UIControlEventTouchUpInside];
-        [self.view.btnOk addTarget:self action:@selector(btnSaveTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -55,7 +52,7 @@
     //alle extra info die in de database komt kan hierin...
     NSDictionary *parameters = @{@"dag_groep_id": @1,
                                  @"groep_id" : @1,
-                                 @"opdracht_id" : @1,
+                                 @"opdracht_id" : @7,
                                  @"opdracht_onderdeel_id" : @0
                                 };
     
@@ -82,6 +79,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnAgain addTarget:self action:@selector(btnAgainTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnOk addTarget:self action:@selector(btnSaveTapped :) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)btnBackTapped:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_BACK" object:nil];
 }
 
 - (void)didReceiveMemoryWarning

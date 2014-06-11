@@ -22,7 +22,7 @@
     if (self) {
         // Custom initialization
         
-        self.arrDrawings = [NSMutableArray array];
+        self.arrDrawings = [[NSMutableArray alloc] init];
         [self getAPI];
         //[self getAPIAFNetworking];
     }
@@ -33,7 +33,7 @@
     
     self.arrImagePaths = [NSMutableArray array];
     
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/%i/%i", 1, 1]]];
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/%i/%i", 1, 7]]];
     NSError *error = nil;
     NSArray *loadedData = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
@@ -54,8 +54,14 @@
         self.imagePath = path;
         
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/%@", self.imagePath]]];
+        
+        NSLog(@"imagedata = %@",imageData);
+        NSLog(@"image path : %@", self.imagePath);
+        
         UIImage *image = [UIImage imageWithData: imageData];
-        //NSLog(@"image path : %@", self.imagePath);
+        
+        NSLog(@"image : %@", image);
+        
         [self.arrDrawings addObject:image];
         
         //[self.view getImagesFromServer:image];
@@ -71,8 +77,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnAdd addTarget:self action:@selector(btnAddTapped :) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnOk addTarget:self action:@selector(btnOkTapped :) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)btnBackTapped:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_BACK" object:nil];
 }
 
 - (void)btnAddTapped:(id)sender{

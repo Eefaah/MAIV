@@ -12,8 +12,11 @@
 #import "EndDrawViewController.h"
 #import "DrawingScrollViewController.h"
 #import "SecondInfoViewController.h"
+#import "CustomPhotoPicker.h"
 
 @interface WerkenViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (nonatomic,strong) NSMutableArray *labels;
 
 @property (nonatomic, strong) WerkenView *view;
 @property (nonatomic, strong) DrawingViewController *drawingVC;
@@ -22,5 +25,7 @@
 @property (nonatomic, strong) UIImage *photo;
 @property (nonatomic, strong) DrawingScrollViewController *drawingScrollVC;
 @property (nonatomic, strong) SecondInfoViewController *secondInfoVC;
+@property (nonatomic,strong) CustomPhotoPicker *photoPickerView;
+@property (nonatomic,strong) UIImagePickerController *imagePicker;
 
 @end

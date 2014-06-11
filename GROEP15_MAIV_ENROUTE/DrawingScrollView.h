@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
 
 @interface DrawingScrollView : UIView
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) UILabel *lblJullieTekeningen;
 @property (nonatomic, strong) UIButton *btnAdd;
 @property (nonatomic, strong) UIButton *btnOk;
+@property (nonatomic,strong) NavigationBar *navBar;
 
 - (id)initWithFrame:(CGRect)frame andArray:(NSMutableArray *)arrDrawings;
 
