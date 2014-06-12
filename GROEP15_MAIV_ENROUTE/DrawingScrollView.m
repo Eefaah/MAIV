@@ -16,6 +16,12 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
+        
+        UIImage *bgImage = [UIImage imageNamed:@"resultaat_bg"];
+        UIImageView *bg = [[UIImageView alloc] initWithImage:bgImage];
+        [bg setFrame:CGRectMake(15, 0, bgImage.size.width, bgImage.size.height)];
+        [self addSubview:bg];
+        
         self.arrDrawings = [NSMutableArray array];
         self.arrDrawings = arrDrawings;
         
@@ -44,7 +50,7 @@
 
 - (void) navigationBar{
     UIImage *titel = [UIImage imageNamed:@"opdracht7_titel"];
-    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:NO];
     [self addSubview:self.navBar];
 }
 
@@ -63,15 +69,20 @@
     
     UIImage *addImage = [UIImage imageNamed:@"btn_toevoegen"];
     self.btnAdd = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnAdd.frame = CGRectMake(35, 462, addImage.size.width, addImage.size.height);
+    self.btnAdd.frame = CGRectMake(32,  self.frame.size.height-addImage.size.height - 20, addImage.size.width, addImage.size.height);
     [self.btnAdd setBackgroundImage:addImage forState:UIControlStateNormal];
     [self addSubview:self.btnAdd];
     
     UIImage *okImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnOk = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnOk.frame = CGRectMake(self.frame.size.width - okImage.size.width - 30, 455, okImage.size.width, okImage.size.height);
+    self.btnOk.frame = CGRectMake(self.btnAdd.frame.origin.x + addImage.size.width + 122, self.frame.size.height - okImage.size.height - 20, okImage.size.width, okImage.size.height);
     [self.btnOk setBackgroundImage:okImage forState:UIControlStateNormal];
     [self addSubview:self.btnOk];
+    
+    UIImage *terugNaarKaart = [UIImage imageNamed:@"opdracht7_naarKaart"];
+    UIImageView *naarKaart = [[UIImageView alloc] initWithImage:terugNaarKaart];
+    naarKaart.frame = CGRectMake(self.btnOk.frame.origin.x + self.btnOk.frame.size.width, self.btnOk.frame.origin.y + 7, terugNaarKaart.size.width, terugNaarKaart.size.height);
+    [self addSubview:naarKaart];
 }
 
 //- (void)getImagesFromServer:(UIImage *)image{

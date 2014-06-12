@@ -13,6 +13,7 @@
 #import "DrawingScrollViewController.h"
 #import "SecondInfoViewController.h"
 #import "CustomPhotoPicker.h"
+#import "SaveOrRetakeImageViewController.h"
 
 @interface WerkenViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -27,5 +28,8 @@
 @property (nonatomic, strong) SecondInfoViewController *secondInfoVC;
 @property (nonatomic,strong) CustomPhotoPicker *photoPickerView;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
+
+@property (nonatomic,strong) SaveOrRetakeImageViewController *saveOrRetakeVC;
+
 
 @end

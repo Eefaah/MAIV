@@ -30,14 +30,15 @@
 		92148C8519487D44006A3AE5 /* Uitleg2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8419487D44006A3AE5 /* Uitleg2ViewController.m */; };
 		92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8719487D56006A3AE5 /* Uitleg2View.m */; };
 		92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8A1948A99E006A3AE5 /* CustomPhotoPicker.m */; };
+		92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8D1948D77E006A3AE5 /* PlaygroundViewController.m */; };
+		92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8F1948D77E006A3AE5 /* PlaygroundView.m */; };
+		92148C981948D77E006A3AE5 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C911948D77E006A3AE5 /* CameraOverlayView.m */; };
+		92148C991948D77E006A3AE5 /* EndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C931948D77E006A3AE5 /* EndViewController.m */; };
+		92148C9A1948D77E006A3AE5 /* EndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C951948D77E006A3AE5 /* EndView.m */; };
 		921EABC5194118F800DBE329 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921EABC4194118F800DBE329 /* QuartzCore.framework */; };
-		92694D32194785D20021E63D /* ResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D25194785D20021E63D /* ResultView.m */; };
-		92694D33194785D20021E63D /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D27194785D20021E63D /* ResultViewController.m */; };
-		92694D34194785D20021E63D /* SaveOrRetakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D29194785D20021E63D /* SaveOrRetakeView.m */; };
-		92694D35194785D20021E63D /* SaveOrRetakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D2B194785D20021E63D /* SaveOrRetakeViewController.m */; };
-		92694D36194785D20021E63D /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D2D194785D20021E63D /* CameraOverlayView.m */; };
-		92694D37194785D20021E63D /* PlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D2F194785D20021E63D /* PlaygroundViewController.m */; };
-		92694D38194785D20021E63D /* PlaygroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D31194785D20021E63D /* PlaygroundView.m */; };
+		925811061949CFF00040390F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925811051949CFF00040390F /* AVFoundation.framework */; };
+		925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */; };
+		9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258110B1949EA020040390F /* SaveOrRetakeImageView.m */; };
 		92694D3B19478FB00021E63D /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3A19478FB00021E63D /* NavigationBar.m */; };
 		92694D41194793380021E63D /* LabelDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3E194793380021E63D /* LabelDataFactory.m */; };
 		92694D42194793380021E63D /* LabelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D40194793380021E63D /* LabelData.m */; };
@@ -121,21 +122,22 @@
 		92148C8719487D56006A3AE5 /* Uitleg2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uitleg2View.m; sourceTree = "<group>"; };
 		92148C891948A99E006A3AE5 /* CustomPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoPicker.h; sourceTree = "<group>"; };
 		92148C8A1948A99E006A3AE5 /* CustomPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoPicker.m; sourceTree = "<group>"; };
+		92148C8C1948D77E006A3AE5 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
+		92148C8D1948D77E006A3AE5 /* PlaygroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundViewController.m; sourceTree = "<group>"; };
+		92148C8E1948D77E006A3AE5 /* PlaygroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundView.h; sourceTree = "<group>"; };
+		92148C8F1948D77E006A3AE5 /* PlaygroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundView.m; sourceTree = "<group>"; };
+		92148C901948D77E006A3AE5 /* CameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayView.h; sourceTree = "<group>"; };
+		92148C911948D77E006A3AE5 /* CameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayView.m; sourceTree = "<group>"; };
+		92148C921948D77E006A3AE5 /* EndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndViewController.h; sourceTree = "<group>"; };
+		92148C931948D77E006A3AE5 /* EndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndViewController.m; sourceTree = "<group>"; };
+		92148C941948D77E006A3AE5 /* EndView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndView.h; sourceTree = "<group>"; };
+		92148C951948D77E006A3AE5 /* EndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndView.m; sourceTree = "<group>"; };
 		921EABC4194118F800DBE329 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		92694D24194785D20021E63D /* ResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultView.h; sourceTree = "<group>"; };
-		92694D25194785D20021E63D /* ResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultView.m; sourceTree = "<group>"; };
-		92694D26194785D20021E63D /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
-		92694D27194785D20021E63D /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
-		92694D28194785D20021E63D /* SaveOrRetakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeView.h; sourceTree = "<group>"; };
-		92694D29194785D20021E63D /* SaveOrRetakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeView.m; sourceTree = "<group>"; };
-		92694D2A194785D20021E63D /* SaveOrRetakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeViewController.h; sourceTree = "<group>"; };
-		92694D2B194785D20021E63D /* SaveOrRetakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeViewController.m; sourceTree = "<group>"; };
-		92694D2C194785D20021E63D /* CameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayView.h; sourceTree = "<group>"; };
-		92694D2D194785D20021E63D /* CameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayView.m; sourceTree = "<group>"; };
-		92694D2E194785D20021E63D /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
-		92694D2F194785D20021E63D /* PlaygroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundViewController.m; sourceTree = "<group>"; };
-		92694D30194785D20021E63D /* PlaygroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundView.h; sourceTree = "<group>"; };
-		92694D31194785D20021E63D /* PlaygroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundView.m; sourceTree = "<group>"; };
+		925811051949CFF00040390F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		925811071949E9EB0040390F /* SaveOrRetakeImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeImageViewController.h; sourceTree = "<group>"; };
+		925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeImageViewController.m; sourceTree = "<group>"; };
+		9258110A1949EA020040390F /* SaveOrRetakeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeImageView.h; sourceTree = "<group>"; };
+		9258110B1949EA020040390F /* SaveOrRetakeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeImageView.m; sourceTree = "<group>"; };
 		92694D3919478FB00021E63D /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
 		92694D3A19478FB00021E63D /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 		92694D3D194793380021E63D /* LabelDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelDataFactory.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925811061949CFF00040390F /* AVFoundation.framework in Frameworks */,
 				92148C7D1948757B006A3AE5 /* CoreLocation.framework in Frameworks */,
 				92148C7B19487556006A3AE5 /* MapKit.framework in Frameworks */,
 				921EABC5194118F800DBE329 /* QuartzCore.framework in Frameworks */,
@@ -244,23 +247,30 @@
 			name = Mapview;
 			sourceTree = "<group>";
 		};
+		9258110D1949EA080040390F /* save or retake */ = {
+			isa = PBXGroup;
+			children = (
+				9258110A1949EA020040390F /* SaveOrRetakeImageView.h */,
+				9258110B1949EA020040390F /* SaveOrRetakeImageView.m */,
+				925811071949E9EB0040390F /* SaveOrRetakeImageViewController.h */,
+				925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */,
+			);
+			name = "save or retake";
+			sourceTree = "<group>";
+		};
 		92694D0C19477EFA0021E63D /* Speeltuin */ = {
 			isa = PBXGroup;
 			children = (
-				92694D24194785D20021E63D /* ResultView.h */,
-				92694D25194785D20021E63D /* ResultView.m */,
-				92694D26194785D20021E63D /* ResultViewController.h */,
-				92694D27194785D20021E63D /* ResultViewController.m */,
-				92694D28194785D20021E63D /* SaveOrRetakeView.h */,
-				92694D29194785D20021E63D /* SaveOrRetakeView.m */,
-				92694D2A194785D20021E63D /* SaveOrRetakeViewController.h */,
-				92694D2B194785D20021E63D /* SaveOrRetakeViewController.m */,
-				92694D2C194785D20021E63D /* CameraOverlayView.h */,
-				92694D2D194785D20021E63D /* CameraOverlayView.m */,
-				92694D2E194785D20021E63D /* PlaygroundViewController.h */,
-				92694D2F194785D20021E63D /* PlaygroundViewController.m */,
-				92694D30194785D20021E63D /* PlaygroundView.h */,
-				92694D31194785D20021E63D /* PlaygroundView.m */,
+				92148C8C1948D77E006A3AE5 /* PlaygroundViewController.h */,
+				92148C8D1948D77E006A3AE5 /* PlaygroundViewController.m */,
+				92148C8E1948D77E006A3AE5 /* PlaygroundView.h */,
+				92148C8F1948D77E006A3AE5 /* PlaygroundView.m */,
+				92148C901948D77E006A3AE5 /* CameraOverlayView.h */,
+				92148C911948D77E006A3AE5 /* CameraOverlayView.m */,
+				92148C921948D77E006A3AE5 /* EndViewController.h */,
+				92148C931948D77E006A3AE5 /* EndViewController.m */,
+				92148C941948D77E006A3AE5 /* EndView.h */,
+				92148C951948D77E006A3AE5 /* EndView.m */,
 			);
 			name = Speeltuin;
 			sourceTree = "<group>";
@@ -298,6 +308,7 @@
 		EC53FA8D193F623B0056C41D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				925811051949CFF00040390F /* AVFoundation.framework */,
 				92148C7C1948757B006A3AE5 /* CoreLocation.framework */,
 				92148C7A19487556006A3AE5 /* MapKit.framework */,
 				921EABC4194118F800DBE329 /* QuartzCore.framework */,
@@ -390,6 +401,7 @@
 		EC53FADF193FD5280056C41D /* werken */ = {
 			isa = PBXGroup;
 			children = (
+				9258110D1949EA080040390F /* save or retake */,
 				92148C891948A99E006A3AE5 /* CustomPhotoPicker.h */,
 				92148C8A1948A99E006A3AE5 /* CustomPhotoPicker.m */,
 				920BF4621947BFA7001BBAA6 /* WerkenViewController.h */,
@@ -557,39 +569,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC53FAD4193F63650056C41D /* MainView.m in Sources */,
-				92694D35194785D20021E63D /* SaveOrRetakeViewController.m in Sources */,
 				92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */,
 				EC53FAA1193F623B0056C41D /* AppDelegate.m in Sources */,
-				92694D34194785D20021E63D /* SaveOrRetakeView.m in Sources */,
-				92694D36194785D20021E63D /* CameraOverlayView.m in Sources */,
 				920BF4781947BFAE001BBAA6 /* DrawingViewController.m in Sources */,
 				920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */,
 				EC53FAA4193F623B0056C41D /* GROEP15_MAIV_ENROUTE.xcdatamodeld in Sources */,
 				92148C8519487D44006A3AE5 /* Uitleg2ViewController.m in Sources */,
+				925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */,
 				92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */,
 				92148C67194866F9006A3AE5 /* HorenUitlegViewController.m in Sources */,
-				92694D37194785D20021E63D /* PlaygroundViewController.m in Sources */,
 				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
 				920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
 				92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */,
+				92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */,
 				92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */,
 				92694D3B19478FB00021E63D /* NavigationBar.m in Sources */,
-				92694D38194785D20021E63D /* PlaygroundView.m in Sources */,
 				EC53FADA193F63750056C41D /* RegisterViewController.m in Sources */,
+				92148C981948D77E006A3AE5 /* CameraOverlayView.m in Sources */,
 				EC53FACE193F63530056C41D /* MainViewController.m in Sources */,
 				920BF4661947BFA7001BBAA6 /* WerkenViewController.m in Sources */,
 				92694D41194793380021E63D /* LabelDataFactory.m in Sources */,
 				92148C791948753D006A3AE5 /* MapView.m in Sources */,
 				92148C7619487500006A3AE5 /* MapViewController.m in Sources */,
-				92694D32194785D20021E63D /* ResultView.m in Sources */,
 				92148C6A1948670D006A3AE5 /* HorenUitlegView.m in Sources */,
 				920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */,
 				92694D42194793380021E63D /* LabelData.m in Sources */,
+				92148C991948D77E006A3AE5 /* EndViewController.m in Sources */,
+				92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */,
 				920BF4671947BFA7001BBAA6 /* WerkenView.m in Sources */,
+				92148C9A1948D77E006A3AE5 /* EndView.m in Sources */,
+				9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */,
 				EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */,
-				92694D33194785D20021E63D /* ResultViewController.m in Sources */,
 				920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */,
 				920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */,
 				920BF47C1947BFAE001BBAA6 /* EndDrawViewController.m in Sources */,

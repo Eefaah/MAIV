@@ -9,6 +9,7 @@
 #import "PlaygroundViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AFNetworking.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface PlaygroundViewController ()
 
@@ -32,7 +33,6 @@
         LabelData *lbl_6 = [LabelDataFactory createLabelWithText:@"Je kan jezelf filmen, of de lucht, of je vrienden die je duwen op de schommel,..." width:278 height:71 xPos:15 yPos:812];
         LabelData *lbl_7 = [LabelDataFactory createLabelWithText:@"Wees origineel!" width:128 height:71 xPos:100 yPos:lbl_6.yPos+lbl_6.height+10];
         
-        
         [self.labels addObjectsFromArray:@[lbl_1,lbl_2,lbl_3,lbl_4,lbl_5,lbl_6,lbl_7]];
     }
     return self;
@@ -40,7 +40,7 @@
 
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    NSLog(@"self.labels = %@",self.labels);
+    //NSLog(@"self.labels = %@",self.labels);
     self.view = [[PlaygroundView alloc] initWithFrame:bounds andLabels:self.labels];
 }
 
@@ -51,78 +51,117 @@
     [self.view.btn_start addTarget:self action:@selector(btnBeginnenTapped :) forControlEvents:UIControlEventTouchUpInside];
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnBackTapped:) name:@"PLAY_BACK" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retakeTapped :) name:@"RETAKE_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDrawing :) name:@"SHOW_DRAWING" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToUitleg:) name:@"OP1_BACK_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMenu:) name:@"OP1_BACK_TO_MENU" object:nil];
 
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(orientationChanged:)
-                                                     name:UIDeviceOrientationDidChangeNotification
-                                                   object:nil];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                        selector:@selector(orientationChanged:)
+                                        name:UIDeviceOrientationDidChangeNotification
+                                        object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionStopped:) name:AVCaptureSessionDidStopRunningNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionStarted:) name:AVCaptureSessionDidStartRunningNotification object:nil];
 }
 
+- (void)sessionStopped:(id)sender {
+    NSLog(@"Sessie stopped");
+}
+
+- (void)sessionStarted:(id)sender {
+    NSLog(@"CAMERA IS READY");
+    
+}
+
+- (void)backToMenu:(id)sender{
+    NSLog(@"back to menu");
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void)orientationChanged:(NSNotification *)notification
 {
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    NSLog(@"device orientation = %ld",deviceOrientation);
+    //UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    //NSLog(@"device orientation = %d",deviceOrientation);
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    switch (deviceOrientation) {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            //imagepicker tonen
-            // testderdest
-            [self showCamera];
-            break;
-        case 4:
-
-            break;
-            
-        default:
-            break;
-    }
+//    switch (deviceOrientation) {
+//        case 1:
+//            break;
+//        case 2:
+//            break;
+//        case 3:
+//            //imagepicker tonen
+//            // testderdest
+//            [self showCamera];
+//            break;
+//        case 4:
+//            [self showCamera];
+//            break;
+//            
+//        default:
+//            break;
+//    }
 }
 
+- (void)backToUitleg:(id)sender{
+    //NSLog(@"pop view controller");
+    [self.navigationController popToViewController:self animated:YES];
+    self.cameraView = nil;
+    self.imagePicker = nil;
+    self.endVC = nil;
+}
 
 - (void)btnBackTapped:(id)sender{
-    NSLog(@"pop view controller");
+    //NSLog(@"pop view controller");
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)btnBeginnenTapped:(id)sender{
-    
+    NSLog(@"Begin tapped");
     [self showCamera];
 }
 
 - (void)showCamera{
-    NSLog(@"show camera");
+    //NSLog(@"show camera");
+    
+    NSLog(@"Show cameraCamera view %@", self.cameraView);
+    NSLog(@"show camera image picker %@", self.imagePicker);
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
     
+    NSLog(@"Show camera --- na init Camera view %@", self.cameraView);
+    NSLog(@"show camera --- na init  image picker %@", self.imagePicker);
+    
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        NSArray *sourceTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePicker.sourceType];
+        
+        NSLog(@"checking source type");
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        //imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
         self.imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.movie"];
         self.imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
         self.imagePicker.allowsEditing = YES;
         self.imagePicker.showsCameraControls = NO;
+        self.imagePicker.videoMaximumDuration = 10;
+        self.imagePicker.delegate = self;
         
-        self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
-        
-        
-        NSLog(@"%@", sourceTypes);
+//        self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
+//        self.imagePicker.cameraOverlayView = self.cameraView;
+        //NSLog(@"%@", sourceTypes);
         
     }else{
         
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    
-    [self presentViewController:self.imagePicker animated:YES completion:^{}];
-    self.imagePicker.cameraOverlayView = self.cameraView;
-    [self.cameraView.btn_camera addTarget:self action:@selector(toggleVideoRecording) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.imagePicker.delegate = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:self.imagePicker animated:NO completion:^{
+            NSLog(@"Show imagepicker");
+            self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
+            self.imagePicker.cameraOverlayView = self.cameraView;
+            [self.cameraView.btn_camera addTarget:self action:@selector(toggleVideoRecording) forControlEvents:UIControlEventTouchUpInside];
+        }];
+        
+    });
 }
 
 - (void)toggleVideoRecording {
@@ -130,7 +169,8 @@
         self.recording = YES;
         UIImage *camera = [UIImage imageNamed:@"btn_stop"];
         [self.cameraView.btn_camera setBackgroundImage:camera forState:UIControlStateNormal];
-        
+        [self.cameraView lines];
+
         [self startRecording];
     } else {
         self.recording = NO;
@@ -165,42 +205,29 @@
     
     NSURL *videoURL = [info valueForKey:UIImagePickerControllerMediaURL];
     NSString *pathToVideo = [videoURL path];
+    
     BOOL okToSaveVideo = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(pathToVideo);
+    
     if (okToSaveVideo) {
         
-//        UISaveVideoAtPathToSavedPhotosAlbum(pathToVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), NULL);
-        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
-        NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
-        
-        // nieuwe view controller tonen
-        self.saveVC = [[SaveOrRetakeViewController alloc] initWithData:videoData];
         [self.imagePicker dismissViewControllerAnimated:NO completion:^{
-        [self presentViewController:self.saveVC animated:NO completion:^{}];
+            
+            
+            // end view controller tonen
+            self.endVC = [[EndViewController alloc] initWithNibName:nil bundle:nil];
+
+            // oproepen na aanmaken endVC zodat showDrawing de functie getDrawingImage kan oproepen
+            [self.cameraView endDrawing];
+            //self.imagePicker.delegate = nil;
+            self.cameraView = nil;
+            self.imagePicker = nil;
+            
+            NSLog(@"Camera view %@", self.cameraView);
+            NSLog(@"image picker %@", self.imagePicker);
+            [self.navigationController pushViewController:self.endVC animated:NO];
+            [self.endVC getVideoWithUrl:videoURL];
+
         }];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissRetake:) name:@"VIDEO_SAVED" object:nil];
-        
-        
-        
-//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//        
-//        NSDictionary *parameters = @{@"dag_groep_id": @1,
-//                                     @"groep_id" : @1,
-//                                     @"opdracht_id" : @2,
-//                                     @"opdracht_onderdeel_id" : @0
-//                                     };
-//        
-//        [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//            [formData appendPartWithFileData:videoData name:@"file" fileName:@"testvideoupload" mimeType:@"video/quicktime"];
-//        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"BTN_SAVE_TAPPED" object:nil];
-//            //NSLog(@"Success: %@", responseObject);
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Error: %@", error);
-//        }];
-        
-        
-        //[self dismissViewControllerAnimated:YES completion:^{}];
         
         
     } else {
@@ -209,39 +236,41 @@
     }
 }
 
--(void)dismissRetake:(NSNotification *)notification{
-    [self.saveVC dismissViewControllerAnimated:YES completion:^{}];
+- (void)retakeTapped:(id)sender{
+    NSLog(@"retake tapped");
+    //self.endVC = nil;
     
-    NSDictionary *userInfo = notification.userInfo;
+    [self.navigationController popViewControllerAnimated:NO];
+    self.endVC = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(next:) name:@"TIS_WEG" object:nil];
+    [self showCamera];
     
-    // resultaat tonen
-    self.resultVC = [[ResultViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:self.resultVC animated:YES];
 }
-
-//- (void)uploadPost{
-//    UIImage *image = self.view.drawnImage;
-//    NSData *data = UIImageJPEGRepresentation(image, 0.5);
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSString *filename = @"IMG_2108.jpg";
-//    
-//    //alle extra info die in de database komt kan hierin...
-//    NSDictionary *parameters = @{@"dag_groep_id": @1,
-//                                 @"groep_id" : @1,
-//                                 @"opdracht_id" : @1,
-//                                 @"opdracht_onderdeel_id" : @0
-//                                 };
-//    
-//    [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/jpeg"];
-//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"BTN_SAVE_TAPPED" object:nil];
-//        NSLog(@"Success: %@", responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
+//
+//-(void)next:(id)sender{
+//    [self showCamera];
 //}
+
+- (void)showDrawing:(NSNotification *) notification
+{
+    NSLog(@"end draw");
+    
+    if ([notification.name isEqualToString:@"SHOW_DRAWING"])
+    {
+        NSDictionary* userInfo = notification.userInfo;
+        self.drawnImage = [userInfo objectForKey:@"drawnImage"];
+        [self.endVC getDrawingImage:self.drawnImage];
+    }
+}
+//
+//-(void)dismissRetake:(NSNotification *)notification{
+//    
+////    self.resultVC = [[ResultViewController alloc] initWithNibName:nil bundle:nil];
+////    [self.navigationController pushViewController:self.resultVC animated:YES];
+//}
+
+
 
 - (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     
@@ -257,19 +286,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-//    UIImage *toolBarIMG = [UIImage imageNamed: @"navigationbar"];
-//    
-//    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-//        [self.navigationController.navigationBar setBackgroundImage:toolBarIMG forBarMetrics:0];
-//    }
-//    
-//    UIImage *back = [UIImage imageNamed:@"btn_backToMap"];
-//    
-//    //self.navigationController.navigationBar.backIndicatorImage = back;
-//    
-//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//    
-//    [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 320, 107)];
+
     [self.navigationController setNavigationBarHidden:YES];
 }
 

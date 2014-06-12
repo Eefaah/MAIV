@@ -38,9 +38,13 @@
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addEndDrawVC :) name:@"CALL_END_DRAW_VIEW_CONTROLLER" object:self.drawnImage];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnAgainTapped :) name:@"BTN_AGAIN_TAPPED" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnSaveTapped :) name:@"BTN_SAVE_TAPPED" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnSaveTapped :) name:@"OP7_BTN_SAVE" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnAgainTapped:) name:@"ADD_DRAWING" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnTekenenTapped :) name:@"OP7_BTN_TEKENEN" object:nil];
     
     // terug knop uit EndDraw
@@ -49,7 +53,12 @@
     // terug knop uit Second
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToFirst:) name:@"OP7_BTN_BACK_TO_FIRST" object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMenu :) name:@"BACK_TO_MENU" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMenu:) name:@"BACK_TO_MENU" object:nil];
+    
+    // knoppen uit save or retake scherm
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteRetakeScreen:) name:@"OP7_RETAKE_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSecondScreen:) name:@"OP7_USE_TAPPED" object:nil];
+
 }
 
 -(void)backToSecond:(id)sender{
@@ -58,6 +67,9 @@
 
 -(void)backToFirst:(id)sender{
     [self.navigationController popToViewController:self animated:YES];
+    if(self.saveOrRetakeVC){
+        self.saveOrRetakeVC = nil;
+    }
 }
 
 - (void)loadView{
@@ -72,28 +84,60 @@
 
 - (void)showCamera{
     
-    
     self.imagePicker = [[UIImagePickerController alloc] init];
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         //NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-        
+        self.imagePicker.view.frame = self.view.frame;
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        self.imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.image"];;
+        self.imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.image"];
         self.photoPickerView = [[CustomPhotoPicker alloc] initWithFrame:self.imagePicker.view.frame];
-        
-        self.imagePicker.showsCameraControls = NO;
-        //self.imagePicker.allowsEditing = YES;
         self.imagePicker.cameraOverlayView = self.photoPickerView;
         
-        [self.photoPickerView.btn_foto addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;   // 320 x 568
+        
+        float scale = screenSize.height / screenSize.width*3/4;  // screen height divided by the pickerController height
+        
+        CGAffineTransform translate=CGAffineTransformMakeTranslation(0,(screenSize.height - screenSize.width*4/3)*0.5);
+        CGAffineTransform fullScreen=CGAffineTransformMakeScale(scale, scale);
+        self.imagePicker.cameraViewTransform =CGAffineTransformConcat(fullScreen, translate);
+        
+//        // Device's screen size (ignoring rotation intentionally):
+//        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+//        
+//        // iOS is going to calculate a size which constrains the 4:3 aspect ratio
+//        // to the screen size. We're basically mimicking that here to determine
+//        // what size the system will likely display the image at on screen.
+//        // NOTE: screenSize.width may seem odd in this calculation - but, remember,
+//        // the devices only take 4:3 images when they are oriented *sideways*.
+//        float cameraAspectRatio = 4.0 / 3.0;
+//        float imageWidth = floorf(screenSize.width * cameraAspectRatio);
+//        float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
+//        
+//        self.imagePicker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+        
+        //self.imagePicker.cameraViewTransform = CGAffineTransformMakeRotation(M_PI);
+//        self.photoPickerView = [[CustomPhotoPicker alloc] initWithFrame:self.imagePicker.view.frame];
+        
+        self.imagePicker.allowsEditing = YES;
+        self.imagePicker.showsCameraControls = NO;
+//        self.imagePicker.cameraOverlayView = self.photoPickerView;
+        
+//        [self.photoPickerView.btn_foto addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
         
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
-    [self presentViewController:self.imagePicker animated:YES completion:^{}];
+    [self presentViewController:self.imagePicker animated:YES completion:^{
+        [self.photoPickerView.btn_foto addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
+        if(self.saveOrRetakeVC){
+            NSLog(@"we zijn in de self");
+            [self.navigationController popViewControllerAnimated:NO];
+            self.saveOrRetakeVC = nil;
+        }
+    }];
     self.imagePicker.delegate = self;
     
 }
@@ -107,19 +151,40 @@
     
     // use photo of retake
     
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    // zorgen dat het scherm er achter al klaar staat :)
+    self.saveOrRetakeVC = [[SaveOrRetakeImageViewController alloc] initWithImage:self.photo];
+    [self.navigationController pushViewController:self.saveOrRetakeVC animated:NO];
+    
+    [self.imagePicker dismissViewControllerAnimated:YES completion:^{}];
+    
+//    self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:self.secondInfoVC animated:YES];
+}
+
+-(void)deleteRetakeScreen:(id)sender{
+    //[self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"deleteRetakeScreen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
+    //self.saveOrRetakeVC = nil;
+    [self showCamera];
+}
+
+-(void)showSecondScreen:(id)sender{
+    // remove save or retake
+    //[self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
     
     self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:self.secondInfoVC animated:YES];
 }
 
 - (void)btnBackTapped:(id)sender{
+    NSLog(@"btnBackTapped");
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 - (void)backToMenu:(id)sender{
-    
+    NSLog(@"back to menu");
     [self.navigationController popToRootViewControllerAnimated:YES];
     //MainViewController *mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
     //[self.navigationController pushViewController:mainVC animated:YES];

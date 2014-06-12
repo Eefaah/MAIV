@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PlaygroundView.h"
 #import "CameraOverlayView.h"
-#import "SaveOrRetakeViewController.h"
-#import "ResultViewController.h"
 #import "LabelDataFactory.h"
+#import "EndViewController.h"
 
 @interface PlaygroundViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -20,8 +19,11 @@
 @property (nonatomic, strong) UIImagePickerController *video;
 @property (nonatomic) BOOL recording;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
-@property (nonatomic,strong) SaveOrRetakeViewController *saveVC;
-@property (nonatomic,strong) ResultViewController *resultVC;
+//@property (nonatomic,strong) SaveOrRetakeViewController *saveVC;
+//@property (nonatomic,strong) ResultViewController *resultVC;
 @property (nonatomic,strong) NSMutableArray *labels;
+@property (nonatomic, strong) EndViewController *endVC;
+
+@property (nonatomic, strong) UIImage *drawnImage;
 
 @end

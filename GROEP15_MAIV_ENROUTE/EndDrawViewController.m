@@ -44,7 +44,7 @@
 
 - (void)uploadPost{
     UIImage *image = self.view.drawnImage;
-    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    NSData *data = UIImagePNGRepresentation(image);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *filename = @"IMG_2108.jpg";
@@ -57,9 +57,9 @@
                                 };
     
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"BTN_SAVE_TAPPED" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_SAVE" object:nil];
         NSLog(@"Success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

@@ -17,6 +17,11 @@
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
         
+        UIImage *bgImage = [UIImage imageNamed:@"resultaat_bg"];
+        UIImageView *bg = [[UIImageView alloc] initWithImage:bgImage];
+        [bg setFrame:CGRectMake(0, 7, bgImage.size.width, bgImage.size.height)];
+        [self addSubview:bg];
+        
         self.drawnImage = image;
         
         [self navigationBar];
@@ -52,13 +57,13 @@
     
     UIImage *againImage = [UIImage imageNamed:@"btn_opnieuw"];
     self.btnAgain = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnAgain.frame = CGRectMake(35, 462, againImage.size.width, againImage.size.height);
+    self.btnAgain.frame = CGRectMake(32, self.frame.size.height-againImage.size.height - 20, againImage.size.width, againImage.size.height);
     [self.btnAgain setBackgroundImage:againImage forState:UIControlStateNormal];
     [self addSubview:self.btnAgain];
     
     UIImage *okImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnOk = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnOk.frame = CGRectMake(self.btnAgain.frame.origin.x + againImage.size.width + 100, 455, okImage.size.width, okImage.size.height);
+    self.btnOk.frame = CGRectMake(self.btnAgain.frame.origin.x + againImage.size.width + 122, self.frame.size.height - okImage.size.height - 20, okImage.size.width, okImage.size.height);
     [self.btnOk setBackgroundImage:okImage forState:UIControlStateNormal];
     [self addSubview:self.btnOk];
 }

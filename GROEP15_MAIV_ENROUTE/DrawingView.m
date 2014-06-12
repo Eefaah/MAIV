@@ -20,14 +20,14 @@
         
         [self addBGImage];
         
-        UIImage *startImage = [UIImage imageNamed:@"startbord"];
-        UIImage *endImage = [UIImage imageNamed:@"stopbord"];
+        UIImage *startImage = [UIImage imageNamed:@"start_drawing"];
+        UIImage *endImage = [UIImage imageNamed:@"stop_drawing"];
         
         self.startImage = [[UIImageView alloc] initWithImage:startImage];
         self.endImage = [[UIImageView alloc] initWithImage:endImage];
         
-        self.startImage.frame = CGRectMake(0, 500, startImage.size.width, startImage.size.height);
-        self.endImage.frame = CGRectMake(self.frame.size.width - endImage.size.width, 500, endImage.size.width, endImage.size.height);
+        self.startImage.frame = CGRectMake(10, 500, startImage.size.width, startImage.size.height);
+        self.endImage.frame = CGRectMake(self.frame.size.width - endImage.size.width - 10, 500, endImage.size.width, endImage.size.height);
         
         [self addSubview:self.startImage];
         [self addSubview:self.endImage];

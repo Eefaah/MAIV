@@ -94,7 +94,7 @@
         self.endDraw = FALSE;
     }
     
-    if(self.endDraw == TRUE){
+    if(self.endDraw == TRUE && self.beginDraw == TRUE){
         NSLog(@"end draw true");
         if(!self.mouseSwiped) {
             UIGraphicsBeginImageContext(self.view.frame.size);
