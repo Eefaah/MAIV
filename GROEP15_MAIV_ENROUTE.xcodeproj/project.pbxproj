@@ -364,14 +364,14 @@
 		92CF2C98194B0EC0007FB27F /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				92CF2C89194B0EB2007FB27F /* PhotoOverviewView.h */,
-				92CF2C8A194B0EB2007FB27F /* PhotoOverviewView.m */,
 				92CF2C8B194B0EB2007FB27F /* PhotoOverviewViewController.h */,
 				92CF2C8C194B0EB2007FB27F /* PhotoOverviewViewController.m */,
-				92CF2C8D194B0EB2007FB27F /* ShowPhotoView.h */,
-				92CF2C8E194B0EB2007FB27F /* ShowPhotoView.m */,
+				92CF2C89194B0EB2007FB27F /* PhotoOverviewView.h */,
+				92CF2C8A194B0EB2007FB27F /* PhotoOverviewView.m */,
 				92CF2C8F194B0EB2007FB27F /* ShowPhotoViewController.h */,
 				92CF2C90194B0EB2007FB27F /* ShowPhotoViewController.m */,
+				92CF2C8D194B0EB2007FB27F /* ShowPhotoView.h */,
+				92CF2C8E194B0EB2007FB27F /* ShowPhotoView.m */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -490,22 +490,22 @@
 		EC53FA96193F623B0056C41D /* GROEP15_MAIV_ENROUTE */ = {
 			isa = PBXGroup;
 			children = (
+				92148C711948709F006A3AE5 /* UitlegView.h */,
+				92148C721948709F006A3AE5 /* UitlegView.m */,
+				92694D3919478FB00021E63D /* NavigationBar.h */,
+				92694D3A19478FB00021E63D /* NavigationBar.m */,
+				EC53FA9F193F623B0056C41D /* AppDelegate.h */,
+				EC53FAA0193F623B0056C41D /* AppDelegate.m */,
+				EC53FAA2193F623B0056C41D /* GROEP15_MAIV_ENROUTE.xcdatamodeld */,
+				EC53FADC193F743B0056C41D /* Images.xcassets */,
 				EC53FACA193F63250056C41D /* Main */,
 				92CF2CA5194B10E8007FB27F /* Geluiden */,
 				92CF2C97194B0EB6007FB27F /* People */,
 				92E9121D194AEF040031FBCD /* AFNetworking */,
 				92E9121B194AED610031FBCD /* GPS */,
-				92148C711948709F006A3AE5 /* UitlegView.h */,
-				92148C721948709F006A3AE5 /* UitlegView.m */,
 				92148C5E194864FD006A3AE5 /* Zintuigen */,
 				92694D3C1947932F0021E63D /* Labeldata */,
-				92694D3919478FB00021E63D /* NavigationBar.h */,
-				92694D3A19478FB00021E63D /* NavigationBar.m */,
 				92694D0C19477EFA0021E63D /* Speeltuin */,
-				EC53FA9F193F623B0056C41D /* AppDelegate.h */,
-				EC53FAA0193F623B0056C41D /* AppDelegate.m */,
-				EC53FAA2193F623B0056C41D /* GROEP15_MAIV_ENROUTE.xcdatamodeld */,
-				EC53FADC193F743B0056C41D /* Images.xcassets */,
 				EC53FACB193F63280056C41D /* register */,
 				EC53FADF193FD5280056C41D /* werken */,
 				EC53FAB3193F623B0056C41D /* GROEP15_MAIV_ENROUTETests */,

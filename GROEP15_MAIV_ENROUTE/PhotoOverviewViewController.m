@@ -61,6 +61,8 @@
 }
 
 - (void)retakePhoto:(id)sender{
+    
+    [self.view.dictImages removeObjectForKey:[NSString stringWithFormat:@"%i", self.buttonIndex]];
     [self showCamera];
 }
 
@@ -70,23 +72,16 @@
 }
 
 - (void)showMask{
-        
+    
+    NSLog(@"%i", self.view.dictImages.count);
+    NSLog(@"%@", self.view.dictImages);
+
     if(self.view.dictImages.count == 3){
         self.view.btnSave.alpha = 1;
         [self.view.btnSave addTarget:self action:@selector(btnSaveTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     
-//    if(self.tappedButtonId){
-//        NSLog(@"tapped button id known");
-//        [self.view maskImage:self.squarePhoto withID:self.tappedButtonId];
-//    }else{
-//        NSLog(@"tapped button id unknown");
-//        [self.view maskImage:self.squarePhoto withID:self.buttonIndex];
-//    }
-    
     [self.view maskImage:self.squarePhoto withID:self.buttonIndex];
-
-    
 }
 
 - (void)btnSaveTapped:(id)sender{

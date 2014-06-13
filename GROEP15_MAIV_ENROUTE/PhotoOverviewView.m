@@ -29,7 +29,7 @@
 
 - (void)addBtns{
     
-    UIImage *saveImage = [UIImage imageNamed:@"btn_save"];
+    UIImage *saveImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnSave = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnSave setBackgroundImage:saveImage forState:UIControlStateNormal];
     self.btnSave.frame = CGRectMake(self.frame.size.width/2 - saveImage.size.width/2, 420, saveImage.size.width, saveImage.size.height);
