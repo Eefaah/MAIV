@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
 
 @interface RecordingView : UIView
 
@@ -31,5 +32,8 @@
 @property (nonatomic, strong) NSMutableArray *arrButtons;
 @property (nonatomic, strong) NSMutableArray *arrPlayButtons;
 @property (nonatomic, strong) UIButton *btnPlay;
+
+@property (nonatomic,strong) NavigationBar *navBar;
+
 
 @end

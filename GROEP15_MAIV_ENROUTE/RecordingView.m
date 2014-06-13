@@ -162,15 +162,10 @@
 }
 
 - (void) navigationBar{
-    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar"];
-    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-    [self addSubview:navBarImageView];
+    UIImage *titel = [UIImage imageNamed:@"opdracht1_titel"];
     
-    UIImage *titel = [UIImage imageNamed:@"opdracht4_titel"];
-    UIImageView *titelImageView = [[UIImageView alloc] initWithImage:titel];
-    titelImageView.frame = CGRectMake(self.frame.size.width/2 - titel.size.width/2 - 5, navBarImage.size.height/2 - titel.size.height/2 - 10, titel.size.width, titel.size.height);
-    [self addSubview:titelImageView];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
+    [self addSubview:self.navBar];
 }
 
 - (void) footer{

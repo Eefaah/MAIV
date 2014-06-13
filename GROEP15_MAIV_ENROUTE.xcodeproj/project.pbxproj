@@ -48,8 +48,6 @@
 		92CF2C96194B0EB2007FB27F /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C90194B0EB2007FB27F /* ShowPhotoViewController.m */; };
 		92CF2CA1194B10E4007FB27F /* RecordingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C9A194B10E4007FB27F /* RecordingView.m */; };
 		92CF2CA2194B10E4007FB27F /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C9C194B10E4007FB27F /* RecordingViewController.m */; };
-		92CF2CA3194B10E4007FB27F /* SoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C9E194B10E4007FB27F /* SoundView.m */; };
-		92CF2CA4194B10E4007FB27F /* SoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2CA0194B10E4007FB27F /* SoundViewController.m */; };
 		92E91215194AECD80031FBCD /* GPSEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120A194AECD80031FBCD /* GPSEndView.m */; };
 		92E91216194AECD80031FBCD /* GPSEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120C194AECD80031FBCD /* GPSEndViewController.m */; };
 		92E91217194AECD80031FBCD /* GPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120E194AECD80031FBCD /* GPSView.m */; };
@@ -178,10 +176,6 @@
 		92CF2C9A194B10E4007FB27F /* RecordingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingView.m; sourceTree = "<group>"; };
 		92CF2C9B194B10E4007FB27F /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
 		92CF2C9C194B10E4007FB27F /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
-		92CF2C9D194B10E4007FB27F /* SoundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundView.h; sourceTree = "<group>"; };
-		92CF2C9E194B10E4007FB27F /* SoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundView.m; sourceTree = "<group>"; };
-		92CF2C9F194B10E4007FB27F /* SoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundViewController.h; sourceTree = "<group>"; };
-		92CF2CA0194B10E4007FB27F /* SoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundViewController.m; sourceTree = "<group>"; };
 		92E91209194AECD80031FBCD /* GPSEndView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndView.h; sourceTree = "<group>"; };
 		92E9120A194AECD80031FBCD /* GPSEndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSEndView.m; sourceTree = "<group>"; };
 		92E9120B194AECD80031FBCD /* GPSEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndViewController.h; sourceTree = "<group>"; };
@@ -379,24 +373,12 @@
 		92CF2CA5194B10E8007FB27F /* Geluiden */ = {
 			isa = PBXGroup;
 			children = (
-				92CF2CA6194B10F4007FB27F /* screens */,
-				92CF2C9D194B10E4007FB27F /* SoundView.h */,
-				92CF2C9E194B10E4007FB27F /* SoundView.m */,
-				92CF2C9F194B10E4007FB27F /* SoundViewController.h */,
-				92CF2CA0194B10E4007FB27F /* SoundViewController.m */,
-			);
-			name = Geluiden;
-			sourceTree = "<group>";
-		};
-		92CF2CA6194B10F4007FB27F /* screens */ = {
-			isa = PBXGroup;
-			children = (
 				92CF2C99194B10E4007FB27F /* RecordingView.h */,
 				92CF2C9A194B10E4007FB27F /* RecordingView.m */,
 				92CF2C9B194B10E4007FB27F /* RecordingViewController.h */,
 				92CF2C9C194B10E4007FB27F /* RecordingViewController.m */,
 			);
-			name = screens;
+			name = Geluiden;
 			sourceTree = "<group>";
 		};
 		92E9121B194AED610031FBCD /* GPS */ = {
@@ -719,13 +701,11 @@
 				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
 				92CF2C96194B0EB2007FB27F /* ShowPhotoViewController.m in Sources */,
-				92CF2CA4194B10E4007FB27F /* SoundViewController.m in Sources */,
 				92E91233194AEF040031FBCD /* AFHTTPSessionManager.m in Sources */,
 				920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */,
 				92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */,
 				92E91219194AECD80031FBCD /* MapView.m in Sources */,
 				92CF2C93194B0EB2007FB27F /* PhotoOverviewView.m in Sources */,
-				92CF2CA3194B10E4007FB27F /* SoundView.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
 				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
 				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
