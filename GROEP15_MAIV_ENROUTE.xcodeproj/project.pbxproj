@@ -22,8 +22,6 @@
 		92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */; };
 		92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6F19486FB5006A3AE5 /* MainZintuigView.m */; };
 		92148C731948709F006A3AE5 /* UitlegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C721948709F006A3AE5 /* UitlegView.m */; };
-		92148C7619487500006A3AE5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C7519487500006A3AE5 /* MapViewController.m */; };
-		92148C791948753D006A3AE5 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C781948753D006A3AE5 /* MapView.m */; };
 		92148C7B19487556006A3AE5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92148C7A19487556006A3AE5 /* MapKit.framework */; };
 		92148C7D1948757B006A3AE5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92148C7C1948757B006A3AE5 /* CoreLocation.framework */; };
 		92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C80194876E7006A3AE5 /* AnnotationObject.m */; };
@@ -42,7 +40,21 @@
 		92694D3B19478FB00021E63D /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3A19478FB00021E63D /* NavigationBar.m */; };
 		92694D41194793380021E63D /* LabelDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3E194793380021E63D /* LabelDataFactory.m */; };
 		92694D42194793380021E63D /* LabelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D40194793380021E63D /* LabelData.m */; };
-		9C35EF9C76DE445BA316D2BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65488CE31B214EA5882BD3E7 /* libPods.a */; };
+		92E91215194AECD80031FBCD /* GPSEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120A194AECD80031FBCD /* GPSEndView.m */; };
+		92E91216194AECD80031FBCD /* GPSEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120C194AECD80031FBCD /* GPSEndViewController.m */; };
+		92E91217194AECD80031FBCD /* GPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120E194AECD80031FBCD /* GPSView.m */; };
+		92E91218194AECD80031FBCD /* GPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91210194AECD80031FBCD /* GPSViewController.m */; };
+		92E91219194AECD80031FBCD /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91212194AECD80031FBCD /* MapView.m */; };
+		92E9121A194AECD80031FBCD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91214194AECD80031FBCD /* MapViewController.m */; };
+		92E91231194AEF040031FBCD /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9121F194AEF040031FBCD /* AFHTTPRequestOperation.m */; };
+		92E91232194AEF040031FBCD /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91221194AEF040031FBCD /* AFHTTPRequestOperationManager.m */; };
+		92E91233194AEF040031FBCD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91223194AEF040031FBCD /* AFHTTPSessionManager.m */; };
+		92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91226194AEF040031FBCD /* AFNetworkReachabilityManager.m */; };
+		92E91235194AEF040031FBCD /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91228194AEF040031FBCD /* AFSecurityPolicy.m */; };
+		92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122A194AEF040031FBCD /* AFURLConnectionOperation.m */; };
+		92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122C194AEF040031FBCD /* AFURLRequestSerialization.m */; };
+		92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */; };
+		92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91230194AEF040031FBCD /* AFURLSessionManager.m */; };
 		EC53FA8F193F623B0056C41D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA8E193F623B0056C41D /* Foundation.framework */; };
 		EC53FA91193F623B0056C41D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA90193F623B0056C41D /* CoreGraphics.framework */; };
 		EC53FA93193F623B0056C41D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA92193F623B0056C41D /* UIKit.framework */; };
@@ -108,10 +120,6 @@
 		92148C6F19486FB5006A3AE5 /* MainZintuigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainZintuigView.m; sourceTree = "<group>"; };
 		92148C711948709F006A3AE5 /* UitlegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UitlegView.h; sourceTree = "<group>"; };
 		92148C721948709F006A3AE5 /* UitlegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitlegView.m; sourceTree = "<group>"; };
-		92148C7419487500006A3AE5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		92148C7519487500006A3AE5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		92148C771948753D006A3AE5 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
-		92148C781948753D006A3AE5 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		92148C7A19487556006A3AE5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92148C7C1948757B006A3AE5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		92148C7F194876E7006A3AE5 /* AnnotationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationObject.h; sourceTree = "<group>"; };
@@ -144,7 +152,37 @@
 		92694D3E194793380021E63D /* LabelDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDataFactory.m; sourceTree = "<group>"; };
 		92694D3F194793380021E63D /* LabelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelData.h; sourceTree = "<group>"; };
 		92694D40194793380021E63D /* LabelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelData.m; sourceTree = "<group>"; };
-		DC9853D0D22E4D95B529ABD9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		92E91209194AECD80031FBCD /* GPSEndView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndView.h; sourceTree = "<group>"; };
+		92E9120A194AECD80031FBCD /* GPSEndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSEndView.m; sourceTree = "<group>"; };
+		92E9120B194AECD80031FBCD /* GPSEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndViewController.h; sourceTree = "<group>"; };
+		92E9120C194AECD80031FBCD /* GPSEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSEndViewController.m; sourceTree = "<group>"; };
+		92E9120D194AECD80031FBCD /* GPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSView.h; sourceTree = "<group>"; };
+		92E9120E194AECD80031FBCD /* GPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSView.m; sourceTree = "<group>"; };
+		92E9120F194AECD80031FBCD /* GPSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSViewController.h; sourceTree = "<group>"; };
+		92E91210194AECD80031FBCD /* GPSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSViewController.m; sourceTree = "<group>"; };
+		92E91211194AECD80031FBCD /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		92E91212194AECD80031FBCD /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		92E91213194AECD80031FBCD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		92E91214194AECD80031FBCD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		92E9121E194AEF040031FBCD /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		92E9121F194AEF040031FBCD /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		92E91220194AEF040031FBCD /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		92E91221194AEF040031FBCD /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		92E91222194AEF040031FBCD /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		92E91223194AEF040031FBCD /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		92E91224194AEF040031FBCD /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		92E91225194AEF040031FBCD /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		92E91226194AEF040031FBCD /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		92E91227194AEF040031FBCD /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		92E91228194AEF040031FBCD /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		92E91229194AEF040031FBCD /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		92E9122A194AEF040031FBCD /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		92E9122B194AEF040031FBCD /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		92E9122C194AEF040031FBCD /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		92E9122D194AEF040031FBCD /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		92E9122F194AEF040031FBCD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		92E91230194AEF040031FBCD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		EC53FA8B193F623B0056C41D /* GROEP15_MAIV_ENROUTE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GROEP15_MAIV_ENROUTE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC53FA8E193F623B0056C41D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC53FA90193F623B0056C41D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,7 +226,6 @@
 				EC53FA95193F623B0056C41D /* CoreData.framework in Frameworks */,
 				EC53FA93193F623B0056C41D /* UIKit.framework in Frameworks */,
 				EC53FA8F193F623B0056C41D /* Foundation.framework in Frameworks */,
-				9C35EF9C76DE445BA316D2BD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,10 +276,6 @@
 			children = (
 				92148C7F194876E7006A3AE5 /* AnnotationObject.h */,
 				92148C80194876E7006A3AE5 /* AnnotationObject.m */,
-				92148C771948753D006A3AE5 /* MapView.h */,
-				92148C781948753D006A3AE5 /* MapView.m */,
-				92148C7419487500006A3AE5 /* MapViewController.h */,
-				92148C7519487500006A3AE5 /* MapViewController.m */,
 			);
 			name = Mapview;
 			sourceTree = "<group>";
@@ -286,13 +319,65 @@
 			name = Labeldata;
 			sourceTree = "<group>";
 		};
+		92E9121B194AED610031FBCD /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				92E9121C194AED6A0031FBCD /* screens */,
+				92E9120D194AECD80031FBCD /* GPSView.h */,
+				92E9120E194AECD80031FBCD /* GPSView.m */,
+				92E9120F194AECD80031FBCD /* GPSViewController.h */,
+				92E91210194AECD80031FBCD /* GPSViewController.m */,
+			);
+			name = GPS;
+			sourceTree = "<group>";
+		};
+		92E9121C194AED6A0031FBCD /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				92E91209194AECD80031FBCD /* GPSEndView.h */,
+				92E9120A194AECD80031FBCD /* GPSEndView.m */,
+				92E9120B194AECD80031FBCD /* GPSEndViewController.h */,
+				92E9120C194AECD80031FBCD /* GPSEndViewController.m */,
+				92E91211194AECD80031FBCD /* MapView.h */,
+				92E91212194AECD80031FBCD /* MapView.m */,
+				92E91213194AECD80031FBCD /* MapViewController.h */,
+				92E91214194AECD80031FBCD /* MapViewController.m */,
+			);
+			name = screens;
+			sourceTree = "<group>";
+		};
+		92E9121D194AEF040031FBCD /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				92E9121E194AEF040031FBCD /* AFHTTPRequestOperation.h */,
+				92E9121F194AEF040031FBCD /* AFHTTPRequestOperation.m */,
+				92E91220194AEF040031FBCD /* AFHTTPRequestOperationManager.h */,
+				92E91221194AEF040031FBCD /* AFHTTPRequestOperationManager.m */,
+				92E91222194AEF040031FBCD /* AFHTTPSessionManager.h */,
+				92E91223194AEF040031FBCD /* AFHTTPSessionManager.m */,
+				92E91224194AEF040031FBCD /* AFNetworking.h */,
+				92E91225194AEF040031FBCD /* AFNetworkReachabilityManager.h */,
+				92E91226194AEF040031FBCD /* AFNetworkReachabilityManager.m */,
+				92E91227194AEF040031FBCD /* AFSecurityPolicy.h */,
+				92E91228194AEF040031FBCD /* AFSecurityPolicy.m */,
+				92E91229194AEF040031FBCD /* AFURLConnectionOperation.h */,
+				92E9122A194AEF040031FBCD /* AFURLConnectionOperation.m */,
+				92E9122B194AEF040031FBCD /* AFURLRequestSerialization.h */,
+				92E9122C194AEF040031FBCD /* AFURLRequestSerialization.m */,
+				92E9122D194AEF040031FBCD /* AFURLResponseSerialization.h */,
+				92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */,
+				92E9122F194AEF040031FBCD /* AFURLSessionManager.h */,
+				92E91230194AEF040031FBCD /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		EC53FA82193F623B0056C41D = {
 			isa = PBXGroup;
 			children = (
 				EC53FA96193F623B0056C41D /* GROEP15_MAIV_ENROUTE */,
 				EC53FA8D193F623B0056C41D /* Frameworks */,
 				EC53FA8C193F623B0056C41D /* Products */,
-				DC9853D0D22E4D95B529ABD9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -325,6 +410,8 @@
 		EC53FA96193F623B0056C41D /* GROEP15_MAIV_ENROUTE */ = {
 			isa = PBXGroup;
 			children = (
+				92E9121D194AEF040031FBCD /* AFNetworking */,
+				92E9121B194AED610031FBCD /* GPS */,
 				92148C711948709F006A3AE5 /* UitlegView.h */,
 				92148C721948709F006A3AE5 /* UitlegView.m */,
 				92148C5E194864FD006A3AE5 /* Zintuigen */,
@@ -443,11 +530,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC53FABD193F623B0056C41D /* Build configuration list for PBXNativeTarget "GROEP15_MAIV_ENROUTE" */;
 			buildPhases = (
-				0EACD2D3CA474A51B4BAF475 /* Check Pods Manifest.lock */,
 				EC53FA87193F623B0056C41D /* Sources */,
 				EC53FA88193F623B0056C41D /* Frameworks */,
 				EC53FA89193F623B0056C41D /* Resources */,
-				A7F0AEC8C53C46D395563BC6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -530,44 +615,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0EACD2D3CA474A51B4BAF475 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A7F0AEC8C53C46D395563BC6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EC53FA87193F623B0056C41D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */,
 				EC53FAD4193F63650056C41D /* MainView.m in Sources */,
 				92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */,
 				EC53FAA1193F623B0056C41D /* AppDelegate.m in Sources */,
@@ -580,32 +633,44 @@
 				92148C67194866F9006A3AE5 /* HorenUitlegViewController.m in Sources */,
 				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
+				92E91233194AEF040031FBCD /* AFHTTPSessionManager.m in Sources */,
 				920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */,
+				92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */,
+				92E91219194AECD80031FBCD /* MapView.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
+				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
+				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
 				92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */,
 				92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */,
 				92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */,
 				92694D3B19478FB00021E63D /* NavigationBar.m in Sources */,
+				92E91231194AEF040031FBCD /* AFHTTPRequestOperation.m in Sources */,
 				EC53FADA193F63750056C41D /* RegisterViewController.m in Sources */,
 				92148C981948D77E006A3AE5 /* CameraOverlayView.m in Sources */,
 				EC53FACE193F63530056C41D /* MainViewController.m in Sources */,
 				920BF4661947BFA7001BBAA6 /* WerkenViewController.m in Sources */,
 				92694D41194793380021E63D /* LabelDataFactory.m in Sources */,
-				92148C791948753D006A3AE5 /* MapView.m in Sources */,
-				92148C7619487500006A3AE5 /* MapViewController.m in Sources */,
+				92E91235194AEF040031FBCD /* AFSecurityPolicy.m in Sources */,
+				92E91216194AECD80031FBCD /* GPSEndViewController.m in Sources */,
 				92148C6A1948670D006A3AE5 /* HorenUitlegView.m in Sources */,
 				920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */,
+				92E9121A194AECD80031FBCD /* MapViewController.m in Sources */,
 				92694D42194793380021E63D /* LabelData.m in Sources */,
 				92148C991948D77E006A3AE5 /* EndViewController.m in Sources */,
 				92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */,
+				92E91217194AECD80031FBCD /* GPSView.m in Sources */,
 				920BF4671947BFA7001BBAA6 /* WerkenView.m in Sources */,
 				92148C9A1948D77E006A3AE5 /* EndView.m in Sources */,
 				9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */,
+				92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */,
 				EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */,
 				920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */,
+				92E91232194AEF040031FBCD /* AFHTTPRequestOperationManager.m in Sources */,
 				920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */,
+				92E91215194AECD80031FBCD /* GPSEndView.m in Sources */,
 				920BF47C1947BFAE001BBAA6 /* EndDrawViewController.m in Sources */,
 				920BF4791947BFAE001BBAA6 /* DrawingView.m in Sources */,
+				92E91218194AECD80031FBCD /* GPSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,7 +784,6 @@
 		};
 		EC53FABE193F623B0056C41D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC9853D0D22E4D95B529ABD9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -733,7 +797,6 @@
 		};
 		EC53FABF193F623B0056C41D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC9853D0D22E4D95B529ABD9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

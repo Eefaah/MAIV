@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MainZintuigView.h"
-#import "MapViewController.h"
+//#import "MapViewController.h"
 #import "Uitleg2ViewController.h"
 
 @interface MainZintuigViewController : UIViewController
 @property (nonatomic,strong) MainZintuigView *view;
 @property (nonatomic,strong) NSMutableArray *labels;
-@property (nonatomic,strong) MapViewController *mapVC;
+//@property (nonatomic,strong) MapViewController *mapVC;
 @property (nonatomic,strong) Uitleg2ViewController *uitleg2;
 
 @end

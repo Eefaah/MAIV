@@ -2,7 +2,7 @@
 //  MapViewController.m
 //  GROEP15_MAIV_ENROUTE
 //
-//  Created by Eva Pieters on 11/06/14.
+//  Created by Sophia Verhoeff on 09/06/14.
 //  Copyright (c) 2014 devine. All rights reserved.
 //
 
@@ -23,16 +23,26 @@
     return self;
 }
 
+- (void)loadView{
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    self.view = [[MapView alloc] initWithFrame:bounds];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view.btn_wezijner addTarget:self action:@selector(wezijnerTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.endTrackingButton addTarget:self action:@selector(endTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)wezijnerTapped:(id)sender{
-    // notification uitzende naar MainZintuigVC
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP2_AFRONDEN" object:self userInfo:nil];
+- (void)endTrackingTapped:(id)sender{
+    
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:self.view.arrDrawingPoints forKey:@"arrDrawingPoints"];
+    [userInfo setObject:self.view.tempDrawImage.image forKey:@"drawnImage"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_DRAWN_SHAPE" object:self userInfo:userInfo];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,10 +51,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadView{
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[MapView alloc] initWithFrame:bounds];
-}
 
 /*
 #pragma mark - Navigation

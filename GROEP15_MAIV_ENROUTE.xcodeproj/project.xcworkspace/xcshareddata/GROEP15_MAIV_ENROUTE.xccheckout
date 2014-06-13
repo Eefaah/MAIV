@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>594D3F30-49BE-4A71-AC8F-F82A7AD22197</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GROEP15_MAIV_ENROUTE</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D56D3F73-89D0-469A-91D9-5B19332A1B93</key>
+		<string>https://github.com/Eefaah/MAIV.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GROEP15_MAIV_ENROUTE.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D56D3F73-89D0-469A-91D9-5B19332A1B93</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Eefaah/MAIV.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D56D3F73-89D0-469A-91D9-5B19332A1B93</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D56D3F73-89D0-469A-91D9-5B19332A1B93</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GROEP15_MAIV_ENROUTE</string>
+		</dict>
+	</array>
+</dict>
+</plist>

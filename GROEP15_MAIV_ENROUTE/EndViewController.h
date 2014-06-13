@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EndView.h"
-#import <AFNetworking.h>
+#import "AFNetworking/AFNetworking.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface EndViewController : UIViewController

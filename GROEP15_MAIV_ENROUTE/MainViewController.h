@@ -12,6 +12,7 @@
 #import "WerkenViewController.h"
 #import "PlaygroundViewController.h"
 #import "MainZintuigViewController.h"
+#import "GPSViewController.h"
 
 @interface MainViewController : UIViewController <UIScrollViewDelegate>
 
@@ -22,6 +23,7 @@
 @property (nonatomic) float xduif;
 @property (nonatomic, strong) WerkenViewController *werkenVC;
 @property (nonatomic,strong) MainZintuigViewController *zintuigVC;
+@property (nonatomic,strong) GPSViewController *GPSVC;
 
 @property (nonatomic) float xBoot;
 

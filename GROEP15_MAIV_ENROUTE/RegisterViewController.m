@@ -7,7 +7,7 @@
 //
 
 #import "RegisterViewController.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface RegisterViewController ()
 
@@ -47,12 +47,17 @@
         
         [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"dag_groep_id"] forKey:@"dag_groep_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"id"] forKey:@"groep_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"kleur_id"] forKey:@"kleur_id"];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isUserRegistered"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self dismissViewControllerAnimated:YES completion:^{}];
+
         }failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSLog(@"Error: %@", error);
         }];
         
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isUserRegistered"];
-        [self dismissViewControllerAnimated:YES completion:^{}];
     
 
     }

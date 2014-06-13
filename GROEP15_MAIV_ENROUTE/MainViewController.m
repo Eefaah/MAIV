@@ -80,7 +80,8 @@
 //        NSLog(@"werken");
 //        [self.navigationController pushViewController:self.werkenVC animated:NO];
 //    }
-//    
+//
+    self.GPSVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
     self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
     
 //    PeopleViewController *peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
@@ -93,9 +94,9 @@
 //    else if ([className isEqualToString:@"Mensen"]){
 //        [self.navigationController pushViewController:peopleVC animated:YES];
 //    }
-//    else if ([className isEqualToString:@"GPSDrawing"]){
-//        [self.navigationController pushViewController:gpsVC animated:YES];
-//    }
+    else if ([className isEqualToString:@"GPSDrawing"]){
+        [self.navigationController pushViewController:self.GPSVC animated:YES];
+    }
     else if ([className isEqualToString:@"Speeltuin"]){
         [self.navigationController pushViewController:playgroundVC animated:YES];
     }else if([className isEqualToString:@"Zintuigen"]){

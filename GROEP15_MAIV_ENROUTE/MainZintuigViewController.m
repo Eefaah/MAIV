@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.mapVC = [[MapViewController alloc] initWithNibName:nil bundle:nil];
+//    self.mapVC = [[MapViewController alloc] initWithNibName:nil bundle:nil];
     self.uitleg2 = [[Uitleg2ViewController alloc] initMetSoortOpdracht:@"horen"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wegdoen:) name:@"OP2_BTN_BACK" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showUitleg2:) name:@"OP2_AFRONDEN" object:nil];
@@ -49,7 +49,7 @@
 
 - (void)btnStartTapped:(id)sender{
     NSLog(@"btn start tapped");
-    [self.navigationController pushViewController:self.mapVC animated:YES];
+//    [self.navigationController pushViewController:self.mapVC animated:YES];
 }
 
 -(void)showUitleg2:(id)sender{
