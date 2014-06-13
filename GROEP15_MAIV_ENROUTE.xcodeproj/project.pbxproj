@@ -40,6 +40,12 @@
 		92694D3B19478FB00021E63D /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3A19478FB00021E63D /* NavigationBar.m */; };
 		92694D41194793380021E63D /* LabelDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3E194793380021E63D /* LabelDataFactory.m */; };
 		92694D42194793380021E63D /* LabelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D40194793380021E63D /* LabelData.m */; };
+		92CF2C91194B0EB2007FB27F /* PeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C86194B0EB2007FB27F /* PeopleView.m */; };
+		92CF2C92194B0EB2007FB27F /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C88194B0EB2007FB27F /* PeopleViewController.m */; };
+		92CF2C93194B0EB2007FB27F /* PhotoOverviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C8A194B0EB2007FB27F /* PhotoOverviewView.m */; };
+		92CF2C94194B0EB2007FB27F /* PhotoOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C8C194B0EB2007FB27F /* PhotoOverviewViewController.m */; };
+		92CF2C95194B0EB2007FB27F /* ShowPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C8E194B0EB2007FB27F /* ShowPhotoView.m */; };
+		92CF2C96194B0EB2007FB27F /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CF2C90194B0EB2007FB27F /* ShowPhotoViewController.m */; };
 		92E91215194AECD80031FBCD /* GPSEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120A194AECD80031FBCD /* GPSEndView.m */; };
 		92E91216194AECD80031FBCD /* GPSEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120C194AECD80031FBCD /* GPSEndViewController.m */; };
 		92E91217194AECD80031FBCD /* GPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9120E194AECD80031FBCD /* GPSView.m */; };
@@ -152,6 +158,18 @@
 		92694D3E194793380021E63D /* LabelDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDataFactory.m; sourceTree = "<group>"; };
 		92694D3F194793380021E63D /* LabelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelData.h; sourceTree = "<group>"; };
 		92694D40194793380021E63D /* LabelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelData.m; sourceTree = "<group>"; };
+		92CF2C85194B0EB2007FB27F /* PeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleView.h; sourceTree = "<group>"; };
+		92CF2C86194B0EB2007FB27F /* PeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleView.m; sourceTree = "<group>"; };
+		92CF2C87194B0EB2007FB27F /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
+		92CF2C88194B0EB2007FB27F /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
+		92CF2C89194B0EB2007FB27F /* PhotoOverviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoOverviewView.h; sourceTree = "<group>"; };
+		92CF2C8A194B0EB2007FB27F /* PhotoOverviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoOverviewView.m; sourceTree = "<group>"; };
+		92CF2C8B194B0EB2007FB27F /* PhotoOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoOverviewViewController.h; sourceTree = "<group>"; };
+		92CF2C8C194B0EB2007FB27F /* PhotoOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoOverviewViewController.m; sourceTree = "<group>"; };
+		92CF2C8D194B0EB2007FB27F /* ShowPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoView.h; sourceTree = "<group>"; };
+		92CF2C8E194B0EB2007FB27F /* ShowPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoView.m; sourceTree = "<group>"; };
+		92CF2C8F194B0EB2007FB27F /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
+		92CF2C90194B0EB2007FB27F /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 		92E91209194AECD80031FBCD /* GPSEndView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndView.h; sourceTree = "<group>"; };
 		92E9120A194AECD80031FBCD /* GPSEndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSEndView.m; sourceTree = "<group>"; };
 		92E9120B194AECD80031FBCD /* GPSEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSEndViewController.h; sourceTree = "<group>"; };
@@ -319,6 +337,33 @@
 			name = Labeldata;
 			sourceTree = "<group>";
 		};
+		92CF2C97194B0EB6007FB27F /* People */ = {
+			isa = PBXGroup;
+			children = (
+				92CF2C98194B0EC0007FB27F /* screens */,
+				92CF2C85194B0EB2007FB27F /* PeopleView.h */,
+				92CF2C86194B0EB2007FB27F /* PeopleView.m */,
+				92CF2C87194B0EB2007FB27F /* PeopleViewController.h */,
+				92CF2C88194B0EB2007FB27F /* PeopleViewController.m */,
+			);
+			name = People;
+			sourceTree = "<group>";
+		};
+		92CF2C98194B0EC0007FB27F /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				92CF2C89194B0EB2007FB27F /* PhotoOverviewView.h */,
+				92CF2C8A194B0EB2007FB27F /* PhotoOverviewView.m */,
+				92CF2C8B194B0EB2007FB27F /* PhotoOverviewViewController.h */,
+				92CF2C8C194B0EB2007FB27F /* PhotoOverviewViewController.m */,
+				92CF2C8D194B0EB2007FB27F /* ShowPhotoView.h */,
+				92CF2C8E194B0EB2007FB27F /* ShowPhotoView.m */,
+				92CF2C8F194B0EB2007FB27F /* ShowPhotoViewController.h */,
+				92CF2C90194B0EB2007FB27F /* ShowPhotoViewController.m */,
+			);
+			name = screens;
+			sourceTree = "<group>";
+		};
 		92E9121B194AED610031FBCD /* GPS */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +455,7 @@
 		EC53FA96193F623B0056C41D /* GROEP15_MAIV_ENROUTE */ = {
 			isa = PBXGroup;
 			children = (
+				92CF2C97194B0EB6007FB27F /* People */,
 				92E9121D194AEF040031FBCD /* AFNetworking */,
 				92E9121B194AED610031FBCD /* GPS */,
 				92148C711948709F006A3AE5 /* UitlegView.h */,
@@ -620,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CF2C95194B0EB2007FB27F /* ShowPhotoView.m in Sources */,
 				92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */,
 				EC53FAD4193F63650056C41D /* MainView.m in Sources */,
 				92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */,
@@ -631,15 +678,19 @@
 				925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */,
 				92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */,
 				92148C67194866F9006A3AE5 /* HorenUitlegViewController.m in Sources */,
+				92CF2C91194B0EB2007FB27F /* PeopleView.m in Sources */,
 				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
+				92CF2C96194B0EB2007FB27F /* ShowPhotoViewController.m in Sources */,
 				92E91233194AEF040031FBCD /* AFHTTPSessionManager.m in Sources */,
 				920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */,
 				92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */,
 				92E91219194AECD80031FBCD /* MapView.m in Sources */,
+				92CF2C93194B0EB2007FB27F /* PhotoOverviewView.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
 				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
 				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
+				92CF2C94194B0EB2007FB27F /* PhotoOverviewViewController.m in Sources */,
 				92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */,
 				92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */,
 				92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */,
@@ -655,6 +706,7 @@
 				92148C6A1948670D006A3AE5 /* HorenUitlegView.m in Sources */,
 				920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */,
 				92E9121A194AECD80031FBCD /* MapViewController.m in Sources */,
+				92CF2C92194B0EB2007FB27F /* PeopleViewController.m in Sources */,
 				92694D42194793380021E63D /* LabelData.m in Sources */,
 				92148C991948D77E006A3AE5 /* EndViewController.m in Sources */,
 				92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */,
