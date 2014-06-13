@@ -20,13 +20,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        for(UIButton *colorBtn in self.view.arrColorButtons){
-            
-            [colorBtn addTarget:self action:@selector(colorButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
-        }
-        
-        self.arrKleurIds = [NSMutableArray array];
-        [self getColorsForDay];
+
+//        [self getColorsForDay];
     }
     return self;
 }
@@ -72,6 +67,7 @@
 }
 
 - (void)getColorsForDay{
+    NSLog(@"get colors for day");
     
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/dagGroepen/care/vandaag"]]];
     NSError *error = nil;
@@ -91,6 +87,7 @@
 }
 
 - (void)loadView{
+    NSLog(@"loadview");
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[RegisterView alloc] initWithFrame:bounds];
 }
@@ -98,8 +95,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"view did load");
+    
+    for(UIButton *colorBtn in self.view.arrColorButtons){
+        
+        [colorBtn addTarget:self action:@selector(colorButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    self.arrKleurIds = [NSMutableArray array];
+    
     // Do any additional setup after loading the view.
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+    [self getColorsForDay];
     [self.view.btn_start addTarget:self action:@selector(btnStartTapped :) forControlEvents:UIControlEventTouchUpInside];
 
 }

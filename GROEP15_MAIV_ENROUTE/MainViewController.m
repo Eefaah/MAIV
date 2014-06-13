@@ -41,16 +41,22 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isUserRegistered"] == NO){
-        NSLog(@"show register vc");
-        self.registerVC = [[RegisterViewController alloc] initWithBounds:self.view.bounds];
-        [self presentViewController:self.registerVC animated:NO completion:^{}];
-    }
+//    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isUserRegistered"] == NO){
+//        NSLog(@"show register vc");
+//        self.registerVC = [[RegisterViewController alloc] initWithBounds:self.view.bounds];
+//        [self presentViewController:self.registerVC animated:NO completion:^{}];
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isUserRegistered"] == NO){
+        NSLog(@"show register vc");
+        self.registerVC = [[RegisterViewController alloc] initWithBounds:self.view.bounds];
+        [self presentViewController:self.registerVC animated:NO completion:^{}];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
