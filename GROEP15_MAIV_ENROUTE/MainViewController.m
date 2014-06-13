@@ -20,6 +20,9 @@
     if (self) {
         // Custom initialization
         
+        
+        // test commit van sop[hia
+        
         NSLog(@"main controller");
         
         self.arrClasses = [NSArray array];
