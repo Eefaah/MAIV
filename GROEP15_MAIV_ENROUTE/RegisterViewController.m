@@ -55,12 +55,14 @@
             [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"id"] forKey:@"groep_id"];
             [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"kleur_id"] forKey:@"kleur_id"];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isUserRegistered"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
             [self dismissViewControllerAnimated:YES completion:^{}];
 
         }failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSLog(@"Error: %@", error);
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isUserRegistered"];
         }];
+        
+            [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

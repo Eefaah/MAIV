@@ -42,12 +42,9 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"isUserRegistered"] == NO){
+        NSLog(@"show register vc");
         self.registerVC = [[RegisterViewController alloc] initWithBounds:self.view.bounds];
         [self presentViewController:self.registerVC animated:NO completion:^{}];
-        
-        NSLog(@"BOOL FALSE");
-    }else{
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
