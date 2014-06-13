@@ -63,6 +63,8 @@
 		92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122C194AEF040031FBCD /* AFURLRequestSerialization.m */; };
 		92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */; };
 		92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91230194AEF040031FBCD /* AFURLSessionManager.m */; };
+		EC3285E2194B27EE005D6994 /* ZintuigenMapviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */; };
+		EC3285E5194B27FB005D6994 /* ZintuigenMapviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */; };
 		EC53FA8F193F623B0056C41D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA8E193F623B0056C41D /* Foundation.framework */; };
 		EC53FA91193F623B0056C41D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA90193F623B0056C41D /* CoreGraphics.framework */; };
 		EC53FA93193F623B0056C41D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA92193F623B0056C41D /* UIKit.framework */; };
@@ -207,6 +209,10 @@
 		92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		92E9122F194AEF040031FBCD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		92E91230194AEF040031FBCD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		EC3285E0194B27EE005D6994 /* ZintuigenMapviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZintuigenMapviewViewController.h; sourceTree = "<group>"; };
+		EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZintuigenMapviewViewController.m; sourceTree = "<group>"; };
+		EC3285E3194B27FB005D6994 /* ZintuigenMapviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZintuigenMapviewView.h; sourceTree = "<group>"; };
+		EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZintuigenMapviewView.m; sourceTree = "<group>"; };
 		EC53FA8B193F623B0056C41D /* GROEP15_MAIV_ENROUTE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GROEP15_MAIV_ENROUTE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC53FA8E193F623B0056C41D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC53FA90193F623B0056C41D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -270,16 +276,16 @@
 		92148C5E194864FD006A3AE5 /* Zintuigen */ = {
 			isa = PBXGroup;
 			children = (
+				92148C6B19486FA8006A3AE5 /* MainZintuigViewController.h */,
+				92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */,
+				92148C6E19486FB5006A3AE5 /* MainZintuigView.h */,
+				92148C6F19486FB5006A3AE5 /* MainZintuigView.m */,
 				92148C82194876EE006A3AE5 /* Mapview */,
 				92148C7E1948762D006A3AE5 /* Horen */,
 				92148C8619487D56006A3AE5 /* Uitleg2View.h */,
 				92148C8719487D56006A3AE5 /* Uitleg2View.m */,
 				92148C8319487D44006A3AE5 /* Uitleg2ViewController.h */,
 				92148C8419487D44006A3AE5 /* Uitleg2ViewController.m */,
-				92148C6E19486FB5006A3AE5 /* MainZintuigView.h */,
-				92148C6F19486FB5006A3AE5 /* MainZintuigView.m */,
-				92148C6B19486FA8006A3AE5 /* MainZintuigViewController.h */,
-				92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */,
 			);
 			name = Zintuigen;
 			sourceTree = "<group>";
@@ -300,6 +306,10 @@
 			children = (
 				92148C7F194876E7006A3AE5 /* AnnotationObject.h */,
 				92148C80194876E7006A3AE5 /* AnnotationObject.m */,
+				EC3285E0194B27EE005D6994 /* ZintuigenMapviewViewController.h */,
+				EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */,
+				EC3285E3194B27FB005D6994 /* ZintuigenMapviewView.h */,
+				EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */,
 			);
 			name = Mapview;
 			sourceTree = "<group>";
@@ -710,6 +720,7 @@
 				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
 				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
 				92CF2C94194B0EB2007FB27F /* PhotoOverviewViewController.m in Sources */,
+				EC3285E2194B27EE005D6994 /* ZintuigenMapviewViewController.m in Sources */,
 				92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */,
 				92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */,
 				92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */,
@@ -736,6 +747,7 @@
 				9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */,
 				92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */,
 				EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */,
+				EC3285E5194B27FB005D6994 /* ZintuigenMapviewView.m in Sources */,
 				920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */,
 				92E91232194AEF040031FBCD /* AFHTTPRequestOperationManager.m in Sources */,
 				920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */,

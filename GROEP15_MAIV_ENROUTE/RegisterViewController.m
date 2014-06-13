@@ -25,7 +25,8 @@
             [colorBtn addTarget:self action:@selector(colorButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
         }
         
-        [self.view.btn_start addTarget:self action:@selector(btnStartTapped :) forControlEvents:UIControlEventTouchUpInside];
+        self.arrKleurIds = [NSMutableArray array];
+        [self getColorsForDay];
     }
     return self;
 }
@@ -42,7 +43,10 @@
     NSLog(@"funct");
     if(self.colorId){
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"kleur_id": [NSString stringWithFormat:@"%i", self.colorId], @"dagGroepId": @"1"};
+        NSDictionary *parameters = @{@"kleur_id": [NSString stringWithFormat:@"%i", self.colorId],
+                                     @"dagGroepId": [NSNumber numberWithInt:self.dagGroepId]
+                                     };
+        
         NSString *api = @"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/groepen/";
         
         [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -57,16 +61,31 @@
         }failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSLog(@"Error: %@", error);
         }];
-        
-    
-
     }
 }
 
 - (void)colorButtonTapped:(id)sender{
     
     self.colorId = [sender tag];
+}
+
+- (void)getColorsForDay{
     
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/dagGroepen/care/vandaag"]]];
+    NSError *error = nil;
+    NSDictionary *loadedData = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+
+    NSDictionary *correctData = [loadedData objectForKey:@"groepen"];
+    self.dagGroepId = [[loadedData objectForKey:@"id"] integerValue];
+    
+    for (NSDictionary *dict in correctData){
+        [self.arrKleurIds addObject:dict[@"kleur_id"]];
+    }
+    
+    for(NSNumber *i in self.arrKleurIds){
+        UIButton *colorButton = [self.view.arrColorButtons objectAtIndex:[i integerValue]-1];
+        colorButton.enabled = NO;
+    }
 }
 
 - (void)loadView{
@@ -78,6 +97,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.view.btn_start addTarget:self action:@selector(btnStartTapped :) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (void)didReceiveMemoryWarning

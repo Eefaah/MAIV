@@ -15,6 +15,8 @@
 
 @property (nonatomic) CGRect bounds;
 @property (nonatomic) int colorId;
+@property (nonatomic, strong) NSMutableArray *arrKleurIds;
+@property (nonatomic) NSInteger dagGroepId;
 
 - (instancetype)initWithBounds:(CGRect)bounds;
 

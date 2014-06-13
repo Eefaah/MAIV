@@ -31,6 +31,7 @@
 }
 
 -(void)addContents{
+    
 }
 
 - (void) navigationBar{

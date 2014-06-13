@@ -49,7 +49,6 @@
 
 - (void)btnRetakeTapped:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
-    //self.takenPhoto = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RETAKE_PHOTO" object:nil];
 }
 

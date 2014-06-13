@@ -95,7 +95,7 @@
         
         NSDictionary *parameters = @{@"dag_groep_id": [[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"],
                                      @"groep_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"],
-                                     @"opdracht_id": @6,
+                                     @"opdracht_id": @1,
                                      @"opdracht_onderdeel_id":@0
                                     };
         

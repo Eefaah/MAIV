@@ -92,6 +92,8 @@
     
     [self.dictImages setObject:self.currentImage forKey:[NSString stringWithFormat:@"%i", self.currentImageInteger]];
     
+    NSLog(@"%@", self.dictImages);
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MASK_DONE" object:nil];
     
     self.photoLayer.mask = self.mask;

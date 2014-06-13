@@ -15,68 +15,66 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
         self.backgroundColor = [UIColor whiteColor];
-                
-        UIButton *btnBlauw = [self createButtonWithName:@"btn_blauw" xPos:10 andyPos:150 andId:1];
-        UIButton *btnDonkerpaars = [self createButtonWithName:@"btn_donkerpaars" xPos:btnBlauw.frame.origin.x + btnBlauw.frame.size.width + 20 andyPos:150 andId:2];
-        UIButton *btnGeel = [self createButtonWithName:@"btn_geel" xPos:btnDonkerpaars.frame.origin.x + btnBlauw.frame.size.width + 20 andyPos:150 andId:3];
-        UIButton *btnGroen = [self createButtonWithName:@"btn_groen" xPos:btnGeel.frame.origin.x + btnGeel.frame.size.width + 20 andyPos:150 andId:4];
-        
-        UIButton *btnOranje = [self createButtonWithName:@"btn_oranje" xPos:10 andyPos:240 andId:5];
-        UIButton *btnPaars = [self createButtonWithName:@"btn_paars" xPos:btnOranje.frame.origin.x + btnBlauw.frame.size.width + 20 andyPos:240 andId:6];
-        UIButton *btnRood = [self createButtonWithName:@"btn_rood" xPos:btnPaars.frame.origin.x + btnBlauw.frame.size.width + 20 andyPos:240 andId:7];
-        UIButton *btnRoze = [self createButtonWithName:@"btn_roze" xPos:btnRood.frame.origin.x + btnBlauw.frame.size.width + 20 andyPos:240 andId:8];
-        
-        [self addSubview:btnBlauw];
-        [self addSubview:btnDonkerpaars];
-        [self addSubview:btnGeel];
-        [self addSubview:btnGroen];
-        [self addSubview:btnOranje];
-        [self addSubview:btnPaars];
-        [self addSubview:btnRood];
-        [self addSubview:btnRoze];
         
         self.arrColorButtons = [NSMutableArray array];
         
-        [self.arrColorButtons addObject:btnBlauw];
-        [self.arrColorButtons addObject:btnDonkerpaars];
-        [self.arrColorButtons addObject:btnGeel];
-        [self.arrColorButtons addObject:btnGroen];
-        [self.arrColorButtons addObject:btnOranje];
-        [self.arrColorButtons addObject:btnPaars];
-        [self.arrColorButtons addObject:btnRood];
-        [self.arrColorButtons addObject:btnRoze];
+        [self dynamischeButtons];
+        [self navigationBar];
+        [self skyline];
         
-        UIImage *startBtnImage = [UIImage imageNamed:@"btn_start"];
-        UIImageView *startBtnImageView = [[UIImageView alloc] initWithImage:startBtnImage];
-        
-        self.btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.btn_start.frame = CGRectMake(self.frame.size.width/2 - startBtnImageView.frame.size.width/2, self.frame.size.height - 230, startBtnImageView.frame.size.width, startBtnImageView.frame.size.height);
-        [self.btn_start setBackgroundImage:startBtnImage forState:UIControlStateNormal];
+        self.btn_start = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.btn_start.frame = CGRectMake(100, 430, 100, 20);
+        [self.btn_start setTitle:@"start" forState:UIControlStateNormal];
         [self addSubview:self.btn_start];
-        
-        UIImage *btnImage = [UIImage imageNamed:@"skyline"];
-        UIImageView *btnImageView = [[UIImageView alloc] initWithImage:btnImage];
-        btnImageView.frame = CGRectMake(0, self.frame.size.height - btnImage.size.height, btnImage.size.width, btnImage.size.height);
-        
-        [self addSubview:btnImageView];
-        
     }
     return self;
+    
 }
 
-- (UIButton *)createButtonWithName:(NSString *)btnName xPos:(int)xPos andyPos:(int)yPos andId:(int)id{
+- (void)dynamischeButtons{
     
-    UIImage *btnImage = [UIImage imageNamed:btnName];
-    UIImageView *btnImageView = [[UIImageView alloc] initWithImage:btnImage];
+    int xPos = 47;
+    int yPos = 130;
+    int i = 1;
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(xPos, yPos, btnImageView.frame.size.width, btnImageView.frame.size.height);
-    btn.tag = id;
-    [btn setBackgroundImage:btnImage forState:UIControlStateNormal];
+    UIImage *btnImage = [UIImage imageNamed:@"btn_blauw"];
     
-    return btn;
+    NSArray *arrButtons = @[@"btn_blauw", @"btn_donkerblauw", @"btn_donkerpaars", @"btn_geel", @"btn_groen", @"btn_oranje", @"btn_paars", @"btn_rood", @"btn_roze"];
+    
+    for(int y = 0; y < 3; y ++){
+        for(int x = 0; x < 3; x ++){
+            
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [arrButtons objectAtIndex:i - 1]]] forState:UIControlStateNormal];
+            btn.frame = CGRectMake(xPos, yPos, btnImage.size.width, btnImage.size.height);
+            btn.tag = i;
+            [self addSubview:btn];
+            
+            xPos += btnImage.size.width + 20;
+            i ++;
+            
+            [self.arrColorButtons addObject:btn];
+        }
+        
+        xPos = 47;
+        yPos += btnImage.size.height + 20;
+
+    }
+    
+}
+
+- (void) navigationBar{
+    UIImage *titel = [UIImage imageNamed:@"navigationbar"];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:NO];
+    [self addSubview:self.navBar];
+}
+
+- (void)skyline{
+    UIImage *skylineImage = [UIImage imageNamed:@"opdracht3_skyline"];
+    UIImageView *skylineImageView = [[UIImageView alloc] initWithImage:skylineImage];
+    skylineImageView.frame = CGRectMake(0, self.frame.size.height - skylineImage.size.height, skylineImage.size.width, skylineImage.size.height);
+    [self addSubview:skylineImageView];
 }
 
 /*

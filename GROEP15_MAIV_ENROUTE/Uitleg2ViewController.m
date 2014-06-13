@@ -39,7 +39,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // btn start opvangen
+
 }
+
+// functoe van btn start
+// checken welke view controller en view moeten worden getoond (juiste opdrahct)
 
 -(void)btnBackTapped:(id)sender{
     // notification uitzende naar MainZintuigVC

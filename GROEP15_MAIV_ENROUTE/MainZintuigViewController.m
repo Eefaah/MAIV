@@ -33,13 +33,31 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.mapVC = [[MapViewController alloc] initWithNibName:nil bundle:nil];
+    
+    
+    // if kleur = blqblqblq
+    
     self.uitleg2 = [[Uitleg2ViewController alloc] initMetSoortOpdracht:@"horen"];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wegdoen:) name:@"OP2_BTN_BACK" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showUitleg2:) name:@"OP2_AFRONDEN" object:nil];
 
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     [self.view.uitleg.btn_start addTarget:self action:@selector(btnStartTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)colorCheck{
+    
+    //NSInteger kleur_id = [[[NSUserDefaults standardUserDefaults] objectForKey:@"kleur_id"]integerValue];
+    
+//    switch (kleur_id) {
+//        case 1:
+//            @"<#string#>"
+//            break;
+//            
+//        default:
+//            break;
+//    }
 }
 
 - (void)btnBackTapped:(id)sender{
@@ -49,15 +67,14 @@
 
 - (void)btnStartTapped:(id)sender{
     NSLog(@"btn start tapped");
-//    [self.navigationController pushViewController:self.mapVC animated:YES];
-}
+    self.zintuigMapVC = [[ZintuigenMapviewViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:self.zintuigMapVC animated:YES completion:^{}];}
 
 -(void)showUitleg2:(id)sender{
     NSLog(@"uitleg 2 tonen");
     
     // hier moet er uit de database komen welke opdracht deze groep moet krijgen
     // en deze geven we hier mee
-    
     
     //[self.navigationController popToViewController:self animated:YES];
     [self.navigationController pushViewController:self.uitleg2 animated:YES];
@@ -79,6 +96,9 @@
     self.view = [[MainZintuigView alloc] initWithFrame:bounds andLabels:self.labels];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
 /*
 #pragma mark - Navigation
 
