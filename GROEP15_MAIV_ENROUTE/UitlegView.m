@@ -16,6 +16,8 @@
     if (self) {
         // Initialization code
         
+        //test
+        
         self.labels = labels;
         
         UIImage *bgImage = [UIImage imageNamed:bgImageName];
