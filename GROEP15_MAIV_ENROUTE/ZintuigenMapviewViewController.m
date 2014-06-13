@@ -39,14 +39,14 @@
 
 - (void)btnWeZijnErTapped:(id)sender{
     
-    if([[NSUserDefaults standardUserDefaults]  objectForKey:@"gekozenPunt"]){
-        [self.view placeAnnotationForUserDefaults];
-    }else{
-        [self.view placeAnnotationOnCurrentLocation];
-    }
+//    if([[NSUserDefaults standardUserDefaults]  objectForKey:@"gekozenPunt"]){
+//        [self.view placeAnnotationForUserDefaults];
+//    }else{
+//        [self.view placeAnnotationOnCurrentLocation];
+//    }
     
-    [[NSUserDefaults standardUserDefaults] setObject:[[CLLocation alloc] initWithLatitude:self.view.mapView.userLocation.coordinate.latitude longitude:self.view.mapView.userLocation.coordinate.longitude] forKey:@"gekozenPunt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:[[CLLocation alloc] initWithLatitude:self.view.mapView.userLocation.coordinate.latitude longitude:self.view.mapView.userLocation.coordinate.longitude] forKey:@"gekozenPunt"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OP2_AFRONDEN" object:self userInfo:nil];
 }
 

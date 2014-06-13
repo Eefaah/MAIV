@@ -50,7 +50,7 @@
     // terug knop uit EndDraw
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToSecond:) name:@"OP7_BTN_BACK" object:nil];
     
-    // terug knop uit Second
+    // terug knop uit Second en scrollview
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToFirst:) name:@"OP7_BTN_BACK_TO_FIRST" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMenu:) name:@"BACK_TO_MENU" object:nil];

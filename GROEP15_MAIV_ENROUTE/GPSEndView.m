@@ -39,21 +39,26 @@
     UIImage *btn_retake = [UIImage imageNamed:@"btn_opnieuw"];
     self.btn_retake = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_retake setBackgroundImage:btn_retake forState:UIControlStateNormal];
-    self.btn_retake.frame = CGRectMake(32, self.frame.size.height-btn_retake.size.height - 104, btn_retake.size.width, btn_retake.size.height);
+    self.btn_retake.frame = CGRectMake(42, self.frame.size.height-btn_retake.size.height - 104, btn_retake.size.width, btn_retake.size.height);
     [self addSubview:self.btn_retake];
     
     UIImage *saveImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnSave = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnSave setBackgroundImage:saveImage forState:UIControlStateNormal];
-    self.btnSave.frame = CGRectMake(self.btn_retake.frame.origin.x + btn_retake.size.width + 122, self.frame.size.height - saveImage.size.height - 104, saveImage.size.width, saveImage.size.height);
+    self.btnSave.frame = CGRectMake(self.btn_retake.frame.origin.x + btn_retake.size.width + 102, self.frame.size.height - saveImage.size.height - 104, saveImage.size.width, saveImage.size.height);
     [self addSubview:self.btnSave];
 }
 
--(void)changeButton{
+-(void)removeButtons{
     // bewaar button weghalen
-    [self.btn_retake removeFromSuperview];
+    //[self.btn_retake removeFromSuperview];
+    [self.btnSave setBackgroundImage:[UIImage imageNamed:@"btn_wait_kleiner"] forState:UIControlStateNormal];
+}
+
+-(void)changeButton{
     [self.btnSave removeFromSuperview];
-    
+    [self.btn_retake removeFromSuperview];
+
     UIImage *backToStory = [UIImage imageNamed:@"btn_backToStory"];
     self.btn_story = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_story setBackgroundImage:backToStory forState:UIControlStateNormal];
@@ -76,9 +81,12 @@
     
     UIFont *tidy = [UIFont fontWithName:TIDY_HAND size:17];
     self.lblTekening = [[UILabel alloc] init];
-    self.lblTekening.text = @"Dit is jouw tekening";
-    self.lblTekening.frame = CGRectMake(43, 148, 243, 44);
+    self.lblTekening.text = @"Dit is de tekening die jullie creeerden door te wandelen.";
+    self.lblTekening.frame = CGRectMake(self.frame.size.width/2 - 245/2, 128, 240, 100);
     self.lblTekening.font = tidy;
+    self.lblTekening.adjustsFontSizeToFitWidth = NO;
+    self.lblTekening.numberOfLines = 0;
+    self.lblTekening.lineBreakMode = NSLineBreakByTruncatingMiddle;
     self.lblTekening.textColor = [UIColor blackColor];
     [self addSubview:self.lblTekening];
     

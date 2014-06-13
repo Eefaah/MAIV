@@ -50,7 +50,7 @@
 
 - (void) navigationBar{
     UIImage *titel = [UIImage imageNamed:@"opdracht7_titel"];
-    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:NO];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
     [self addSubview:self.navBar];
 }
 
@@ -66,23 +66,28 @@
 }
 
 - (void)addButtons{
+    UIImage *backToStoryIndicator = [UIImage imageNamed:@"backToStory_indicator"];
+    self.indicator = [[UIImageView alloc] initWithImage:backToStoryIndicator];
+    self.indicator.image = backToStoryIndicator;
+    self.indicator.frame = CGRectMake(-10, 488, backToStoryIndicator.size.width, backToStoryIndicator.size.height);
+    [self addSubview:self.indicator];
     
-    UIImage *addImage = [UIImage imageNamed:@"btn_toevoegen"];
+    UIImage *addImage = [UIImage imageNamed:@"btn_terug_klein"];
     self.btnAdd = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnAdd.frame = CGRectMake(32,  self.frame.size.height-addImage.size.height - 20, addImage.size.width, addImage.size.height);
+    self.btnAdd.frame = CGRectMake(42,  self.frame.size.height-addImage.size.height - 20, addImage.size.width, addImage.size.height);
     [self.btnAdd setBackgroundImage:addImage forState:UIControlStateNormal];
     [self addSubview:self.btnAdd];
     
-    UIImage *okImage = [UIImage imageNamed:@"btn_bewaar"];
+    UIImage *okImage = [UIImage imageNamed:@"btn_toevoegen_2"];
     self.btnOk = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnOk.frame = CGRectMake(self.btnAdd.frame.origin.x + addImage.size.width + 122, self.frame.size.height - okImage.size.height - 20, okImage.size.width, okImage.size.height);
+    self.btnOk.frame = CGRectMake(self.btnAdd.frame.origin.x + addImage.size.width + 112, self.frame.size.height - okImage.size.height - 20, okImage.size.width, okImage.size.height);
     [self.btnOk setBackgroundImage:okImage forState:UIControlStateNormal];
     [self addSubview:self.btnOk];
     
-    UIImage *terugNaarKaart = [UIImage imageNamed:@"opdracht7_naarKaart"];
-    UIImageView *naarKaart = [[UIImageView alloc] initWithImage:terugNaarKaart];
-    naarKaart.frame = CGRectMake(self.btnOk.frame.origin.x + self.btnOk.frame.size.width, self.btnOk.frame.origin.y + 7, terugNaarKaart.size.width, terugNaarKaart.size.height);
-    [self addSubview:naarKaart];
+    //UIImage *terugNaarKaart = [UIImage imageNamed:@"opdracht7_naarKaart"];
+    //UIImageView *naarKaart = [[UIImageView alloc] initWithImage:terugNaarKaart];
+    //naarKaart.frame = CGRectMake(self.btnOk.frame.origin.x + self.btnOk.frame.size.width, self.btnOk.frame.origin.y + 7, terugNaarKaart.size.width, terugNaarKaart.size.height);
+    //[self addSubview:naarKaart];
 }
 
 //- (void)getImagesFromServer:(UIImage *)image{

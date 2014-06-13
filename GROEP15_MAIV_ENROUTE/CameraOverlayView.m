@@ -33,6 +33,9 @@
         self.mainImage.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview:self.mainImage];
         
+        self.yPosition = 0;
+        self.lastPoint = CGPointMake(frame.size.width/2, 0);
+        self.currentPoint = CGPointMake(frame.size.width/2, 0);
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endDrawing:) name:@"END_ACCELEROMETER" object:nil];
     }
     return self;
@@ -61,15 +64,22 @@
 }
 
 - (void)update {
+//    
+//    [NSTimeInterval ]
     
+//    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 10),
+//                                    self.currentPoint.y - (self.acceleration.y* 10));
     self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 10),
-                                    self.currentPoint.y - (self.acceleration.y* 10));
+                                    self.yPosition);
     
+    //NSLog(@"y acceleration = %f",(self.acceleration.y*10));
     
     [self drawLines];
     [self collisionWithBoundaries];
     
     self.lastUpdateTime = [NSDate date];
+    // 10 is de tijd van het filmpje
+    self.yPosition += (self.frame.size.height*kUpdateInterval/10);
 }
 
 
@@ -95,7 +105,7 @@
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 5);
     
     //kleur van de lijn
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 255/255.0f, 0/255.0f, 0/255.0f, 1);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 247/255.0f, 147/255.0f, 16/255.0f, 1);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), self.lastPoint.x, self.lastPoint.y);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), self.currentPoint.x, self.currentPoint.y);
     CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeNormal);
@@ -127,8 +137,8 @@
 
 - (void)collisionWithBoundaries{
     
-    if (self.currentPoint.x < 0) {
-        _currentPoint.x = 0;
+    if (self.currentPoint.x < 10) {
+        _currentPoint.x = 10;
     }
     
     if (self.currentPoint.y < 0) {

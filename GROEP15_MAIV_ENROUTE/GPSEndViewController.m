@@ -106,6 +106,9 @@
     NSLog(@"hier komt hij nog");
     
     // zorgen dat je niet meer op de buttons kan tikken eenmaal het aan het saven is
+    // retake btn verwijderen
+    // save button vervangen door hourglass
+    [self.view removeButtons];
     [self.view.btnSave removeTarget:self action:@selector(saveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btn_retake removeTarget:self action:@selector(btnRetakeTapped:) forControlEvents:UIControlEventTouchUpInside];
     

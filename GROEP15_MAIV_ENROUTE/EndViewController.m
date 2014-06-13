@@ -86,23 +86,38 @@
 
 - (void)postVideoToDatabase{
     
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSData *videoData = [NSData dataWithContentsOfURL:self.videoUrl];
     
-    NSDictionary *parameters = @{@"dag_groep_id": @1,
-                                 @"groep_id" : @1,
+    NSDictionary *parameters = @{@"dag_groep_id": [[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"],
+                                 @"groep_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"],
                                  @"opdracht_id" : @6,
-                                 @"opdracht_onderdeel_id" : @0
+                                 @"opdracht_onderdeel_id" : @2
                                  };
+    // buttons weghalen en vervangen
+    [self.view removeButtons];
+    [self.view.btnSave removeTarget:self action:@selector(saveTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnRetake removeTarget:self action:@selector(retakeTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:videoData name:@"file" fileName:@"testvideoupload" mimeType:@"video/quicktime"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
+        // bewaar en retake buttons weghalen & terug naar story button toevoegen
+        [self.view changeButton];
+        
+        if(self.view.btn_story){
+            [self.view.btn_story addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+-(void)backToStory:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP1_BACK_TO_MENU" object:self userInfo:nil];
 }
 
 - (void)uploadDrawing{
@@ -114,17 +129,16 @@
     NSString *filename = @"IMG_2108.jpg";
     
     //alle extra info die in de database komt kan hierin...
-    NSDictionary *parameters = @{@"dag_groep_id": @1,
-                                 @"groep_id" : @1,
-                                 @"opdracht_id" : @1,
-                                 @"opdracht_onderdeel_id" : @0
+    NSDictionary *parameters = @{@"dag_groep_id": [[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"],
+                                 @"groep_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"],
+                                 @"opdracht_id" : @6,
+                                 @"opdracht_onderdeel_id" : @1
                                  };
     
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"OP1_BACK_TO_MENU" object:self userInfo:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

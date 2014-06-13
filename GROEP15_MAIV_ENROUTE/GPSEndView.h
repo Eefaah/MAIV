@@ -24,5 +24,6 @@
 
 -(void)changeButton;
 - (id)initWithFrame:(CGRect)frame andArr:(NSMutableArray *)arr;
+-(void)removeButtons;
 
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIButton *btnAdd;
 @property (nonatomic, strong) UIButton *btnOk;
 @property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UIImageView *indicator;
 
 - (id)initWithFrame:(CGRect)frame andArray:(NSMutableArray *)arrDrawings;
 

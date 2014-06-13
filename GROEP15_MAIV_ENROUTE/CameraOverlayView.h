@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSDate *lastUpdateTime;
 @property (assign, nonatomic) CMAcceleration acceleration;
 @property (nonatomic, strong) UIImageView *mainImage;
+@property (nonatomic) float yPosition;
 
 - (void)lines;
 - (void)endDrawing;

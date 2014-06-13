@@ -77,6 +77,7 @@
     // en deze geven we hier mee
     
     //[self.navigationController popToViewController:self animated:YES];
+    NSLog(@"uitleg 2");
     [self.navigationController pushViewController:self.uitleg2 animated:YES];
     
 }

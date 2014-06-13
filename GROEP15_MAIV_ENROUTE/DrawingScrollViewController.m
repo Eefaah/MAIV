@@ -78,12 +78,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view.btnAdd addTarget:self action:@selector(btnAddTapped :) forControlEvents:UIControlEventTouchUpInside];
-    [self.view.btnOk addTarget:self action:@selector(btnOkTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnAdd addTarget:self action:@selector(btnOkTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnOk addTarget:self action:@selector(btnAddTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)btnBackTapped:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_BACK" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_BACK_TO_FIRST" object:nil];
 }
 
 - (void)btnAddTapped:(id)sender{

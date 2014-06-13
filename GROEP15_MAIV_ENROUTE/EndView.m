@@ -26,9 +26,14 @@
         [self addSubview:bgImageView];
         [self sendSubviewToBack:bgImageView];
         
+        UIImage *buttonsIndicator = [UIImage imageNamed:@"buttons_indicator"];
+        self.indicator = [[UIImageView alloc] initWithImage:buttonsIndicator];
+        self.indicator.frame = CGRectMake(0, 418, buttonsIndicator.size.width, buttonsIndicator.size.height);
+        [self addSubview:self.indicator];
+        
         self.lblFilmpje = [[UILabel alloc] init];
         self.lblFilmpje.text = @"Dit is het filmpje";
-        self.lblFilmpje.frame = CGRectMake(frame.size.width/2-215/2, 130, 215, 30);
+        self.lblFilmpje.frame = CGRectMake(frame.size.width/2-147/2, 114, 147, 30);
         self.lblFilmpje.font = [UIFont fontWithName:TIDY_HAND size:17];
         self.lblFilmpje.textColor = [UIColor blackColor];
         [self addSubview:self.lblFilmpje];
@@ -63,6 +68,31 @@
     self.btnSave.frame = CGRectMake(self.btnRetake.frame.origin.x + retakeImage.size.width + 91, self.frame.size.height - saveImage.size.height - 82, saveImage.size.width, saveImage.size.height);
     [self addSubview:self.btnSave];
 }
+
+
+-(void)removeButtons{
+    // bewaar button weghalen
+    //[self.btn_retake removeFromSuperview];
+    [self.btnSave setBackgroundImage:[UIImage imageNamed:@"btn_wait_kleiner"] forState:UIControlStateNormal];
+}
+
+-(void)changeButton{
+    [self.btnSave removeFromSuperview];
+    [self.btnRetake removeFromSuperview];
+    
+    UIImage *backToStory = [UIImage imageNamed:@"btn_backToStory"];
+    self.btn_story = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btn_story setBackgroundImage:backToStory forState:UIControlStateNormal];
+    self.btn_story.frame = CGRectMake(self.frame.size.width/2 - backToStory.size.width/2, self.frame.size.height - backToStory.size.height - 60, backToStory.size.width, backToStory.size.height);
+    [self addSubview:self.btn_story];
+    
+    UIImage *backToStoryIndicator = [UIImage imageNamed:@"backToStory_indicator"];
+    //self.indicator = [[UIImageView alloc] initWithImage:backToStoryIndicator];
+    self.indicator.image = backToStoryIndicator;
+    self.indicator.frame = CGRectMake(0, 418, backToStoryIndicator.size.width, backToStoryIndicator.size.height);
+    //[self addSubview:self.indicator];
+}
+
 
 - (void)drawImage:(UIImage *)image{
     UIImageView *drawnImageView = [[UIImageView alloc] initWithImage:image];
