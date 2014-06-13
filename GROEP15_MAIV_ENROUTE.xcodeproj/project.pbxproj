@@ -17,8 +17,6 @@
 		920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4731947BFAE001BBAA6 /* EndDrawView.m */; };
 		920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */; };
 		920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */; };
-		92148C67194866F9006A3AE5 /* HorenUitlegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C66194866F9006A3AE5 /* HorenUitlegViewController.m */; };
-		92148C6A1948670D006A3AE5 /* HorenUitlegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C691948670D006A3AE5 /* HorenUitlegView.m */; };
 		92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */; };
 		92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6F19486FB5006A3AE5 /* MainZintuigView.m */; };
 		92148C731948709F006A3AE5 /* UitlegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C721948709F006A3AE5 /* UitlegView.m */; };
@@ -120,10 +118,6 @@
 		920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollViewController.m; sourceTree = "<group>"; };
 		920BF4761947BFAE001BBAA6 /* DrawingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingScrollView.h; sourceTree = "<group>"; };
 		920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollView.m; sourceTree = "<group>"; };
-		92148C65194866F9006A3AE5 /* HorenUitlegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorenUitlegViewController.h; sourceTree = "<group>"; };
-		92148C66194866F9006A3AE5 /* HorenUitlegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorenUitlegViewController.m; sourceTree = "<group>"; };
-		92148C681948670D006A3AE5 /* HorenUitlegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorenUitlegView.h; sourceTree = "<group>"; };
-		92148C691948670D006A3AE5 /* HorenUitlegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorenUitlegView.m; sourceTree = "<group>"; };
 		92148C6B19486FA8006A3AE5 /* MainZintuigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainZintuigViewController.h; sourceTree = "<group>"; };
 		92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainZintuigViewController.m; sourceTree = "<group>"; };
 		92148C6E19486FB5006A3AE5 /* MainZintuigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainZintuigView.h; sourceTree = "<group>"; };
@@ -293,10 +287,6 @@
 		92148C7E1948762D006A3AE5 /* Horen */ = {
 			isa = PBXGroup;
 			children = (
-				92148C681948670D006A3AE5 /* HorenUitlegView.h */,
-				92148C691948670D006A3AE5 /* HorenUitlegView.m */,
-				92148C65194866F9006A3AE5 /* HorenUitlegViewController.h */,
-				92148C66194866F9006A3AE5 /* HorenUitlegViewController.m */,
 			);
 			name = Horen;
 			sourceTree = "<group>";
@@ -706,7 +696,6 @@
 				92148C8519487D44006A3AE5 /* Uitleg2ViewController.m in Sources */,
 				925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */,
 				92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */,
-				92148C67194866F9006A3AE5 /* HorenUitlegViewController.m in Sources */,
 				92CF2C91194B0EB2007FB27F /* PeopleView.m in Sources */,
 				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
@@ -734,7 +723,6 @@
 				92694D41194793380021E63D /* LabelDataFactory.m in Sources */,
 				92E91235194AEF040031FBCD /* AFSecurityPolicy.m in Sources */,
 				92E91216194AECD80031FBCD /* GPSEndViewController.m in Sources */,
-				92148C6A1948670D006A3AE5 /* HorenUitlegView.m in Sources */,
 				920BF47B1947BFAE001BBAA6 /* SecondInfoView.m in Sources */,
 				92E9121A194AECD80031FBCD /* MapViewController.m in Sources */,
 				92CF2C92194B0EB2007FB27F /* PeopleViewController.m in Sources */,

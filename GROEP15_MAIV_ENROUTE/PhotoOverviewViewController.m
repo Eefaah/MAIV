@@ -53,7 +53,7 @@
     
     self.buttonIndex = [sender tag];
     //self.tappedButtonId = [sender tag];
-    self.imageForView = [self.view.dictImages objectForKey:[NSString stringWithFormat:@"%i", [sender tag]]];
+    self.imageForView = [self.view.dictImages objectForKey:[NSString stringWithFormat:@"%li", (long)[sender tag]]];
 
     ShowPhotoViewController *showPhotoVC = [[ShowPhotoViewController alloc] initWithNibName:nil bundle:nil];
     [showPhotoVC initWithImage:self.imageForView andId:self.tappedButtonId];
@@ -62,7 +62,7 @@
 
 - (void)retakePhoto:(id)sender{
     
-    [self.view.dictImages removeObjectForKey:[NSString stringWithFormat:@"%i", self.buttonIndex]];
+    [self.view.dictImages removeObjectForKey:[NSString stringWithFormat:@"%li", (long)self.buttonIndex]];
     [self showCamera];
 }
 
@@ -73,7 +73,7 @@
 
 - (void)showMask{
     
-    NSLog(@"%i", self.view.dictImages.count);
+    NSLog(@"%lu", (unsigned long)self.view.dictImages.count);
     NSLog(@"%@", self.view.dictImages);
 
     if(self.view.dictImages.count == 3){

@@ -90,7 +90,7 @@
     self.photoLayerButton.tag = self.currentImageInteger;
     [self addSubview:self.photoLayerButton];
     
-    [self.dictImages setObject:self.currentImage forKey:[NSString stringWithFormat:@"%i", self.currentImageInteger]];
+    [self.dictImages setObject:self.currentImage forKey:[NSString stringWithFormat:@"%li", (long)self.currentImageInteger]];
     
     NSLog(@"%@", self.dictImages);
     

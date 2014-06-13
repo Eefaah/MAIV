@@ -92,7 +92,7 @@
     
     NSDictionary *parameters = @{@"dag_groep_id": @1,
                                  @"groep_id" : @1,
-                                 @"opdracht_id" : @1,
+                                 @"opdracht_id" : @6,
                                  @"opdracht_onderdeel_id" : @0
                                  };
     
@@ -107,9 +107,10 @@
 
 - (void)uploadDrawing{
     UIImage *image = self.drawnImage;
-    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    NSData *data = UIImagePNGRepresentation(image);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *filename = @"IMG_2108.jpg";
     
     //alle extra info die in de database komt kan hierin...
@@ -120,7 +121,7 @@
                                  };
     
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"OP1_BACK_TO_MENU" object:self userInfo:nil];

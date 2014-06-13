@@ -7,7 +7,7 @@
 //
 
 #import "RecordingViewController.h"
-#import "AFNetworking.h"
+#import "AFNetworking/AFNetworking.h"
 
 @interface RecordingViewController ()
 
@@ -20,6 +20,19 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.labels = [[NSMutableArray alloc] init];
+        
+        LabelData *lbl_1 = [LabelDataFactory createLabelWithText:@"Ook geluid is dynamiek,\nen de stad kent veel\ngeluiden. Aan jullie om ze te registreren." width:204 height:95 xPos:90 yPos:110];
+        LabelData *lbl_2 = [LabelDataFactory createLabelWithText:@"hard geluid" width:100 height:50 xPos:34 yPos:275];
+        LabelData *lbl_3 = [LabelDataFactory createLabelWithText:@"rustig geluid" width:186 height:50 xPos:184 yPos:lbl_2.yPos + lbl_2.height + 100];
+        LabelData *lbl_4 = [LabelDataFactory createLabelWithText:@"menselijk geluid" width:140 height:50 xPos:15 yPos:lbl_3.yPos + lbl_3.height + 137];
+        LabelData *lbl_5 = [LabelDataFactory createLabelWithText:@"dierlijk geluid" width:255 height:64 xPos:188 yPos:lbl_4.yPos + lbl_4.height + 65];
+        
+        LabelData *lbl_6 = [LabelDataFactory createLabelWithText:@"een voertuig" width:278 height:71 xPos:15 yPos:lbl_5.yPos + lbl_5.height + 120];
+        LabelData *lbl_7 = [LabelDataFactory createLabelWithText:@"de wind" width:128 height:71 xPos:212 yPos:lbl_6.yPos+lbl_6.height+107];
+        LabelData *lbl_8 = [LabelDataFactory createLabelWithText:@"Je kan altijd later terugkomen om meer geluiden op te nemen." width:265 height:98/2 xPos:32 yPos:lbl_7.yPos+lbl_7.height+133];
+        
+        [self.labels addObjectsFromArray:@[lbl_1,lbl_2,lbl_3,lbl_4,lbl_5,lbl_6,lbl_7,lbl_8]];
         
     }
     return self;
@@ -27,13 +40,15 @@
 
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[RecordingView alloc] initWithFrame:bounds];
+    self.view = [[RecordingView alloc] initWithFrame:bounds andLabels:self.labels];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view.navBar.btnBack addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btn_story addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
     
     NSArray *pathComponents = [NSArray arrayWithObjects:
                                [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -71,7 +86,12 @@
         [playButton addTarget:self action:@selector(playButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     
+
     [self getAllAudioFromServer];
+}
+
+-(void)backToStory:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)buttonTapped:(id)sender{
@@ -89,10 +109,17 @@
 
 - (void)getAudioFromServerWithSectionId:(NSInteger)integer{
     
+    // zorgen dat ze nu ni kunnen klikken op d eknoppen
+
+    
     NSLog(@"get audio from server with section id");
+    
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]);
+    
+    NSString *group_id = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]];
 
     //// aangepast van %i integer naar %li (long)integer dus misschien levert dit problemen op
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/onderdeel/%i/%i/%li", 1, 3, (long)integer]]];
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/onderdeel/%@/%i/%li",group_id, 3, (long)integer]]];
     NSError *error = nil;
     NSArray *loadedData = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
@@ -119,8 +146,8 @@
     NSData *objectData = [NSData dataWithContentsOfURL:[NSURL URLWithString:resourcePath]];
     NSError *error;
     self.player = [[AVAudioPlayer alloc] initWithData:objectData error:&error];
+    [self.player setVolume:10.0];
     self.player.numberOfLoops = 0;
-    self.player.volume = 1.0f;
     [self.player prepareToPlay];
     
     if (self.player == nil)
@@ -151,6 +178,8 @@
             //[self.currentButton setBackgroundImage:[UIImage imageNamed:@"opdracht4_btnAfspelen"] forState:UIControlStateNormal];
             self.currentPlayButton = [self.view.arrPlayButtons objectAtIndex:self.buttonIdInteger -1];
             self.currentPlayButton.alpha = 1;
+            [self.currentPlayButton setBackgroundImage:[UIImage imageNamed:@"btn_wait"] forState:UIControlStateNormal];
+            [self.currentPlayButton removeTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
             self.currentButton.alpha = 0;
         }
         
@@ -171,8 +200,12 @@
     
     NSString *url = @"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php";
     
-    NSDictionary *parameters = @{@"dag_groep_id": @1,
-                                 @"groep_id" : @1,
+    NSLog(@"dagroep id = %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"]);
+    NSLog(@"groep id = %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]);
+    
+    
+    NSDictionary *parameters = @{@"dag_groep_id": [[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"],
+                                 @"groep_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"],
                                  @"opdracht_id" : @3,
                                  @"opdracht_onderdeel_id" : [NSNumber numberWithInteger:self.buttonIdInteger]
                                  };
@@ -182,6 +215,11 @@
         [formData appendPartWithFileData:audioData name:@"file" fileName:@"file" mimeType:@"audio/mp4a-latm"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", operation.responseObject);
+        
+        // vanaf hier mag je op de knop tappen
+        [self.currentPlayButton setBackgroundImage:[UIImage imageNamed:@"btn_startTracking"] forState:UIControlStateNormal];
+        [self.currentPlayButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", operation.error);
     }];
@@ -201,14 +239,14 @@
     
     if (!error){
         
-        NSLog(@"NO ERROR");
+        NSLog(@"getAllAudoFromServer -- NO ERROR");
         
         for (NSDictionary *dict in loadedData){
             
             [self.arrInts addObject:dict[@"opdracht_onderdeel_id"]];
         }
     }else{
-        NSLog(@"ERROR");
+        NSLog(@"ERROR %@",error);
     }
     
     for(NSNumber *i in self.arrInts){

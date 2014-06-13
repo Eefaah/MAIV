@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecordingView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LabelDataFactory.h"
 
 @interface RecordingViewController : UIViewController <AVAudioRecorderDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
@@ -23,5 +24,6 @@
 @property (nonatomic, strong) NSString *audioURL;
 @property (nonatomic, strong) NSMutableArray *arrInts;
 @property (nonatomic, strong) NSString *audioUrl;
+@property (nonatomic,strong) NSMutableArray *labels;
 
 @end

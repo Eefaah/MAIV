@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationBar.h"
+#import "LabelDataFactory.h"
 
 @interface RecordingView : UIView
 
@@ -28,12 +29,17 @@
 @property (nonatomic, strong) UIButton *btnPlayWind;
 
 @property (nonatomic, strong) UIImage *buttonImage;
-@property (nonatomic, strong) UIButton *btnTerugNaarVerhaal;
+@property (nonatomic, strong) UIButton *btn_story;
+@property (nonatomic,strong) UIImageView *indicator;
+
 @property (nonatomic, strong) NSMutableArray *arrButtons;
 @property (nonatomic, strong) NSMutableArray *arrPlayButtons;
 @property (nonatomic, strong) UIButton *btnPlay;
 
+@property (nonatomic,strong) NSMutableArray *labels;
+
 @property (nonatomic,strong) NavigationBar *navBar;
 
+- (id)initWithFrame:(CGRect)frame andLabels:(NSMutableArray *)labels;
 
 @end
