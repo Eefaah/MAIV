@@ -14,6 +14,7 @@
 #import "MainZintuigViewController.h"
 #import "GPSViewController.h"
 #import "PeopleViewController.h"
+#import "RecordingViewController.h"
 
 @interface MainViewController : UIViewController <UIScrollViewDelegate>
 
@@ -26,6 +27,8 @@
 @property (nonatomic,strong) MainZintuigViewController *zintuigVC;
 @property (nonatomic,strong) GPSViewController *GPSVC;
 @property (nonatomic,strong) PeopleViewController *peopleVC;
+@property (nonatomic,strong) RecordingViewController *soundVC;
+
 
 @property (nonatomic) float xBoot;
 

@@ -21,8 +21,8 @@
         [self addScrollwithframe:frame];
         [self addVlieger];
 //        [self addMusic];
-        [self addButtons];
         [self addMusic];
+        [self addButtons];
         [self addMusicToBtnSenses];
         [self addWindmolentje];
         [self addDuif];

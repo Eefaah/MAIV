@@ -84,6 +84,7 @@
     self.GPSVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
     self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
     self.peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
+    self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];
     
 //    PeopleViewController *peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
 //    GPSViewController *gpsVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
@@ -106,6 +107,10 @@
         
         self.zintuigVC = [[MainZintuigViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.zintuigVC animated:YES];
+    }else if([className isEqualToString:@"Geluiden"]){
+        NSLog(@"else if geluiden");
+        self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:self.soundVC animated:YES];
     }
     
     //[self.navigationController pushViewController:self.werkenVC animated:YES];
