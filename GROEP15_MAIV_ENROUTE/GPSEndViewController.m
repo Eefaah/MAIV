@@ -28,12 +28,9 @@
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[GPSEndView alloc] initWithFrame:bounds andArr:self.arrDrawingPoints];
-    
-    [self.view.btnSave addTarget:self action:@selector(saveButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)saveButtonTapped:(id)sender{
-    
     [self uploadPost];
 }
 
@@ -49,6 +46,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btn_retake addTarget:self action:@selector(btnRetakeTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnSave addTarget:self action:@selector(saveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)btnRetakeTapped:(id)sender{
+    // back to map view
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP5_BACK_TO_MAP" object:self];
+}
+
+-(void)btnBackTapped:(id)sender{
+    // back to main info
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP5_BACK_TO_INFO" object:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,14 +105,30 @@
                                  };
     NSLog(@"hier komt hij nog");
     
+    // zorgen dat je niet meer op de buttons kan tikken eenmaal het aan het saven is
+    [self.view.btnSave removeTarget:self action:@selector(saveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btn_retake removeTarget:self action:@selector(btnRetakeTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:data name:@"file" fileName:@"fileName" mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //[[NSNotificationCenter defaultCenter] postNotificationName:@"BTN_SAVE_TAPPED" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"OP5_BACK_TO_STORY" object:nil];
+
+        // bewaar en retake buttons weghalen & terug naar story button toevoegen
+        [self.view changeButton];
+        
+        if(self.view.btn_story){
+            [self.view.btn_story addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
         NSLog(@"Success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+-(void)backToStory:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP5_BACK_TO_STORY" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

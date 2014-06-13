@@ -48,7 +48,22 @@
     // Do any additional setup after loading the view.
     self.arrDrawingPoints = [NSMutableArray array];
     [self.view.uitleg.btn_start addTarget:self action:@selector(btnBeginnenTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShape :) name:@"SHOW_DRAWN_SHAPE" object:nil];    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShape :) name:@"SHOW_DRAWN_SHAPE" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnBeginnenTapped:) name:@"OP5_BACK_TO_MAP" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToInfo:) name:@"OP5_BACK_TO_INFO" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToStory:) name:@"OP5_BACK_TO_STORY" object:nil];
+    
+    [self.view.navBar.btnBack addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)backToStory:(id)sender{
+    // naar het hoofd verhaal
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)backToInfo:(id)sender{
+    // naar eerste infoscherm
+    [self.navigationController popToViewController:self animated:YES];
 }
 
 - (void)showShape:(NSNotification *) notification{
@@ -59,17 +74,21 @@
         NSDictionary* userInfo = notification.userInfo;
         self.arrDrawingPoints = [userInfo objectForKey:@"arrDrawingPoints"];
         self.drawnImage = [userInfo objectForKey:@"drawnImage"];
+        
         GPSEndViewController *endVC = [[GPSEndViewController alloc] initWithNibName:nil bundle:nil];
         [endVC showDrawnShape:self.arrDrawingPoints andImage:self.drawnImage];
-        [self.navigationController pushViewController:endVC animated:YES];
+        [self.navigationController pushViewController:endVC animated:NO];
+        
+        [self.mapVC dismissViewControllerAnimated:YES completion:^{}];
+        self.mapVC = nil;
     }
 }
 
 - (void)btnBeginnenTapped:(id)sender{
 
     NSLog(@"tap");
-    MapViewController *mapVC = [[MapViewController alloc] initWithNibName:nil bundle:nil];
-    [self presentViewController:mapVC animated:YES completion:^{}];
+    self.mapVC = [[MapViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:self.mapVC animated:YES completion:^{}];
 }
 
 - (void)didReceiveMemoryWarning

@@ -40,19 +40,27 @@
 
 - (void)startTracking{
     
-    self.startTrackingBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.startTrackingBtn.frame = CGRectMake(self.frame.size.width/2 - 50, self.frame.size.height - 60, 100, 40);
-    [self.startTrackingBtn setTitle:@"start tracking" forState:UIControlStateNormal];
+    UIImage *startTrackingBtn = [UIImage imageNamed:@"btn_startTracking"];
+    
+    self.startTrackingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.startTrackingBtn setBackgroundImage:startTrackingBtn forState:UIControlStateNormal];
+    self.startTrackingBtn.frame = CGRectMake(self.frame.size.width/2 - startTrackingBtn.size.width/2, self.frame.size.height - 100, startTrackingBtn.size.width, startTrackingBtn.size.height);
     [self addSubview:self.startTrackingBtn];
+    
     [self.startTrackingBtn addTarget:self action:@selector(startTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
     
-    self.endTrackingButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.endTrackingButton.frame = CGRectMake(self.frame.size.width/2 - 50, self.frame.size.height - 100, 100, 40);
-    [self.endTrackingButton setTitle:@"end tracking" forState:UIControlStateNormal];
-    [self addSubview:self.endTrackingButton];
+    UIImage *endTrackingBtn = [UIImage imageNamed:@"btn_stopTracking"];
+    
+    self.endTrackingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.endTrackingButton setBackgroundImage:endTrackingBtn forState:UIControlStateNormal];
+    self.endTrackingButton.frame = CGRectMake(self.frame.size.width/2 - endTrackingBtn.size.width/2, self.frame.size.height - 100, endTrackingBtn.size.width, endTrackingBtn.size.height);
 }
 
 - (void)startTrackingTapped:(id)sender{
+    
+    [self.startTrackingBtn removeTarget:self action:@selector(startTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.startTrackingBtn removeFromSuperview];
+    
     self.startPoint = self.mapView.userLocation.location.coordinate;
     
     self.arrPoints = [NSMutableArray array];
@@ -67,6 +75,8 @@
     self.mapView.scrollEnabled = NO;
     self.mapView.zoomEnabled = NO;
     self.mapView.rotateEnabled = NO;
+    
+    [self addSubview:self.endTrackingButton];
 }
 
 - (void)doSometingOnTimeInterval{
@@ -144,7 +154,7 @@
 }
 
 - (void)endTrackingTapped:(id)sender{
-    
+    NSLog(@"end tracking tapped - mapview");
     NSValue *startPoint = [self.arrDrawingPoints objectAtIndex:self.arrDrawingPoints.count - self.arrDrawingPoints.count + 1];
     CGPoint startPointPoint = [startPoint CGPointValue];
     UIBezierPath *aPath = [UIBezierPath bezierPath];

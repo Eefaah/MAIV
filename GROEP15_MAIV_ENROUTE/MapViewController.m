@@ -32,16 +32,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view.endTrackingButton addTarget:self action:@selector(endTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.endTrackingButton addTarget:self action:@selector(endTrackingTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)endTrackingTapped:(id)sender{
+    NSLog(@"end tracking tapped - vc");
     
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:self.view.arrDrawingPoints forKey:@"arrDrawingPoints"];
     [userInfo setObject:self.view.tempDrawImage.image forKey:@"drawnImage"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_DRAWN_SHAPE" object:self userInfo:userInfo];
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    //[self dismissViewControllerAnimated:YES completion:^{}];
 
 }
 

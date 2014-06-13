@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSMutableArray *arrDrawingPoints;
 @property (nonatomic, strong) UIImage *drawnImage;
 @property (nonatomic, strong) NSMutableArray *labels;
+@property (nonatomic,strong) MapViewController *mapVC;
+
 @end

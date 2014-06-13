@@ -19,6 +19,11 @@
         self.arrDrawnPoints = [NSMutableArray array];
         self.arrDrawnPoints = arr;
         
+        UIImage *buttonsIndicator = [UIImage imageNamed:@"buttons_indicator"];
+        self.indicator = [[UIImageView alloc] initWithImage:buttonsIndicator];
+        self.indicator.frame = CGRectMake(0, 398, buttonsIndicator.size.width, buttonsIndicator.size.height);
+        [self addSubview:self.indicator];
+        
         NSLog(@"view did load");
         
         [self showResult];
@@ -31,11 +36,35 @@
 
 - (void)addBtns{
     
+    UIImage *btn_retake = [UIImage imageNamed:@"btn_opnieuw"];
+    self.btn_retake = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btn_retake setBackgroundImage:btn_retake forState:UIControlStateNormal];
+    self.btn_retake.frame = CGRectMake(32, self.frame.size.height-btn_retake.size.height - 104, btn_retake.size.width, btn_retake.size.height);
+    [self addSubview:self.btn_retake];
+    
     UIImage *saveImage = [UIImage imageNamed:@"btn_bewaar"];
     self.btnSave = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnSave setBackgroundImage:saveImage forState:UIControlStateNormal];
-    self.btnSave.frame = CGRectMake(self.frame.size.width/2 - saveImage.size.width/2, 400, saveImage.size.width, saveImage.size.height);
+    self.btnSave.frame = CGRectMake(self.btn_retake.frame.origin.x + btn_retake.size.width + 122, self.frame.size.height - saveImage.size.height - 104, saveImage.size.width, saveImage.size.height);
     [self addSubview:self.btnSave];
+}
+
+-(void)changeButton{
+    // bewaar button weghalen
+    [self.btn_retake removeFromSuperview];
+    [self.btnSave removeFromSuperview];
+    
+    UIImage *backToStory = [UIImage imageNamed:@"btn_backToStory"];
+    self.btn_story = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btn_story setBackgroundImage:backToStory forState:UIControlStateNormal];
+    self.btn_story.frame = CGRectMake(self.frame.size.width/2 - backToStory.size.width/2, self.frame.size.height - backToStory.size.height - 100, backToStory.size.width, backToStory.size.height);
+    [self addSubview:self.btn_story];
+    
+    UIImage *backToStoryIndicator = [UIImage imageNamed:@"backToStory_indicator"];
+    //self.indicator = [[UIImageView alloc] initWithImage:backToStoryIndicator];
+    self.indicator.image = backToStoryIndicator;
+    self.indicator.frame = CGRectMake(0, 398, backToStoryIndicator.size.width, backToStoryIndicator.size.height);
+    //[self addSubview:self.indicator];
 }
 
 - (void)showResult{
@@ -44,6 +73,14 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     [self addSubview:imageView];
+    
+    UIFont *tidy = [UIFont fontWithName:TIDY_HAND size:17];
+    self.lblTekening = [[UILabel alloc] init];
+    self.lblTekening.text = @"Dit is jouw tekening";
+    self.lblTekening.frame = CGRectMake(43, 148, 243, 44);
+    self.lblTekening.font = tidy;
+    self.lblTekening.textColor = [UIColor blackColor];
+    [self addSubview:self.lblTekening];
     
     NSValue *startPoint = [self.arrDrawnPoints objectAtIndex:self.arrDrawnPoints.count - self.arrDrawnPoints.count + 1];
     CGPoint startPointPoint = [startPoint CGPointValue];

@@ -17,7 +17,12 @@
 @property (nonatomic) CGPoint aPoint;
 @property (nonatomic, strong) UIButton *btnSave;
 @property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UILabel *lblTekening;
+@property (nonatomic,strong) UIButton *btn_retake;
+@property (nonatomic,strong) UIButton *btn_story;
+@property (nonatomic,strong) UIImageView *indicator;
 
+-(void)changeButton;
 - (id)initWithFrame:(CGRect)frame andArr:(NSMutableArray *)arr;
 
 @end
