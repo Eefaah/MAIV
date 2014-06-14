@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface MainView : UIView <UIScrollViewDelegate>
 
@@ -22,6 +23,8 @@
 @property (nonatomic,strong) CALayer *kwartNoot1Layer;
 @property (nonatomic,strong) CALayer *kwartNoot2Layer;
 @property (nonatomic,strong) CALayer *achtsteNootLayer;
+@property (nonatomic,strong) CAEmitterLayer *emitterLayer;
+@property (nonatomic,strong) CAEmitterCell *cell;
 
 @property (nonatomic,strong)  CALayer *imagelayer;
 

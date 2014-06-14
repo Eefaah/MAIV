@@ -23,7 +23,7 @@
         NSLog(@"main controller");
         
         self.arrClasses = [NSArray array];
-        self.arrClasses = @[@"Werken", @"GPSDrawing",@"Fotos", @"Geluiden", @"Mensen", @"Zintuigen", @"Speeltuin"];
+        self.arrClasses = @[@"Werken",@"Geluiden",@"Mensen",@"GPSDrawing",@"Speeltuin"];
         
         self.xduif = 0;
         
@@ -129,7 +129,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    //NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
+    NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
     
     CGPoint offset = scrollView.contentOffset;
     float yOffset = offset.y;
@@ -144,7 +144,7 @@
         self.view.windmolen.layer.affineTransform = CGAffineTransformMakeRotation(rotateRadians);
     }
     
-    if(self.view.scrollView.contentOffset.y < 2009){
+    if(self.view.scrollView.contentOffset.y < 1266){
         //NSLog(@"duif moet vliegen!");
         ///vlieg duif!
 //        CGPoint offset = scrollView.contentOffset;
@@ -155,33 +155,33 @@
         //self.xduif+=1;
         float yPostDuif = yOffset+300;
         yPostDuif+= 50;
-        float xPostDuif = 2009-yOffset;
+        float xPostDuif = 1266-yOffset;
         //NSLog(@"y offset = %f",yOffset);
         //NSLog(@"berekening xpos = %f",xPostDuif);
         //NSLog(@"xpos = %f",xPos);
-        self.view.duif.layer.position = CGPointMake(xPostDuif, 2066);
+        self.view.duif.layer.position = CGPointMake(xPostDuif, 1402);
 
         //self.view.duif.layer.affineTransform = CGAffineTransformMakeTranslation(xPos, 1730);
     }else{
         CGPoint offset = scrollView.contentOffset;
         float yOffset = offset.y;
-        float xPostDuif = 2009-yOffset;
-        self.view.duif.layer.position = CGPointMake(xPostDuif, 2066);
+        float xPostDuif = 1266-yOffset;
+        self.view.duif.layer.position = CGPointMake(xPostDuif, 1402);
     }
     
-    if(self.view.scrollView.contentOffset.y < 1674){
-        self.xBoot = 320 - (1647-yOffset);
-        //NSLog(@"x van de boot = %f",self.xBoot);
-        self.view.boot.layer.position = CGPointMake(self.xBoot, 1803);
+    if(self.view.scrollView.contentOffset.y < 929){
+        self.xBoot = 320 - (929-yOffset);
+        NSLog(@"x van de boot = %f",self.xBoot);
+        self.view.boot.layer.position = CGPointMake(self.xBoot, 1067);
         
-        if(yOffset < 1528){
-            self.view.boot.layer.position = CGPointMake(202, 1803);
+        if(yOffset < 810){
+            self.view.boot.layer.position = CGPointMake(202, 1067);
         }
     }
     else{
         // zonder deze else verdwijnt de boot niet altijd helemaal terug uit beeld
-        float xBoot = 320 - (1647-yOffset);
-        self.view.boot.layer.position = CGPointMake(xBoot, 1803);
+        float xBoot = 320 - (929-yOffset);
+        self.view.boot.layer.position = CGPointMake(xBoot, 1067);
     }
     
     if(self.view.boot.layer.position.x > 202){

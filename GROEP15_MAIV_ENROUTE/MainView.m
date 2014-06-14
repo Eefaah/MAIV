@@ -22,8 +22,9 @@
         [self addVlieger];
 //        [self addMusic];
         [self addMusic];
-        [self addButtons];
         [self addMusicToBtnSenses];
+        [self addParticles];
+        [self addButtons];
         [self addWindmolentje];
         [self addDuif];
         [self addSwingSet];
@@ -50,10 +51,10 @@
 }
 
 - (void)addButtons{
-    int yPos = 200;
+    int yPos = 190;
     self.arrScrollViewButtons = [NSMutableArray array];
     
-    for(int i = 1; i < 8; i++){
+    for(int i = 1; i < 6; i++){
         
         UIImage *btnImage = [UIImage imageNamed:[NSString stringWithFormat:@"btn_opdracht_%i", i]];
         self.scrollViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,7 +63,7 @@
         [self.scrollView addSubview:self.scrollViewButton];
         [self.arrScrollViewButtons addObject:self.scrollViewButton];
         
-        yPos += btnImage.size.height + 250;
+        yPos += btnImage.size.height + 270;
         
         NSLog(@"yPos %i %i",i,yPos);
     }
@@ -71,26 +72,26 @@
 - (void)addWindmolentje{
     UIImage *windmolentjeStokje = [UIImage imageNamed:@"windmolen_stokje"];
     UIImageView *windmolentjeStokeImageView = [[UIImageView alloc] initWithImage:windmolentjeStokje];
-    windmolentjeStokeImageView.frame = CGRectMake(228, 2486, windmolentjeStokje.size.width, windmolentjeStokje.size.height);
+    windmolentjeStokeImageView.frame = CGRectMake(228, 1802, windmolentjeStokje.size.width, windmolentjeStokje.size.height);
     [self.scrollView addSubview:windmolentjeStokeImageView];
     
     UIImage *windmolen = [UIImage imageNamed:@"windmolen"];
     self.windmolen = [[UIImageView alloc] initWithImage:windmolen];
-    self.windmolen.frame = CGRectMake(222, 2481, windmolen.size.width, windmolen.size.height);
+    self.windmolen.frame = CGRectMake(222, 1792, windmolen.size.width, windmolen.size.height);
     [self.scrollView addSubview:self.windmolen];
 }
 
 - (void)addDuif{
     UIImage *duif = [UIImage imageNamed:@"duif"];
     self.duif = [[UIImageView alloc] initWithImage:duif];
-    self.duif.frame = CGRectMake(0-duif.size.width, 2066, duif.size.width, duif.size.height);
+    self.duif.frame = CGRectMake(0-duif.size.width, 1402, duif.size.width, duif.size.height);
     [self.scrollView addSubview:self.duif];
 }
 
 - (void)addSwingSet{
     UIImage *tree = [UIImage imageNamed:@"boom"];
     UIImageView *treeImageView = [[UIImageView alloc] initWithImage:tree];
-    treeImageView.frame = CGRectMake(217, 2606, tree.size.width, tree.size.height);
+    treeImageView.frame = CGRectMake(217, 1886, tree.size.width, tree.size.height);
     [self.scrollView addSubview:treeImageView];
 
     UIImage *swing = [UIImage imageNamed:@"schommel"];
@@ -100,7 +101,7 @@
 //    self.imagelayer.contents = (__bridge id)(swing.CGImage);
 //
     self.swing = [[UIImageView alloc] initWithImage:swing];
-    self.swing.frame = CGRectMake(230, 2606, swing.size.width, swing.size.height);
+    self.swing.frame = CGRectMake(230, 1886, swing.size.width, swing.size.height);
     [self.scrollView addSubview:self.swing];
     
 //    [self.scrollView.layer addSublayer:self.imagelayer];
@@ -140,19 +141,19 @@
 -(void)addBoot{
     UIImage *boot = [UIImage imageNamed:@"boot"];
     self.boot = [[UIImageView alloc] initWithImage:boot];
-    self.boot.frame = CGRectMake(320, 1803, boot.size.width, boot.size.height);
+    self.boot.frame = CGRectMake(320, 1108, boot.size.width, boot.size.height);
     [self.scrollView addSubview:self.boot];
 }
 
 -(void)addVlieger{
     UIImage *vlieger = [UIImage imageNamed:@"vlieger"];
     self.vlieger = [[UIImageView alloc] initWithImage:vlieger];
-    self.vlieger.frame = CGRectMake(130, 1773, vlieger.size.width, vlieger.size.height);
+    self.vlieger.frame = CGRectMake(120, 1078, vlieger.size.width, vlieger.size.height);
     [self.scrollView addSubview:self.vlieger];
 }
 
 -(void)addMusic{
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 1324, 320, 200)];
+    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(-20, 570, 320, 200)];
     [self.scrollView addSubview:test];
     
     UIImage *achtste = [UIImage imageNamed:@"achtsteNoot"];
@@ -260,7 +261,7 @@
 }
 
 -(void)addMusicToBtnSenses{
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 1972, 320, 200)];
+    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(20, 490, 320, 200)];
     [self.scrollView addSubview:test];
     
     UIImage *achtste = [UIImage imageNamed:@"achtsteNoot"];
@@ -329,7 +330,39 @@
     
     [kwartnootlayer addAnimation:path2Animation forKey:@"position"];
     [kwartnootlayer addAnimation:opacity2Animation forKey:@"opacity"];
+}
+
+-(void)addParticles{
+    // emittercell maken --> wat wordt afgevuurd door de emitterlayer
+    self.cell = [CAEmitterCell emitterCell];
     
+    // onze rook image inladen
+    self.cell.contents = (__bridge id)([UIImage imageNamed:@"stof"].CGImage);
+    
+    // instellen hoe de cell zich moet gedragen
+    self.cell.birthRate = 1;
+    self.cell.lifetime = 2;
+    self.cell.lifetimeRange = 0.5;
+    self.cell.velocity = 50;
+    self.cell.velocityRange = 20;
+    self.cell.yAcceleration = -30;
+    self.cell.name = @"smokeCell";
+    self.cell.emissionRange = M_PI;
+    self.cell.scale = 0.2;
+    self.cell.scaleSpeed = 1;
+    self.cell.scaleRange = 0.2;
+    self.cell.spin = 1;
+    self.cell.alphaSpeed = -0.5;
+    
+    // emitter aanmaken
+    self.emitterLayer = [CAEmitterLayer layer];
+    
+    // emitter instellen
+    self.emitterLayer.emitterSize = CGSizeMake(32, 32);
+    self.emitterLayer.emitterPosition = CGPointMake(170, 285);
+    self.emitterLayer.emitterCells = @[self.cell];
+    [self.scrollView.layer addSublayer:self.emitterLayer];
+
 }
 
 -(void)addHeaderAndFooter{
