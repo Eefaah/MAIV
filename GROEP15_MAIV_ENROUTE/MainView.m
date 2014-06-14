@@ -341,8 +341,8 @@
     
     // instellen hoe de cell zich moet gedragen
     self.cell.birthRate = 1;
-    self.cell.lifetime = 2;
-    self.cell.lifetimeRange = 0.5;
+    self.cell.lifetime = 3;
+    self.cell.lifetimeRange = 1;
     self.cell.velocity = 50;
     self.cell.velocityRange = 20;
     self.cell.yAcceleration = -30;
