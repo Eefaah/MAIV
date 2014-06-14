@@ -50,8 +50,8 @@
     NSString *filename = @"IMG_2108.jpg";
     
     //alle extra info die in de database komt kan hierin...
-    NSDictionary *parameters = @{@"dag_groep_id": @1,
-                                 @"groep_id" : @1,
+    NSDictionary *parameters = @{@"dag_groep_id": [[NSUserDefaults standardUserDefaults] objectForKey:@"dag_groep_id"],
+                                 @"groep_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"],
                                  @"opdracht_id" : @7,
                                  @"opdracht_onderdeel_id" : @0
                                 };

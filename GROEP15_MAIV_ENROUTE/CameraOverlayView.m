@@ -69,7 +69,7 @@
     
 //    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 10),
 //                                    self.currentPoint.y - (self.acceleration.y* 10));
-    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 10),
+    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 20),
                                     self.yPosition);
     
     //NSLog(@"y acceleration = %f",(self.acceleration.y*10));
@@ -145,8 +145,8 @@
         _currentPoint.y = 0;
     }
     
-    if (self.currentPoint.x > self.frame.size.width) {
-        _currentPoint.x = self.frame.size.width;
+    if (self.currentPoint.x > self.frame.size.width - 10) {
+        _currentPoint.x = self.frame.size.width -10;
     }
     
     if (self.currentPoint.y > self.frame.size.height) {
