@@ -19,6 +19,7 @@
         
         self.arrButtons = [NSMutableArray array];
         self.arrPlayButtons = [NSMutableArray array];
+        self.arrRemoveButtons = [NSMutableArray array];
         
         self.labels = labels;
         
@@ -27,6 +28,7 @@
         [self createLabels];
         [self footer];
         [self addBtns];
+        [self addRemoveBtns];
         [self addPlayBtns];
     }
     
@@ -78,7 +80,6 @@
         
         [self.scrollView addSubview:label];
     }
-    
 }
 
 - (void)addBtns{
@@ -178,6 +179,57 @@
     [self.scrollView addSubview:self.btnPlayWind];
     self.btnPlayWind.tag = 6;
     [self.arrPlayButtons addObject:self.btnPlayWind];
+}
+
+- (void)addRemoveBtns{
+    
+    UIImage *removeButton1 = [UIImage imageNamed:@"btn_delete_1"];
+    self.btnRemoveHard = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveHard.frame = CGRectMake(110, 315, removeButton1.size.width, removeButton1.size.height);
+    [self.btnRemoveHard setBackgroundImage:removeButton1 forState:UIControlStateNormal];
+    self.btnRemoveHard.tag = 1;
+    [self.scrollView addSubview:self.btnRemoveHard];
+    [self.arrRemoveButtons addObject:self.btnRemoveHard];
+    
+    UIImage *removeButton2 = [UIImage imageNamed:@"btn_delete_2"];
+    self.btnRemoveRustig = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveRustig.frame = CGRectMake(135, 496, removeButton2.size.width, removeButton2.size.height);
+    [self.btnRemoveRustig setBackgroundImage:removeButton2 forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.btnRemoveRustig];
+    self.btnRemoveRustig.tag = 2;
+    [self.arrRemoveButtons addObject:self.btnRemoveRustig];
+
+    UIImage *removeButton3 = [UIImage imageNamed:@"btn_delete_3"];
+    self.btnRemoveMenselijk = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveMenselijk.frame = CGRectMake(80, 665, removeButton3.size.width, removeButton3.size.height);
+    [self.btnRemoveMenselijk setBackgroundImage:removeButton3 forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.btnRemoveMenselijk];
+    self.btnRemoveMenselijk.tag = 3;
+    [self.arrRemoveButtons addObject:self.btnRemoveMenselijk];
+
+    UIImage *removeButton4 = [UIImage imageNamed:@"btn_delete_4"];
+    self.btnRemoveDierlijk = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveDierlijk.frame = CGRectMake(150, 810, removeButton4.size.width, removeButton4.size.height);
+    [self.btnRemoveDierlijk setBackgroundImage:removeButton4 forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.btnRemoveDierlijk];
+    self.btnRemoveDierlijk.tag = 4;
+    [self.arrRemoveButtons addObject:self.btnRemoveDierlijk];
+
+    UIImage *removeButton5 = [UIImage imageNamed:@"btn_delete_5"];
+    self.btnRemoveVoertuig = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveVoertuig.frame = CGRectMake(75, 1005, removeButton5.size.width, removeButton5.size.height);
+    [self.btnRemoveVoertuig setBackgroundImage:removeButton5 forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.btnRemoveVoertuig];
+    self.btnPlayVoertuig.tag = 5;
+    [self.arrRemoveButtons addObject:self.btnRemoveVoertuig];
+
+    UIImage *removeButton6 = [UIImage imageNamed:@"btn_delete_6"];
+    self.btnRemoveWind = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRemoveWind.frame = CGRectMake(150, 1170, removeButton6.size.width, removeButton6.size.height);
+    [self.btnRemoveWind setBackgroundImage:removeButton6 forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.btnRemoveWind];
+    self.btnRemoveWind.tag = 6;
+    [self.arrRemoveButtons addObject:self.btnRemoveWind];
 }
 
 - (void) navigationBar{

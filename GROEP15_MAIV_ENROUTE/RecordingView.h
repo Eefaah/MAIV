@@ -28,12 +28,21 @@
 @property (nonatomic, strong) UIButton *btnPlayVoertuig;
 @property (nonatomic, strong) UIButton *btnPlayWind;
 
+@property (nonatomic, strong) UIButton *btnRemoveHard;
+@property (nonatomic, strong) UIButton *btnRemoveRustig;
+@property (nonatomic, strong) UIButton *btnRemoveMenselijk;
+@property (nonatomic, strong) UIButton *btnRemoveDierlijk;
+@property (nonatomic, strong) UIButton *btnRemoveVoertuig;
+@property (nonatomic, strong) UIButton *btnRemoveWind;
+
 @property (nonatomic, strong) UIImage *buttonImage;
 @property (nonatomic, strong) UIButton *btn_story;
 @property (nonatomic,strong) UIImageView *indicator;
 
 @property (nonatomic, strong) NSMutableArray *arrButtons;
 @property (nonatomic, strong) NSMutableArray *arrPlayButtons;
+@property (nonatomic, strong) NSMutableArray *arrRemoveButtons;
+
 @property (nonatomic, strong) UIButton *btnPlay;
 
 @property (nonatomic,strong) NSMutableArray *labels;

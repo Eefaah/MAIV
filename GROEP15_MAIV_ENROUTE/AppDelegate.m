@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "MainZintuigViewController.h"
-
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,11 +23,7 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = self.navController;
     
-//    MainZintuigViewController *mainZintuigVC = [[MainZintuigViewController alloc] initWithNibName:nil bundle:nil];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:mainZintuigVC];
-//    self.window.rootViewController = self.navController;
-    
-    //[self enumerateFonts];
+    //[self enumerateFonts];y
         
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

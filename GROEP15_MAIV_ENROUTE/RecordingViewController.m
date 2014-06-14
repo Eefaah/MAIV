@@ -34,6 +34,10 @@
         
         [self.labels addObjectsFromArray:@[lbl_1,lbl_2,lbl_3,lbl_4,lbl_5,lbl_6,lbl_7,lbl_8]];
         
+        self.dictDeleteSounds = [NSMutableDictionary dictionary];
+        
+        self.testInt = 16;
+        
     }
     return self;
 }
@@ -86,8 +90,21 @@
         [playButton addTarget:self action:@selector(playButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
     }
     
-
+    for (UIButton *removeButton in self.view.arrRemoveButtons){
+        
+        NSLog(@"remove btns");
+        removeButton.alpha = 0;
+        [removeButton addTarget:self action:@selector(removeButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     [self getAllAudioFromServer];
+    
+}
+
+- (void)removeButtonTapped:(id)sender{
+    self.removeButtonInteger = [sender tag];
+    self.currentRemoveButton = sender;
+    [self removeAudioFromServerWithSectionId];
 }
 
 -(void)backToStory:(id)sender{
@@ -102,38 +119,78 @@
 
 - (void)playButtonTapped:(id)sender{
     self.playButtonIInteger = [sender tag];
+    //moet deze in commentaar staan?
     //self.currentPlayButton = sender;
     [self getAudioFromServerWithSectionId:self.playButtonIInteger];
 
+}
+
+- (void)removeAudioFromServerWithSectionId{
+    
+    // code om audio te verwijderen volgens button id
+    //NSLog(@"%@", [self.dictDeleteSounds objectForKey:[NSNumber numberWithInt:self.removeButtonInteger]]);
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSData *data = [def objectForKey:@"dictDeleteSounds"];
+    NSDictionary *retrievedDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSNumber *soundId = [retrievedDictionary objectForKey:[NSNumber numberWithInt:self.removeButtonInteger]];
+    NSLog(@"%@", soundId);
+    NSLog(@"%@", retrievedDictionary);
+    
+    if([self.currentRemoveButton tag] == self.removeButtonInteger){
+        self.currentRemoveButton = [self.view.arrRemoveButtons objectAtIndex:self.removeButtonInteger-1];
+        self.currentRemoveButton.alpha = 0;
+        self.currentPlayButton = [self.view.arrPlayButtons objectAtIndex:self.removeButtonInteger-1];
+        self.currentPlayButton.alpha = 0;
+        self.currentButton = [self.view.arrButtons objectAtIndex:self.removeButtonInteger-1];
+        [self.currentButton setBackgroundImage:[UIImage imageNamed:@"btn_record"] forState:UIControlStateNormal];
+        self.currentButton.alpha = 1;
+    }
+    
+    NSString *urlAsString= [NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/%@", soundId];
+    NSURL *url=[NSURL URLWithString:urlAsString];
+    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
+    [urlRequest setTimeoutInterval:30.0f];
+    [urlRequest setHTTPMethod:@"DELETE"];
+    NSOperationQueue *queue=[[NSOperationQueue alloc]init];
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(error){
+            NSLog(@"error deleting %@", error);
+        }else{
+            NSLog(@"success deleting");
+            [self.dictDeleteSounds removeObjectForKey:[NSNumber numberWithInt:self.removeButtonInteger]];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            NSLog(@"dict after delete %@", self.dictDeleteSounds);
+            
+            NSLog(@"remove button int = %i", self.removeButtonInteger);
+        }
+    }];
 }
 
 - (void)getAudioFromServerWithSectionId:(NSInteger)integer{
     
     // zorgen dat ze nu ni kunnen klikken op d eknoppen
 
-    
     NSLog(@"get audio from server with section id");
     
-    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]);
-    
     NSString *group_id = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]];
+    NSLog(@"group id = %@", group_id);
 
-    //// aangepast van %i integer naar %li (long)integer dus misschien levert dit problemen op
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/onderdeel/%@/%i/%li",group_id, 3, (long)integer]]];
+
     NSError *error = nil;
     NSArray *loadedData = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
     if (!error){
     
-        NSLog(@"NO ERROR");
+        NSLog(@"get audio for button = NO ERROR");
     
         for (NSDictionary *dict in loadedData){
     
             self.audioURL = dict[@"url"];
-
         }
     }else{
-        NSLog(@"ERROR");
+        NSLog(@"get audio for button = ERROR");
     }
     
     [self getSpecificSound];
@@ -160,9 +217,15 @@
     
     if(!self.recorder.recording){
         NSLog(@"recording started");
+        NSLog(@"%ld", (long)self.buttonIdInteger);
         
+        NSError *error;
         AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setActive:YES error:nil];
+        [session setActive:YES error:&error];
+        
+        if(error){
+            NSLog(@"%@", error);
+        }
         
         [self.recorder record];
         // background image van button aanpassen
@@ -215,14 +278,27 @@
         [formData appendPartWithFileData:audioData name:@"file" fileName:@"file" mimeType:@"audio/mp4a-latm"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", operation.responseObject);
+        NSLog(@"id = %@", operation.responseObject[@"id"]);
         
         // vanaf hier mag je op de knop tappen
         [self.currentPlayButton setBackgroundImage:[UIImage imageNamed:@"btn_startTracking"] forState:UIControlStateNormal];
         [self.currentPlayButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
+        self.currentRemoveButton = [self.view.arrRemoveButtons objectAtIndex:self.buttonIdInteger - 1];
+        self.currentRemoveButton.alpha = 1;
+        
+        //id opslaan in dictionary
+        [self.dictDeleteSounds setObject:operation.responseObject[@"id"] forKey:[NSNumber numberWithInteger:self.buttonIdInteger]];
+        NSLog(@"dictionary vlak na de upload %@", [self.dictDeleteSounds objectForKey:[NSNumber numberWithInt:self.buttonIdInteger]]);
+        NSLog(@"dictionary na upload %@", self.dictDeleteSounds);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.dictDeleteSounds] forKey:@"dictDeleteSounds"];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", operation.error);
     }];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -233,7 +309,10 @@
     
     NSLog(@"get all audio by assignment id");
     
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/byOpdrachtId/%i", 3]]];
+    NSString *group_id = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"groep_id"]];
+    
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/api/uploads/opdracht/%@/%i",group_id ,3]]];
+
     NSError *error = nil;
     NSArray *loadedData = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
@@ -246,7 +325,7 @@
             [self.arrInts addObject:dict[@"opdracht_onderdeel_id"]];
         }
     }else{
-        NSLog(@"ERROR %@",error);
+        NSLog(@"ERROR loading audio from server %@",error);
     }
     
     for(NSNumber *i in self.arrInts){
@@ -255,6 +334,9 @@
         self.currentPlayButton.alpha = 1;
         self.currentButton = [self.view.arrButtons objectAtIndex:[i intValue]-1];
         self.currentButton.alpha = 0;
+        
+        self.currentRemoveButton = [self.view.arrRemoveButtons objectAtIndex:[i intValue]-1];
+        self.currentRemoveButton.alpha = 1;
     }
 }
 
