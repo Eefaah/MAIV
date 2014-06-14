@@ -8,7 +8,7 @@
 
 #import "CameraOverlayView.h"
 #import "AFNetworking.h"
-#define kUpdateInterval (0.1f)
+#define kUpdateInterval (0.05f)
 
 @implementation CameraOverlayView
 

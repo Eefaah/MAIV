@@ -162,7 +162,7 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             NSLog(@"dict after delete %@", self.dictDeleteSounds);
             
-            NSLog(@"remove button int = %i", self.removeButtonInteger);
+            NSLog(@"remove button int = %li", (long)self.removeButtonInteger);
         }
     }];
 }

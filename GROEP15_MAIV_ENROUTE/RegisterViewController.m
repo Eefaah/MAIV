@@ -35,8 +35,9 @@
 
 - (void)btnStartTapped:(id)sender{
     
-    NSLog(@"funct");
+    NSLog(@"btnStartTapped");
     if(self.colorId){
+        NSLog(@"btnStartTapped -- er is een color id");
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *parameters = @{@"kleur_id": [NSString stringWithFormat:@"%i", self.colorId],
                                      @"dagGroepId": [NSNumber numberWithInt:self.dagGroepId]
@@ -62,6 +63,18 @@
 }
 
 - (void)colorButtonTapped:(id)sender{
+    
+    [self.view.btn_start setHidden:NO];
+    
+    if(self.lastTappedButton){
+        [self.lastTappedButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    }
+    
+    self.lastTappedButton = sender;
+    
+    NSLog(@"RegisterVC -- colorButtonTapped sender = %@",sender);
+    
+    [sender setImage:[UIImage imageNamed:@"btn_V"] forState:UIControlStateNormal];
     
     self.colorId = [sender tag];
 }

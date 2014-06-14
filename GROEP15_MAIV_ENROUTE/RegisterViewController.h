@@ -17,6 +17,7 @@
 @property (nonatomic) int colorId;
 @property (nonatomic, strong) NSMutableArray *arrKleurIds;
 @property (nonatomic) NSInteger dagGroepId;
+@property (nonatomic,strong) UIButton *lastTappedButton;
 
 - (instancetype)initWithBounds:(CGRect)bounds;
 

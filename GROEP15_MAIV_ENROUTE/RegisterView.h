@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *btnName;
 @property (nonatomic, strong) NSMutableArray *arrColorButtons;
 @property (nonatomic, strong) NavigationBar *navBar;
+@property (nonatomic,strong) UILabel *lblKies;
 
 @end
