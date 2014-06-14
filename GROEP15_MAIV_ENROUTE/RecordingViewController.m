@@ -122,7 +122,6 @@
     //moet deze in commentaar staan?
     //self.currentPlayButton = sender;
     [self getAudioFromServerWithSectionId:self.playButtonIInteger];
-
 }
 
 - (void)removeAudioFromServerWithSectionId{
@@ -289,8 +288,6 @@
         
         //id opslaan in dictionary
         [self.dictDeleteSounds setObject:operation.responseObject[@"id"] forKey:[NSNumber numberWithInteger:self.buttonIdInteger]];
-        NSLog(@"dictionary vlak na de upload %@", [self.dictDeleteSounds objectForKey:[NSNumber numberWithInt:self.buttonIdInteger]]);
-        NSLog(@"dictionary na upload %@", self.dictDeleteSounds);
         
         [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.dictDeleteSounds] forKey:@"dictDeleteSounds"];
 

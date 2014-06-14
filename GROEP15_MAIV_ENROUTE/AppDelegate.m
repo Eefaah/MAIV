@@ -23,7 +23,7 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = self.navController;
     
-    //[self enumerateFonts];y
+    //[self enumerateFonts];
         
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
