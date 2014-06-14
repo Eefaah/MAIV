@@ -59,11 +59,6 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-//    [self.navigationController setNavigationBarHidden:NO animated:animated];
-//    [super viewWillDisappear:animated];
-}
-
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[MainView alloc] initWithFrame:bounds];
@@ -125,11 +120,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.scrollView.delegate = self;
+    [self.view.btn_map addTarget:self action:@selector(showMap:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)showMap:(id)sender{
+    NSLog(@"Show Map");
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self.view.btn_map setHidden:NO];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self.view.btn_map setHidden:NO];
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    // button wegdoen
+    [self.view.btn_map setHidden:YES];
+}
+
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    // button wegdoen
+    [self.view.btn_map setHidden:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
+    //[self.view.btn_map setHidden:YES];
+
+    //NSLog(@"scrollview content offset = %f",scrollView.contentOffset.y);
     
     CGPoint offset = scrollView.contentOffset;
     float yOffset = offset.y;
@@ -171,7 +190,7 @@
     
     if(self.view.scrollView.contentOffset.y < 929){
         self.xBoot = 320 - (929-yOffset);
-        NSLog(@"x van de boot = %f",self.xBoot);
+        //NSLog(@"x van de boot = %f",self.xBoot);
         self.view.boot.layer.position = CGPointMake(self.xBoot, 1067);
         
         if(yOffset < 810){

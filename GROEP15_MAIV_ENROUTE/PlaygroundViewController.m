@@ -48,7 +48,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view.btn_start addTarget:self action:@selector(btnBeginnenTapped :) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view.btn_start addTarget:self action:@selector(btnBeginnenTapped :) forControlEvents:UIControlEventTouchUpInside];
     [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped :) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(btnBackTapped:) name:@"PLAY_BACK" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retakeTapped :) name:@"RETAKE_TAPPED" object:nil];
@@ -82,27 +82,27 @@
 
 - (void)orientationChanged:(NSNotification *)notification
 {
-    //UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    //NSLog(@"device orientation = %d",deviceOrientation);
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    NSLog(@"device orientation = %ld",deviceOrientation);
     
-//    switch (deviceOrientation) {
-//        case 1:
-//            break;
-//        case 2:
-//            break;
-//        case 3:
-//            //imagepicker tonen
-//            // testderdest
-//            [self showCamera];
-//            break;
-//        case 4:
-//            [self showCamera];
-//            break;
-//            
-//        default:
-//            break;
-//    }
+    switch (deviceOrientation) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            //imagepicker tonen
+            // testderdest
+            [self showCamera];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+            break;
+        case 4:
+            //[self showCamera];
+            break;
+    
+        default:
+            break;
+    }
 }
 
 - (void)backToUitleg:(id)sender{
@@ -111,6 +111,12 @@
     self.cameraView = nil;
     self.imagePicker = nil;
     self.endVC = nil;
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientationChanged:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
 }
 
 - (void)btnBackTapped:(id)sender{
@@ -165,6 +171,7 @@
 }
 
 - (void)toggleVideoRecording {
+    NSLog(@"PlaygroundVC -- toggleVideoRecording -- self.recording = %d",self.recording);
     if (!self.recording) {
         self.recording = YES;
         UIImage *camera = [UIImage imageNamed:@"btn_stop"];
@@ -202,6 +209,10 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"gestop met filmen");
+    
+    // hier wss de boolean instellen op 0 -- voor als het filmpje na 10 sec zelfs stopt met recorden :)
+    self.recording = 0;
     
     NSURL *videoURL = [info valueForKey:UIImagePickerControllerMediaURL];
     NSString *pathToVideo = [videoURL path];

@@ -20,7 +20,6 @@
         
         [self addScrollwithframe:frame];
         [self addVlieger];
-//        [self addMusic];
         [self addMusic];
         [self addMusicToBtnSenses];
         [self addParticles];
@@ -366,6 +365,14 @@
 }
 
 -(void)addHeaderAndFooter{
+    // button om naar de kaart te geraken met afspraakpunt :)
+    UIImage *btnMap = [UIImage imageNamed:@"btn_map"];
+    
+    self.btn_map = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btn_map setBackgroundImage:btnMap forState:UIControlStateNormal];
+    [self.btn_map setFrame:CGRectMake(247, self.frame.size.height - btnMap.size.height - 17, btnMap.size.width, btnMap.size.height)];
+    [self addSubview:self.btn_map];
+    
     UIImage *headerImage = [UIImage imageNamed:@"verhaal_header"];
     UIImageView *header = [[UIImageView alloc] initWithImage:headerImage];
     [header setFrame:CGRectMake(0, 0, headerImage.size.width, headerImage.size.height)];

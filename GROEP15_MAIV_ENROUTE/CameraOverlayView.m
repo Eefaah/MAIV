@@ -8,7 +8,7 @@
 
 #import "CameraOverlayView.h"
 #import "AFNetworking.h"
-#define kUpdateInterval (0.05f)
+#define kUpdateInterval (0.07f)
 
 @implementation CameraOverlayView
 
@@ -69,7 +69,7 @@
     
 //    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 10),
 //                                    self.currentPoint.y - (self.acceleration.y* 10));
-    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 20),
+    self.currentPoint = CGPointMake(self.currentPoint.x + (self.acceleration.x * 14),
                                     self.yPosition);
     
     //NSLog(@"y acceleration = %f",(self.acceleration.y*10));

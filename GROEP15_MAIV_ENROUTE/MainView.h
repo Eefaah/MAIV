@@ -25,6 +25,7 @@
 @property (nonatomic,strong) CALayer *achtsteNootLayer;
 @property (nonatomic,strong) CAEmitterLayer *emitterLayer;
 @property (nonatomic,strong) CAEmitterCell *cell;
+@property (nonatomic,strong) UIButton *btn_map;
 
 @property (nonatomic,strong)  CALayer *imagelayer;
 
