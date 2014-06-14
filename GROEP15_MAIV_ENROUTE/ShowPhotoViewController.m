@@ -37,18 +37,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view.btnTerugNaarVerhaal addTarget:self action:@selector(terugNaarVerhaalTapped :) forControlEvents:UIControlEventTouchUpInside];
-    [self.view.btnRetake addTarget:self action:@selector(btnRetakeTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnTerug addTarget:self action:@selector(btnTerugTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnTerugTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnRetake addTarget:self action:@selector(btnRetakeTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)terugNaarVerhaalTapped:(id)sender{
+- (void)btnTerugTapped:(id)sender{
     
     [self.navigationController popViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TERUG_NAAR_VERHAAL" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OP3_BACK_TO_PICTURES" object:nil];
 }
 
 - (void)btnRetakeTapped:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RETAKE_PHOTO" object:nil];
 }
 

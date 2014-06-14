@@ -18,27 +18,31 @@
         self.backgroundColor = [UIColor whiteColor];
         self.takenPhoto = image;
         
+        // bg image met gele vlek
+        UIImage *bgImage = [UIImage imageNamed:@"opdracht3_bg_retake"];
+        UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
+        bgView.frame = CGRectMake(0, 0, bgImage.size.width, bgImage.size.height);
+        [self addSubview:bgView];
+        
         [self showimage];
         [self navigationBar];
         [self skyline];
-        [self addLbl];
         [self addBtn];
     }
     return self;
 }
 
 - (void)showimage{
-    
     UIImageView *photoImageview = [[UIImageView alloc] initWithImage:self.takenPhoto];
-    photoImageview.frame = CGRectMake(self.frame.size.width/2 - self.takenPhoto.size.width/2, 140, self.takenPhoto.size.width, self.takenPhoto.size.height);
+    photoImageview.frame = CGRectMake(self.frame.size.width/2 - self.takenPhoto.size.width/2, 130, self.takenPhoto.size.width, self.takenPhoto.size.height);
     [self addSubview:photoImageview];
 }
 
+
 - (void) navigationBar{
-    UIImage *navBarImage = [UIImage imageNamed:@"navigationbar_blue"];
-    UIImageView *navBarImageView = [[UIImageView alloc] initWithImage:navBarImage];
-    navBarImageView.frame = CGRectMake(0, 0, navBarImage.size.width, navBarImage.size.height);
-    [self addSubview:navBarImageView];
+    UIImage *titel = [UIImage imageNamed:@"opdracht3_titel"];
+    self.navBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 108) andTitleImage:titel andAddBtn:YES];
+    [self addSubview:self.navBar];
 }
 
 - (void)skyline{
@@ -48,29 +52,19 @@
     [self addSubview:skylineImageView];
 }
 
-- (void)addLbl{
-    
-    UIFont *dosis = [UIFont fontWithName:TIDY_HAND size:17];
-    self.lblJullieFoto = [[UILabel alloc] init];
-    self.lblJullieFoto.frame = CGRectMake(self.frame.size.width/2 - 100, 100, 200, 40);
-    self.lblJullieFoto.text = @"DIT IS JULLIE FOTO";
-    self.lblJullieFoto.font = dosis;
-    self.lblJullieFoto.textColor = [UIColor colorWithRed:0.03 green:0.66 blue:0.51 alpha:1];
-    self.lblJullieFoto.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:self.lblJullieFoto];
-}
-
 - (void)addBtn{
     
-    UIImage *btnTerug = [UIImage imageNamed:@"opdracht3_btn_terug"];
-    self.btnTerugNaarVerhaal = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.btnTerugNaarVerhaal setBackgroundImage:btnTerug forState:UIControlStateNormal];
-    self.btnTerugNaarVerhaal.frame = CGRectMake(self.frame.size.width/2 - btnTerug.size.width/2, self.frame.size.height - btnTerug.size.height - 45, btnTerug.size.width, btnTerug.size.height);
-    [self addSubview:self.btnTerugNaarVerhaal];
+    UIImage *btnTerug = [UIImage imageNamed:@"btn_terug"];
     
-    self.btnRetake = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.btnRetake setTitle:@"retake" forState:UIControlStateNormal];
-    self.btnRetake.frame = CGRectMake(20, 50, 100, 10);
+    self.btnTerug = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnTerug setBackgroundImage:btnTerug forState:UIControlStateNormal];
+    self.btnTerug.frame = CGRectMake(40, self.frame.size.height-btnTerug.size.height-79, btnTerug.size.width, btnTerug.size.height);
+    [self addSubview:self.btnTerug];
+    
+    UIImage *btnRetake = [UIImage imageNamed:@"btn_retake_turned"];
+    self.btnRetake = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnRetake setBackgroundImage:btnRetake forState:UIControlStateNormal];
+    self.btnRetake.frame = CGRectMake(self.btnTerug.frame.origin.x + btnTerug.size.width + 94, self.frame.size.height-btnRetake.size.height-79, btnRetake.size.width, btnRetake.size.height);
     [self addSubview:self.btnRetake];
 }
 

@@ -10,7 +10,7 @@
 
 @implementation CustomPhotoPicker
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andFaceOverlay:(BOOL)faceOverlay
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -26,6 +26,15 @@
         [self.btn_foto setBackgroundImage:camera forState:UIControlStateNormal];
         [self.btn_foto setFrame:CGRectMake(frame.size.width/2 - camera.size.width/2, frame.size.height-camera.size.height-30, camera.size.width, camera.size.height)];
         [self addSubview:self.btn_foto];
+        
+        if(faceOverlay){
+            // voeg face overlay toe
+            NSLog(@"voeg face ovelray yoe");
+            UIImage *overlay = [UIImage imageNamed:@"face_overlay"];
+            UIImageView *overlayImage = [[UIImageView alloc] initWithImage:overlay];
+            overlayImage.frame = CGRectMake(0, 0, overlay.size.width, overlay.size.height);
+            [self addSubview:overlayImage];
+        }
 
     }
     return self;

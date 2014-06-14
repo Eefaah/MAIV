@@ -20,25 +20,41 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.labels = [[NSMutableArray alloc] init];
+        
+        LabelData *lbl_1 = [LabelDataFactory createLabelWithText:@"Geef de iPhone door naar de persoon rechts van jou" width:180 height:100 xPos:95 yPos:100];
+        LabelData *lbl_2 = [LabelDataFactory createLabelWithText:@"Ga opzoek naar mensen van verschillende origine in de stad" width:240 height:45 xPos:40 yPos:lbl_1.yPos + lbl_1.height + 138];
+        
+        LabelData *lbl_3 = [LabelDataFactory createLabelWithText:@"en vraag hen of je een foto mag nemen." width:199 height:45 xPos:93 yPos:lbl_2.yPos + lbl_2.height + 19];
+        
+        LabelData *lbl_4 = [LabelDataFactory createLabelWithText:@"Fotografeer zo vier mensen van een verschillende origine." width:177 height:67 xPos:108 yPos:lbl_3.yPos + lbl_3.height + 98];
+        
+        [self.labels addObjectsFromArray:@[lbl_1,lbl_2,lbl_3,lbl_4]];
     }
     return self;
 }
 
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[PeopleView alloc] initWithFrame:bounds];
+    self.view = [[PeopleView alloc] initWithFrame:bounds andLabels:self.labels];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view.btnBeginnen addTarget:self action:@selector(btnBeginnenTapped :) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.uitleg.btn_start addTarget:self action:@selector(btnStartTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
-- (void)btnBeginnenTapped:(id)sender{
+- (void)btnStartTapped:(id)sender{
     self.photoOverviewVC = [[PhotoOverviewViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:self.photoOverviewVC animated:YES];
+}
+
+-(void)btnBackTapped:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -91,7 +91,7 @@
         self.imagePicker.view.frame = self.view.frame;
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.image"];
-        self.photoPickerView = [[CustomPhotoPicker alloc] initWithFrame:self.imagePicker.view.frame];
+        self.photoPickerView = [[CustomPhotoPicker alloc] initWithFrame:self.imagePicker.view.frame andFaceOverlay:NO];
         self.imagePicker.cameraOverlayView = self.photoPickerView;
         
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;   // 320 x 568

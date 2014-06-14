@@ -35,6 +35,8 @@
 		925811061949CFF00040390F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925811051949CFF00040390F /* AVFoundation.framework */; };
 		925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */; };
 		9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258110B1949EA020040390F /* SaveOrRetakeImageView.m */; };
+		925B7C4C194C74BE00D0F0FB /* SaveOrRetakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B7C4B194C74BE00D0F0FB /* SaveOrRetakeViewController.m */; };
+		925B7C52194C768300D0F0FB /* SaveOrRetakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B7C51194C768300D0F0FB /* SaveOrRetakeView.m */; };
 		92694D3B19478FB00021E63D /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3A19478FB00021E63D /* NavigationBar.m */; };
 		92694D41194793380021E63D /* LabelDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D3E194793380021E63D /* LabelDataFactory.m */; };
 		92694D42194793380021E63D /* LabelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 92694D40194793380021E63D /* LabelData.m */; };
@@ -150,6 +152,10 @@
 		925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeImageViewController.m; sourceTree = "<group>"; };
 		9258110A1949EA020040390F /* SaveOrRetakeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeImageView.h; sourceTree = "<group>"; };
 		9258110B1949EA020040390F /* SaveOrRetakeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeImageView.m; sourceTree = "<group>"; };
+		925B7C4A194C74BE00D0F0FB /* SaveOrRetakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeViewController.h; sourceTree = "<group>"; };
+		925B7C4B194C74BE00D0F0FB /* SaveOrRetakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeViewController.m; sourceTree = "<group>"; };
+		925B7C50194C768300D0F0FB /* SaveOrRetakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeView.h; sourceTree = "<group>"; };
+		925B7C51194C768300D0F0FB /* SaveOrRetakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeView.m; sourceTree = "<group>"; };
 		92694D3919478FB00021E63D /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
 		92694D3A19478FB00021E63D /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 		92694D3D194793380021E63D /* LabelDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelDataFactory.h; sourceTree = "<group>"; };
@@ -346,6 +352,10 @@
 		92CF2C97194B0EB6007FB27F /* People */ = {
 			isa = PBXGroup;
 			children = (
+				925B7C50194C768300D0F0FB /* SaveOrRetakeView.h */,
+				925B7C51194C768300D0F0FB /* SaveOrRetakeView.m */,
+				925B7C4A194C74BE00D0F0FB /* SaveOrRetakeViewController.h */,
+				925B7C4B194C74BE00D0F0FB /* SaveOrRetakeViewController.m */,
 				92CF2C98194B0EC0007FB27F /* screens */,
 				92CF2C85194B0EB2007FB27F /* PeopleView.h */,
 				92CF2C86194B0EB2007FB27F /* PeopleView.m */,
@@ -730,7 +740,9 @@
 				92148C991948D77E006A3AE5 /* EndViewController.m in Sources */,
 				92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */,
 				92E91217194AECD80031FBCD /* GPSView.m in Sources */,
+				925B7C4C194C74BE00D0F0FB /* SaveOrRetakeViewController.m in Sources */,
 				920BF4671947BFA7001BBAA6 /* WerkenView.m in Sources */,
+				925B7C52194C768300D0F0FB /* SaveOrRetakeView.m in Sources */,
 				92148C9A1948D77E006A3AE5 /* EndView.m in Sources */,
 				9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */,
 				92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */,

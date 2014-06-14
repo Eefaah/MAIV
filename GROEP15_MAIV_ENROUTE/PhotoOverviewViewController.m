@@ -35,14 +35,38 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.view.btn_story addTarget:self action:@selector(btnStoryTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.navBar.btnBack addTarget:self action:@selector(btnBackTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     for(UIButton *btnPersoonToevoegen in self.view.arrButtons){
         [btnPersoonToevoegen addTarget:self action:@selector(btnToevoegenTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     NSLog(@"%@", self.view.dictImages);
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retakePhoto :) name:@"RETAKE_PHOTO" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(maskDone :) name:@"MASK_DONE" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(retakePhoto:) name:@"RETAKE_PHOTO" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(maskDone:) name:@"MASK_DONE" object:nil];
+
+    // uit show photo
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToOverview:) name:@"OP3_BACK_TO_PICTURES" object:nil];
+    
+    // knoppen uit save or retake scherm
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteRetakeScreen:) name:@"OP3_RETAKE_TAPPED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSecondScreen:) name:@"OP3_USE_TAPPED" object:nil];
+}
+
+-(void)backToOverview:(id)sender{
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+-(void)btnStoryTapped:(id)sender{
+    NSLog(@"btn story tapped");
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)btnBackTapped:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)maskDone:(id)sender{
@@ -55,13 +79,12 @@
     //self.tappedButtonId = [sender tag];
     self.imageForView = [self.view.dictImages objectForKey:[NSString stringWithFormat:@"%li", (long)[sender tag]]];
 
-    ShowPhotoViewController *showPhotoVC = [[ShowPhotoViewController alloc] initWithNibName:nil bundle:nil];
-    [showPhotoVC initWithImage:self.imageForView andId:self.tappedButtonId];
-    [self.navigationController pushViewController:showPhotoVC animated:YES];
+    self.showPhotoVC = [[ShowPhotoViewController alloc] initWithNibName:nil bundle:nil];
+    [self.showPhotoVC initWithImage:self.imageForView andId:self.tappedButtonId];
+    [self.navigationController pushViewController:self.showPhotoVC animated:YES];
 }
 
 - (void)retakePhoto:(id)sender{
-    
     [self.view.dictImages removeObjectForKey:[NSString stringWithFormat:@"%li", (long)self.buttonIndex]];
     [self showCamera];
 }
@@ -85,7 +108,17 @@
 }
 
 - (void)btnSaveTapped:(id)sender{
-        
+    
+    // hier de waiting button tonen
+    [self.view removeButtons];
+    [self.view.btnSave removeTarget:self action:@selector(btnSaveTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // alle buttons disablen van de fotos
+    
+    for(UIButton *photoLayerButton in self.view.arrPhotoLayerButtons){
+        [photoLayerButton removeTarget:self action:@selector(photoLayerButtonTapped :) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     for(int i = 1; i < 5; i++){
         
         UIImage *imageForUpload = [self.view.dictImages objectForKey:[NSString stringWithFormat:@"%i", i]];
@@ -104,6 +137,10 @@
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //-[[NSNotificationCenter defaultCenter] postNotificationName:@"OPBTN_SAVE_TAPPED" object:nil];
             NSLog(@"Success: %@", responseObject);
+            [self.view changeButton];
+            if(self.view.btn_story){
+                [self.view.btn_story addTarget:self action:@selector(btnStoryTapped:) forControlEvents:UIControlEventTouchUpInside];
+            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -122,27 +159,85 @@
 }
 
 - (void)showCamera{
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    self.imagePicker = [[UIImagePickerController alloc] init];
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imagePicker.mediaTypes = availableMediaTypes;
+        self.imagePicker.view.frame = self.view.frame;
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.image"];
+        self.photoPickerView = [[CustomPhotoPicker alloc] initWithFrame:self.imagePicker.view.frame andFaceOverlay:YES];
+        self.imagePicker.cameraOverlayView = self.photoPickerView;
         
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;   // 320 x 568
+        
+        float scale = screenSize.height / screenSize.width*3/4;  // screen height divided by the pickerController height
+        
+        CGAffineTransform translate=CGAffineTransformMakeTranslation(0,(screenSize.height - screenSize.width*4/3)*0.5);
+        CGAffineTransform fullScreen=CGAffineTransformMakeScale(scale, scale);
+        self.imagePicker.cameraViewTransform =CGAffineTransformConcat(fullScreen, translate);
+
+        self.imagePicker.allowsEditing = YES;
+        self.imagePicker.showsCameraControls = NO;
     }else{
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
-    [self presentViewController:imagePicker animated:YES completion:^{}];
-    imagePicker.delegate = self;
+    [self presentViewController:self.imagePicker animated:YES completion:^{
+        [self.photoPickerView.btn_foto addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
+        if(self.saveOrRetakeVC){
+            NSLog(@"we zijn in de self");
+            [self.navigationController popViewControllerAnimated:NO];
+            self.saveOrRetakeVC = nil;
+        }
+        if(self.showPhotoVC){
+            [self.navigationController popViewControllerAnimated:YES];
+            self.showPhotoVC = nil;
+            NSLog(@"na presenten imagepicker -- self.showPhotoVC = %@",self.showPhotoVC);
+        }
+    }];
+    self.imagePicker.delegate = self;
+    
+}
+
+-(void)takePicture:(id)sender{
+    [self.imagePicker takePicture];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     self.photo = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.squarePhoto = [self squareImageWithImage:self.photo scaledToSize:CGSizeMake(270, 270)];
-    [self dismissViewControllerAnimated:YES completion:^{}];
     
+    // zorgen dat het scherm er achter al klaar staat
+    NSLog(@"imagePickerController didFinishPickingMediaWithInfo --- show retake vc");
+    self.saveOrRetakeVC = [[SaveOrRetakeViewController alloc] initWithImage:self.photo];
+    [self.navigationController pushViewController:self.saveOrRetakeVC animated:NO];
+    NSLog(@"retake vc = %@",self.saveOrRetakeVC);
+    
+    [self.imagePicker dismissViewControllerAnimated:YES completion:^{}];
+    
+//    [self showMask];
+}
+
+-(void)deleteRetakeScreen:(id)sender{
+    //[self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"deleteRetakeScreen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
+//    self.saveOrRetakeVC = nil;
+    [self showCamera];
+}
+
+-(void)showSecondScreen:(id)sender{
+    // remove save or retake
+    //[self.navigationController popViewControllerAnimated:YES];
+    //NSLog(@"show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
     [self showMask];
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    self.saveOrRetakeVC = nil;
+    NSLog(@"show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
+//    self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:self.secondInfoVC animated:YES];
 }
 
 - (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {

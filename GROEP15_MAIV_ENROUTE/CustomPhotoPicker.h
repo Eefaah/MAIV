@@ -10,4 +10,5 @@
 
 @interface CustomPhotoPicker : UIView
 @property (nonatomic,strong) UIButton *btn_foto;
+- (id)initWithFrame:(CGRect)frame andFaceOverlay:(BOOL)faceOverlay;
 @end

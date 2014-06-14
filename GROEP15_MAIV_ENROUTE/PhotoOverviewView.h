@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ShowPhotoViewController.h"
+#import "NavigationBar.h"
 
 @interface PhotoOverviewView : UIView
+
+@property (nonatomic,strong) NSMutableArray *arrPhotoLayerButtons;
 
 @property (nonatomic, strong) UIButton *btnToevoegen;
 @property (nonatomic, strong) NSMutableArray *arrButtons;
@@ -21,7 +24,13 @@
 @property (nonatomic, strong) UIButton *photoLayerButton;
 @property (nonatomic, strong) UIButton *btnSave;
 @property (nonatomic, strong) NSMutableArray *arrPhotos;
+@property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UILabel *lbl_uitleg;
+@property (nonatomic,strong) UIButton *btn_story;
+@property (nonatomic,strong) UIImageView *indicator;
 
 - (void)maskImage:(UIImage *)image withID:(NSInteger)index;
+-(void)changeButton;
+-(void)removeButtons;
 
 @end

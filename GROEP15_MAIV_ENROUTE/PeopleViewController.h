@@ -15,5 +15,6 @@
 @property (nonatomic, strong) PeopleView *view;
 @property (nonatomic, strong) UIImage *photo;
 @property (nonatomic, strong) PhotoOverviewViewController *photoOverviewVC;
+@property (nonatomic,strong) NSMutableArray *labels;
 
 @end

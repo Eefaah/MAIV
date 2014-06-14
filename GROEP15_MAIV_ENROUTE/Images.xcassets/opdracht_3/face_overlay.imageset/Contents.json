@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "opdracht3_btn_terug.png"
+      "filename" : "face_overlay.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "opdracht3_btn_terug@2x.png"
+      "filename" : "face_overlay@2x.png"
     }
   ],
   "info" : {

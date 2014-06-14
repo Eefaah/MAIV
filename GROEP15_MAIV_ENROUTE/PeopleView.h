@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBar.h"
+#import "UitlegView.h"
 
 @interface PeopleView : UIView
 
@@ -16,5 +18,11 @@
 @property (nonatomic, strong) UILabel *lblNeemFoto;
 @property (nonatomic, strong) UIButton *btnBeginnen;
 @property (nonatomic, strong) UIButton *btnToevoegen;
+@property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UitlegView *uitleg;
+@property (nonatomic,strong) NSMutableArray *labels;
+
+- (id)initWithFrame:(CGRect)frame andLabels:(NSMutableArray *)labels;
 
 @end
+
