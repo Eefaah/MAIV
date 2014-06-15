@@ -99,12 +99,6 @@
     else if ([className isEqualToString:@"Speeltuin"]){
         self.playgroundVC = [[PlaygroundViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.playgroundVC animated:YES];
-    }else if([className isEqualToString:@"Zintuigen"]){
-        
-        // hier wordt beslist welk zintuig deze groep krijgt
-        
-        self.zintuigVC = [[MainZintuigViewController alloc] initWithNibName:nil bundle:nil];
-        [self.navigationController pushViewController:self.zintuigVC animated:YES];
     }else if([className isEqualToString:@"Geluiden"]){
         NSLog(@"else if geluiden");
         self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];

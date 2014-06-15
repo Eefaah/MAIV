@@ -11,7 +11,6 @@
 #import "RegisterViewController.h"
 #import "WerkenViewController.h"
 #import "PlaygroundViewController.h"
-#import "MainZintuigViewController.h"
 #import "GPSViewController.h"
 #import "PeopleViewController.h"
 #import "RecordingViewController.h"
@@ -25,7 +24,6 @@
 @property (nonatomic, strong) NSString *className;
 @property (nonatomic) float xduif;
 @property (nonatomic, strong) WerkenViewController *werkenVC;
-@property (nonatomic,strong) MainZintuigViewController *zintuigVC;
 @property (nonatomic,strong) GPSViewController *GPSVC;
 @property (nonatomic,strong) PeopleViewController *peopleVC;
 @property (nonatomic,strong) RecordingViewController *soundVC;

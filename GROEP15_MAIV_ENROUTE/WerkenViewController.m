@@ -173,13 +173,15 @@
 -(void)showSecondScreen:(id)sender{
     // remove save or retake
     //[self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
     
     self.imagePicker = nil;
     self.photoPickerView = nil;
     
     self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:self.secondInfoVC animated:YES];
+    
+    self.saveOrRetakeVC = nil;
+    NSLog(@"[WerkenVC] show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
 }
 
 - (void)btnBackTapped:(id)sender{

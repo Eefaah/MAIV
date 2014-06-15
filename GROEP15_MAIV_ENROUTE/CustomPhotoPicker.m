@@ -32,7 +32,7 @@
             NSLog(@"voeg face ovelray yoe");
             UIImage *overlay = [UIImage imageNamed:@"face_overlay"];
             UIImageView *overlayImage = [[UIImageView alloc] initWithImage:overlay];
-            overlayImage.frame = CGRectMake(0, 0, overlay.size.width, overlay.size.height);
+            overlayImage.frame = CGRectMake(self.frame.size.width/2 - overlay.size.width/2, self.frame.size.height/2 - overlay.size.height/2, overlay.size.width, overlay.size.height);
             [self addSubview:overlayImage];
         }
 
