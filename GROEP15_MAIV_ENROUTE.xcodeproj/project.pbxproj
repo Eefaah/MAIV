@@ -32,6 +32,8 @@
 		92148C991948D77E006A3AE5 /* EndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C931948D77E006A3AE5 /* EndViewController.m */; };
 		92148C9A1948D77E006A3AE5 /* EndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C951948D77E006A3AE5 /* EndView.m */; };
 		921EABC5194118F800DBE329 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921EABC4194118F800DBE329 /* QuartzCore.framework */; };
+		923850B7194D80A6003FAC8C /* MainMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923850B6194D80A6003FAC8C /* MainMapViewController.m */; };
+		923850BA194D80C7003FAC8C /* MainMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 923850B9194D80C7003FAC8C /* MainMapView.m */; };
 		925811061949CFF00040390F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925811051949CFF00040390F /* AVFoundation.framework */; };
 		925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */; };
 		9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258110B1949EA020040390F /* SaveOrRetakeImageView.m */; };
@@ -147,6 +149,10 @@
 		92148C941948D77E006A3AE5 /* EndView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndView.h; sourceTree = "<group>"; };
 		92148C951948D77E006A3AE5 /* EndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndView.m; sourceTree = "<group>"; };
 		921EABC4194118F800DBE329 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		923850B5194D80A6003FAC8C /* MainMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMapViewController.h; sourceTree = "<group>"; };
+		923850B6194D80A6003FAC8C /* MainMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMapViewController.m; sourceTree = "<group>"; };
+		923850B8194D80C7003FAC8C /* MainMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMapView.h; sourceTree = "<group>"; };
+		923850B9194D80C7003FAC8C /* MainMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMapView.m; sourceTree = "<group>"; };
 		925811051949CFF00040390F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		925811071949E9EB0040390F /* SaveOrRetakeImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveOrRetakeImageViewController.h; sourceTree = "<group>"; };
 		925811081949E9EB0040390F /* SaveOrRetakeImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveOrRetakeImageViewController.m; sourceTree = "<group>"; };
@@ -300,14 +306,25 @@
 		92148C82194876EE006A3AE5 /* Mapview */ = {
 			isa = PBXGroup;
 			children = (
-				92148C7F194876E7006A3AE5 /* AnnotationObject.h */,
-				92148C80194876E7006A3AE5 /* AnnotationObject.m */,
 				EC3285E0194B27EE005D6994 /* ZintuigenMapviewViewController.h */,
 				EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */,
 				EC3285E3194B27FB005D6994 /* ZintuigenMapviewView.h */,
 				EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */,
 			);
 			name = Mapview;
+			sourceTree = "<group>";
+		};
+		923850B4194D8094003FAC8C /* InfoMap */ = {
+			isa = PBXGroup;
+			children = (
+				92148C7F194876E7006A3AE5 /* AnnotationObject.h */,
+				92148C80194876E7006A3AE5 /* AnnotationObject.m */,
+				923850B8194D80C7003FAC8C /* MainMapView.h */,
+				923850B9194D80C7003FAC8C /* MainMapView.m */,
+				923850B5194D80A6003FAC8C /* MainMapViewController.h */,
+				923850B6194D80A6003FAC8C /* MainMapViewController.m */,
+			);
+			name = InfoMap;
 			sourceTree = "<group>";
 		};
 		9258110D1949EA080040390F /* save or retake */ = {
@@ -540,6 +557,7 @@
 		EC53FACA193F63250056C41D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				923850B4194D8094003FAC8C /* InfoMap */,
 				EC53FACC193F63530056C41D /* MainViewController.h */,
 				EC53FACD193F63530056C41D /* MainViewController.m */,
 				EC53FAD2193F63650056C41D /* MainView.h */,
@@ -694,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923850B7194D80A6003FAC8C /* MainMapViewController.m in Sources */,
 				92CF2CA1194B10E4007FB27F /* RecordingView.m in Sources */,
 				92CF2C95194B0EB2007FB27F /* ShowPhotoView.m in Sources */,
 				92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */,
@@ -716,6 +735,7 @@
 				92E91219194AECD80031FBCD /* MapView.m in Sources */,
 				92CF2C93194B0EB2007FB27F /* PhotoOverviewView.m in Sources */,
 				EC53FA9D193F623B0056C41D /* main.m in Sources */,
+				923850BA194D80C7003FAC8C /* MainMapView.m in Sources */,
 				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
 				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
 				92CF2C94194B0EB2007FB27F /* PhotoOverviewViewController.m in Sources */,

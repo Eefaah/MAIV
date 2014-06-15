@@ -125,6 +125,8 @@
 
 -(void)showMap:(id)sender{
     NSLog(@"Show Map");
+    self.mainMapViewVC = [[MainMapViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:self.mainMapViewVC animated:YES];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
