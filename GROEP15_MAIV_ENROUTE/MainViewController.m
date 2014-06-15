@@ -36,16 +36,28 @@
             
             i ++;
         }
+        
     }
     return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-//    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isUserRegistered"] == NO){
-//        NSLog(@"show register vc");
-//        self.registerVC = [[RegisterViewController alloc] initWithBounds:self.view.bounds];
-//        [self presentViewController:self.registerVC animated:NO completion:^{}];
-//    }
+    NSLog(@"we komen hier in");
+    [self.GPSVC removeFromParentViewController];
+    [self.werkenVC removeFromParentViewController];
+    [self.peopleVC removeFromParentViewController];
+    [self.soundVC removeFromParentViewController];
+    [self.playgroundVC removeFromParentViewController];
+    self.GPSVC = nil;
+    self.werkenVC = nil;
+    self.peopleVC = nil;
+    self.soundVC = nil;
+    self.playgroundVC = nil;
+    NSLog(@"self.GPSVC %@",self.GPSVC);
+    NSLog(@"werkenVC %@",self.werkenVC);
+    NSLog(@"peopleVC %@",self.peopleVC);
+    NSLog(@"soundVC %@",self.soundVC);
+    NSLog(@"playgroundVC %@",self.playgroundVC);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,33 +84,21 @@
     NSString *className = [sender restorationIdentifier];
     NSLog(@"%@", className);
     
-//    self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
-//    
-//    if([className isEqualToString:@"Werken"]){
-//        NSLog(@"werken");
-//        [self.navigationController pushViewController:self.werkenVC animated:NO];
-//    }
-//
-    self.GPSVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
-    self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
-    self.peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
-    self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];
-    
-//    PeopleViewController *peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
-//    GPSViewController *gpsVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
-    PlaygroundViewController *playgroundVC = [[PlaygroundViewController alloc] initWithNibName:nil bundle:nil];
-    
     if([className isEqualToString:@"Werken"]){
+        self.werkenVC = [[WerkenViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.werkenVC animated:YES];
     }
     else if ([className isEqualToString:@"Mensen"]){
+        self.peopleVC = [[PeopleViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.peopleVC animated:YES];
     }
     else if ([className isEqualToString:@"GPSDrawing"]){
+        self.GPSVC = [[GPSViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.GPSVC animated:YES];
     }
     else if ([className isEqualToString:@"Speeltuin"]){
-        [self.navigationController pushViewController:playgroundVC animated:YES];
+        self.playgroundVC = [[PlaygroundViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:self.playgroundVC animated:YES];
     }else if([className isEqualToString:@"Zintuigen"]){
         
         // hier wordt beslist welk zintuig deze groep krijgt
@@ -107,6 +107,7 @@
         [self.navigationController pushViewController:self.zintuigVC animated:YES];
     }else if([className isEqualToString:@"Geluiden"]){
         NSLog(@"else if geluiden");
+        self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];
         self.soundVC = [[RecordingViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:self.soundVC animated:YES];
     }

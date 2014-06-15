@@ -154,14 +154,38 @@
     }
     
     if([annotation isKindOfClass:[MKUserLocation class]]){
-        //NSLog(@"self.userloc.coordinate = %f",self.userloc.coordinate.latitude);
         annotationView.image = [UIImage imageNamed:@"currentLocationAnnotation"];
         annotationView.annotation = annotation;
-    }else{
+        
     }
     
     return annotationView;
 }
+
+//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+//    
+//    NSLog(@"mapView viewForAnnotation delegate");
+//    
+//    NSString static *identifier = @"PinAnnotationView";
+//    
+//    NSLog(@"annotation die binnenkomt = %@", annotation);
+//    
+//    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+//    
+//    if(!annotationView){
+//        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+//        annotationView.canShowCallout = YES;
+//    }
+//    
+//    if([annotation isKindOfClass:[MKUserLocation class]]){
+//        //NSLog(@"self.userloc.coordinate = %f",self.userloc.coordinate.latitude);
+//        annotationView.image = [UIImage imageNamed:@"currentLocationAnnotation"];
+//        annotationView.annotation = annotation;
+//    }else{
+//    }
+//    
+//    return annotationView;
+//}
 
 
 /*

@@ -77,6 +77,11 @@
 
 - (void)backToMenu:(id)sender{
     NSLog(@"back to menu");
+    self.endVC = nil;
+    self.endVC.view = nil;
+    self.cameraView = nil;
+    self.imagePicker = nil;
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -150,6 +155,9 @@
         self.imagePicker.showsCameraControls = NO;
         self.imagePicker.videoMaximumDuration = 10;
         self.imagePicker.delegate = self;
+        self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
+        self.imagePicker.cameraOverlayView = self.cameraView;
+        [self.cameraView.btn_camera addTarget:self action:@selector(toggleVideoRecording) forControlEvents:UIControlEventTouchUpInside];
         
 //        self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
 //        self.imagePicker.cameraOverlayView = self.cameraView;
@@ -159,15 +167,9 @@
         
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:self.imagePicker animated:NO completion:^{
             NSLog(@"Show imagepicker");
-            self.cameraView = [[CameraOverlayView alloc] initWithFrame:self.imagePicker.view.frame];
-            self.imagePicker.cameraOverlayView = self.cameraView;
-            [self.cameraView.btn_camera addTarget:self action:@selector(toggleVideoRecording) forControlEvents:UIControlEventTouchUpInside];
         }];
-        
-    });
 }
 
 - (void)toggleVideoRecording {
@@ -243,7 +245,6 @@
         
     } else {
         
-        [self video:pathToVideo didFinishSavingWithError:nil contextInfo:NULL];
     }
 }
 
@@ -258,10 +259,7 @@
     [self showCamera];
     
 }
-//
-//-(void)next:(id)sender{
-//    [self showCamera];
-//}
+
 
 - (void)showDrawing:(NSNotification *) notification
 {
@@ -274,21 +272,6 @@
         [self.endVC getDrawingImage:self.drawnImage];
     }
 }
-//
-//-(void)dismissRetake:(NSNotification *)notification{
-//    
-////    self.resultVC = [[ResultViewController alloc] initWithNibName:nil bundle:nil];
-////    [self.navigationController pushViewController:self.resultVC animated:YES];
-//}
-
-
-
-- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    
-    // Show controls
-    //[UIView  animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:showControls completion:NULL];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -299,6 +282,10 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)dealloc{
+    NSLog(@"Speeltuin -- dealloc -- AM I CALLED?");
 }
 
 /*

@@ -73,7 +73,7 @@
 }
 
 - (void)retakeTapped:(id)sender{
-    
+    self.videoUrl = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RETAKE_TAPPED" object:nil];
 }
 
@@ -106,6 +106,9 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
         // bewaar en retake buttons weghalen & terug naar story button toevoegen
+        self.videoUrl = nil;
+        self.videoData = nil;
+        
         [self.view changeButton];
         
         if(self.view.btn_story){
@@ -171,6 +174,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    NSLog(@"ENDVC Speeltuin -- dealloc -- AM I CALLED?");
 }
 
 //-(void)viewWillDisappear:(BOOL)animated{

@@ -30,6 +30,7 @@
 @property (nonatomic,strong) PeopleViewController *peopleVC;
 @property (nonatomic,strong) RecordingViewController *soundVC;
 @property (nonatomic,strong) MainMapViewController *mainMapViewVC;
+@property (nonatomic,strong) PlaygroundViewController *playgroundVC;
 
 
 @property (nonatomic) float xBoot;

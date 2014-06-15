@@ -70,6 +70,10 @@
     
     if ([notification.name isEqualToString:@"SHOW_DRAWN_SHAPE"])
     {
+        [self.mapVC dismissViewControllerAnimated:YES completion:^{}];
+        self.mapVC.view = nil;
+        self.mapVC = nil;
+        
         NSLog(@"show shape");
         NSDictionary* userInfo = notification.userInfo;
         self.arrDrawingPoints = [userInfo objectForKey:@"arrDrawingPoints"];
@@ -78,9 +82,6 @@
         GPSEndViewController *endVC = [[GPSEndViewController alloc] initWithNibName:nil bundle:nil];
         [endVC showDrawnShape:self.arrDrawingPoints andImage:self.drawnImage];
         [self.navigationController pushViewController:endVC animated:NO];
-        
-        [self.mapVC dismissViewControllerAnimated:YES completion:^{}];
-        self.mapVC = nil;
     }
 }
 
@@ -99,6 +100,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)dealloc{
+    NSLog(@"GPSVC -- dealloc -- AM I CALLED?");
 }
 
 

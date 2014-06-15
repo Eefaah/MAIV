@@ -131,6 +131,7 @@
     }
     
     [self presentViewController:self.imagePicker animated:YES completion:^{
+        
         [self.photoPickerView.btn_foto addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
         if(self.saveOrRetakeVC){
             NSLog(@"we zijn in de self");
@@ -143,6 +144,7 @@
 }
 
 -(void)takePicture:(id)sender{
+    NSLog(@"take picture");
     [self.imagePicker takePicture];
 }
 
@@ -172,6 +174,9 @@
     // remove save or retake
     //[self.navigationController popViewControllerAnimated:YES];
     NSLog(@"show second screen -- na poppen retakeVC = %@",self.saveOrRetakeVC);
+    
+    self.imagePicker = nil;
+    self.photoPickerView = nil;
     
     self.secondInfoVC = [[SecondInfoViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:self.secondInfoVC animated:YES];
