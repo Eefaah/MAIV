@@ -15,5 +15,7 @@
 
 @property (nonatomic,strong) MKMapView *mapView;
 @property (nonatomic,strong) CLLocationManager *locationManager;
+@property (nonatomic,strong) UIButton *btnBack;
+@property (nonatomic,strong) MKUserLocation *userloc;
 
 @end

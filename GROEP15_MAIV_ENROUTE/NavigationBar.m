@@ -30,7 +30,7 @@
             
             self.btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
             [self.btnBack setBackgroundImage:btn_backToMap forState:UIControlStateNormal];
-            self.btnBack.frame = CGRectMake(9, 35, btn_backToMap.size.width, btn_backToMap.size.height);
+            self.btnBack.frame = CGRectMake(9, 31, btn_backToMap.size.width, btn_backToMap.size.height);
             //[self.btnBack setTitle:@"back" forState:UIControlStateNormal];
             [self addSubview:self.btnBack];
         }

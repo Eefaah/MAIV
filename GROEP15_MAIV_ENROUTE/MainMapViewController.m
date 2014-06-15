@@ -27,6 +27,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view.btnBack addTarget:self action:@selector(backToStory:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)backToStory:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
