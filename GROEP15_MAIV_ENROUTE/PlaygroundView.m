@@ -33,18 +33,10 @@
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:bgImage];
     bgImageView.frame = CGRectMake(0, 0, bgImage.size.width, bgImage.size.height);
     
-    // start button toevoegen
-    UIImage *btn_startImage = [UIImage imageNamed:@"btn_start"];
-    
-    self.btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.btn_start setBackgroundImage:btn_startImage forState:UIControlStateNormal];
-    self.btn_start.frame = CGRectMake(self.frame.size.width/2 - btn_startImage.size.width/2, 975, btn_startImage.size.width, btn_startImage.size.height);
-    
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.scrollView.contentSize = CGSizeMake(bgImage.size.width, bgImage.size.height+80);
+    self.scrollView.contentSize = CGSizeMake(bgImage.size.width, bgImage.size.height);
     
     [self.scrollView addSubview:bgImageView];
-    [self.scrollView addSubview:self.btn_start];
     [self addSubview:self.scrollView];
     
     [self createLabels];

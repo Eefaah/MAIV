@@ -191,8 +191,6 @@
 - (void)backToMenu:(id)sender{
     NSLog(@"back to menu");
     [self.navigationController popToRootViewControllerAnimated:YES];
-    //MainViewController *mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-    //[self.navigationController pushViewController:mainVC animated:YES];
 }
 
 - (void)btnTekenenTapped:(id)sender{
