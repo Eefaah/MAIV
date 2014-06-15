@@ -24,4 +24,7 @@
 @property (nonatomic) CGPoint currentPoint;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 
+- (void)drawPolyline;
+- (void)endTracking;
+
 @end

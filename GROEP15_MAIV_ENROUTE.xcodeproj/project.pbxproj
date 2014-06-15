@@ -410,10 +410,10 @@
 				92E9120A194AECD80031FBCD /* GPSEndView.m */,
 				92E9120B194AECD80031FBCD /* GPSEndViewController.h */,
 				92E9120C194AECD80031FBCD /* GPSEndViewController.m */,
-				92E91211194AECD80031FBCD /* MapView.h */,
-				92E91212194AECD80031FBCD /* MapView.m */,
 				92E91213194AECD80031FBCD /* MapViewController.h */,
 				92E91214194AECD80031FBCD /* MapViewController.m */,
+				92E91211194AECD80031FBCD /* MapView.h */,
+				92E91212194AECD80031FBCD /* MapView.m */,
 			);
 			name = screens;
 			sourceTree = "<group>";

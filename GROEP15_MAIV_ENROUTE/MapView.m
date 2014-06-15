@@ -28,14 +28,8 @@
         [self addSubview:self.tempDrawImage];
         
         [self startTracking];
-        [self addButtons];
     }
     return self;
-}
-
-- (void)addButtons{
-    
-
 }
 
 - (void)startTracking{
@@ -47,43 +41,11 @@
     self.startTrackingBtn.frame = CGRectMake(self.frame.size.width/2 - startTrackingBtn.size.width/2, self.frame.size.height - 100, startTrackingBtn.size.width, startTrackingBtn.size.height);
     [self addSubview:self.startTrackingBtn];
     
-    [self.startTrackingBtn addTarget:self action:@selector(startTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
-    
     UIImage *endTrackingBtn = [UIImage imageNamed:@"btn_stopTracking"];
     
     self.endTrackingButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.endTrackingButton setBackgroundImage:endTrackingBtn forState:UIControlStateNormal];
     self.endTrackingButton.frame = CGRectMake(self.frame.size.width/2 - endTrackingBtn.size.width/2, self.frame.size.height - 100, endTrackingBtn.size.width, endTrackingBtn.size.height);
-}
-
-- (void)startTrackingTapped:(id)sender{
-    
-    [self.startTrackingBtn removeTarget:self action:@selector(startTrackingTapped :) forControlEvents:UIControlEventTouchUpInside];
-    [self.startTrackingBtn removeFromSuperview];
-    
-    self.startPoint = self.mapView.userLocation.location.coordinate;
-    
-    self.arrPoints = [NSMutableArray array];
-    [self.arrPoints addObject:[[CLLocation alloc] initWithLatitude:self.startPoint.latitude longitude:self.startPoint.longitude]];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(doSometingOnTimeInterval) userInfo:nil repeats:YES];
-    
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude, self.mapView.userLocation.coordinate.longitude);
-    
-    // dit is in feite het zoom level van de map //
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000);
-    [self.mapView setRegion:region animated:true];
-    self.mapView.scrollEnabled = NO;
-    self.mapView.zoomEnabled = NO;
-    self.mapView.rotateEnabled = NO;
-    
-    [self addSubview:self.endTrackingButton];
-}
-
-- (void)doSometingOnTimeInterval{
-    
-    CLLocation *updatedLocation = [[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [self.arrPoints addObject:updatedLocation];
-    [self drawPolyline];
 }
 
 - (void)drawPolyline{
@@ -153,7 +115,7 @@
     return polylineView;
 }
 
-- (void)endTrackingTapped:(id)sender{
+- (void)endTracking{
     NSLog(@"end tracking tapped - mapview");
     NSValue *startPoint = [self.arrDrawingPoints objectAtIndex:self.arrDrawingPoints.count - self.arrDrawingPoints.count + 1];
     CGPoint startPointPoint = [startPoint CGPointValue];
