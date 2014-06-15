@@ -138,21 +138,25 @@
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    [self.view.btn_map setHidden:NO];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.btn_map.alpha = 1;
+    }];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.view.btn_map setHidden:NO];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.btn_map.alpha = 1;
+    }];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     // button wegdoen
-    [self.view.btn_map setHidden:YES];
+    self.view.btn_map.alpha = 0;
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
     // button wegdoen
-    [self.view.btn_map setHidden:YES];
+    self.view.btn_map.alpha = 0;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

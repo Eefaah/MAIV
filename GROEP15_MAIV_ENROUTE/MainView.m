@@ -370,7 +370,7 @@
     
     self.btn_map = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_map setBackgroundImage:btnMap forState:UIControlStateNormal];
-    [self.btn_map setFrame:CGRectMake(247, self.frame.size.height - btnMap.size.height - 17, btnMap.size.width, btnMap.size.height)];
+    [self.btn_map setFrame:CGRectMake(247, 17, btnMap.size.width, btnMap.size.height)];
     [self addSubview:self.btn_map];
     
     UIImage *headerImage = [UIImage imageNamed:@"verhaal_header"];

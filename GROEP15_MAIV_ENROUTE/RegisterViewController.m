@@ -64,8 +64,7 @@
 
 - (void)colorButtonTapped:(id)sender{
     
-    [self.view.btn_start setHidden:NO];
-    
+    self.view.btn_start.enabled = YES;
     if(self.lastTappedButton){
         [self.lastTappedButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     }

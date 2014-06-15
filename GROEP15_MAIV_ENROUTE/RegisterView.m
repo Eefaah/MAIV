@@ -48,7 +48,7 @@
     self.btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_start setBackgroundImage:btnStart forState:UIControlStateNormal];
     self.btn_start.frame = CGRectMake(self.frame.size.width/2 - btnStart.size.width/2, 430, btnStart.size.width, btnStart.size.height);
-    [self.btn_start setHidden:YES];
+    self.btn_start.enabled = NO;
     [self addSubview:self.btn_start];
 }
 
