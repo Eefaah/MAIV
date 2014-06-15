@@ -121,6 +121,13 @@
     // Do any additional setup after loading the view.
     self.view.scrollView.delegate = self;
     [self.view.btn_map addTarget:self action:@selector(showMap:) forControlEvents:UIControlEventTouchUpInside];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToStory:) name:@"MAP_BACK_TO_STORY" object:nil];
+    
+}
+
+-(void)backToStory:(id)sender{
+    [self.navigationController popToViewController:self animated:YES];
+    self.mainMapViewVC = nil;
 }
 
 -(void)showMap:(id)sender{

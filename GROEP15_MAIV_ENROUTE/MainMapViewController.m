@@ -31,7 +31,7 @@
 }
 
 -(void)backToStory:(id)sender{
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MAP_BACK_TO_STORY" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
