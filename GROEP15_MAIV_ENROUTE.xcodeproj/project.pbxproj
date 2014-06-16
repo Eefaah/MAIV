@@ -17,14 +17,10 @@
 		920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4731947BFAE001BBAA6 /* EndDrawView.m */; };
 		920BF47E1947BFAE001BBAA6 /* DrawingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */; };
 		920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */; };
-		92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */; };
-		92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C6F19486FB5006A3AE5 /* MainZintuigView.m */; };
 		92148C731948709F006A3AE5 /* UitlegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C721948709F006A3AE5 /* UitlegView.m */; };
 		92148C7B19487556006A3AE5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92148C7A19487556006A3AE5 /* MapKit.framework */; };
 		92148C7D1948757B006A3AE5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92148C7C1948757B006A3AE5 /* CoreLocation.framework */; };
 		92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C80194876E7006A3AE5 /* AnnotationObject.m */; };
-		92148C8519487D44006A3AE5 /* Uitleg2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8419487D44006A3AE5 /* Uitleg2ViewController.m */; };
-		92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8719487D56006A3AE5 /* Uitleg2View.m */; };
 		92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8A1948A99E006A3AE5 /* CustomPhotoPicker.m */; };
 		92148C961948D77E006A3AE5 /* PlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8D1948D77E006A3AE5 /* PlaygroundViewController.m */; };
 		92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92148C8F1948D77E006A3AE5 /* PlaygroundView.m */; };
@@ -65,8 +61,6 @@
 		92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122C194AEF040031FBCD /* AFURLRequestSerialization.m */; };
 		92E91238194AEF040031FBCD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */; };
 		92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E91230194AEF040031FBCD /* AFURLSessionManager.m */; };
-		EC3285E2194B27EE005D6994 /* ZintuigenMapviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */; };
-		EC3285E5194B27FB005D6994 /* ZintuigenMapviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */; };
 		EC53FA8F193F623B0056C41D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA8E193F623B0056C41D /* Foundation.framework */; };
 		EC53FA91193F623B0056C41D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA90193F623B0056C41D /* CoreGraphics.framework */; };
 		EC53FA93193F623B0056C41D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53FA92193F623B0056C41D /* UIKit.framework */; };
@@ -122,20 +116,12 @@
 		920BF4751947BFAE001BBAA6 /* DrawingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollViewController.m; sourceTree = "<group>"; };
 		920BF4761947BFAE001BBAA6 /* DrawingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingScrollView.h; sourceTree = "<group>"; };
 		920BF4771947BFAE001BBAA6 /* DrawingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingScrollView.m; sourceTree = "<group>"; };
-		92148C6B19486FA8006A3AE5 /* MainZintuigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainZintuigViewController.h; sourceTree = "<group>"; };
-		92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainZintuigViewController.m; sourceTree = "<group>"; };
-		92148C6E19486FB5006A3AE5 /* MainZintuigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainZintuigView.h; sourceTree = "<group>"; };
-		92148C6F19486FB5006A3AE5 /* MainZintuigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainZintuigView.m; sourceTree = "<group>"; };
 		92148C711948709F006A3AE5 /* UitlegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UitlegView.h; sourceTree = "<group>"; };
 		92148C721948709F006A3AE5 /* UitlegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitlegView.m; sourceTree = "<group>"; };
 		92148C7A19487556006A3AE5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92148C7C1948757B006A3AE5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		92148C7F194876E7006A3AE5 /* AnnotationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationObject.h; sourceTree = "<group>"; };
 		92148C80194876E7006A3AE5 /* AnnotationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationObject.m; sourceTree = "<group>"; };
-		92148C8319487D44006A3AE5 /* Uitleg2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uitleg2ViewController.h; sourceTree = "<group>"; };
-		92148C8419487D44006A3AE5 /* Uitleg2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uitleg2ViewController.m; sourceTree = "<group>"; };
-		92148C8619487D56006A3AE5 /* Uitleg2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uitleg2View.h; sourceTree = "<group>"; };
-		92148C8719487D56006A3AE5 /* Uitleg2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uitleg2View.m; sourceTree = "<group>"; };
 		92148C891948A99E006A3AE5 /* CustomPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoPicker.h; sourceTree = "<group>"; };
 		92148C8A1948A99E006A3AE5 /* CustomPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoPicker.m; sourceTree = "<group>"; };
 		92148C8C1948D77E006A3AE5 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
@@ -215,10 +201,6 @@
 		92E9122E194AEF040031FBCD /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		92E9122F194AEF040031FBCD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		92E91230194AEF040031FBCD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		EC3285E0194B27EE005D6994 /* ZintuigenMapviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZintuigenMapviewViewController.h; sourceTree = "<group>"; };
-		EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZintuigenMapviewViewController.m; sourceTree = "<group>"; };
-		EC3285E3194B27FB005D6994 /* ZintuigenMapviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZintuigenMapviewView.h; sourceTree = "<group>"; };
-		EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZintuigenMapviewView.m; sourceTree = "<group>"; };
 		EC53FA8B193F623B0056C41D /* GROEP15_MAIV_ENROUTE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GROEP15_MAIV_ENROUTE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC53FA8E193F623B0056C41D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC53FA90193F623B0056C41D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -279,41 +261,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		92148C5E194864FD006A3AE5 /* Zintuigen */ = {
-			isa = PBXGroup;
-			children = (
-				92148C6B19486FA8006A3AE5 /* MainZintuigViewController.h */,
-				92148C6C19486FA8006A3AE5 /* MainZintuigViewController.m */,
-				92148C6E19486FB5006A3AE5 /* MainZintuigView.h */,
-				92148C6F19486FB5006A3AE5 /* MainZintuigView.m */,
-				92148C82194876EE006A3AE5 /* Mapview */,
-				92148C7E1948762D006A3AE5 /* Horen */,
-				92148C8619487D56006A3AE5 /* Uitleg2View.h */,
-				92148C8719487D56006A3AE5 /* Uitleg2View.m */,
-				92148C8319487D44006A3AE5 /* Uitleg2ViewController.h */,
-				92148C8419487D44006A3AE5 /* Uitleg2ViewController.m */,
-			);
-			name = Zintuigen;
-			sourceTree = "<group>";
-		};
-		92148C7E1948762D006A3AE5 /* Horen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Horen;
-			sourceTree = "<group>";
-		};
-		92148C82194876EE006A3AE5 /* Mapview */ = {
-			isa = PBXGroup;
-			children = (
-				EC3285E0194B27EE005D6994 /* ZintuigenMapviewViewController.h */,
-				EC3285E1194B27EE005D6994 /* ZintuigenMapviewViewController.m */,
-				EC3285E3194B27FB005D6994 /* ZintuigenMapviewView.h */,
-				EC3285E4194B27FB005D6994 /* ZintuigenMapviewView.m */,
-			);
-			name = Mapview;
-			sourceTree = "<group>";
-		};
 		923850B4194D8094003FAC8C /* InfoMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,7 +459,6 @@
 				92CF2C97194B0EB6007FB27F /* People */,
 				92E9121D194AEF040031FBCD /* AFNetworking */,
 				92E9121B194AED610031FBCD /* GPS */,
-				92148C5E194864FD006A3AE5 /* Zintuigen */,
 				92694D3C1947932F0021E63D /* Labeldata */,
 				92694D0C19477EFA0021E63D /* Speeltuin */,
 				EC53FACB193F63280056C41D /* register */,
@@ -717,16 +663,12 @@
 				92CF2C95194B0EB2007FB27F /* ShowPhotoView.m in Sources */,
 				92E91239194AEF040031FBCD /* AFURLSessionManager.m in Sources */,
 				EC53FAD4193F63650056C41D /* MainView.m in Sources */,
-				92148C7019486FB5006A3AE5 /* MainZintuigView.m in Sources */,
 				EC53FAA1193F623B0056C41D /* AppDelegate.m in Sources */,
 				920BF4781947BFAE001BBAA6 /* DrawingViewController.m in Sources */,
 				920BF47F1947BFAE001BBAA6 /* DrawingScrollView.m in Sources */,
 				EC53FAA4193F623B0056C41D /* GROEP15_MAIV_ENROUTE.xcdatamodeld in Sources */,
-				92148C8519487D44006A3AE5 /* Uitleg2ViewController.m in Sources */,
 				925811091949E9EB0040390F /* SaveOrRetakeImageViewController.m in Sources */,
-				92148C6D19486FA8006A3AE5 /* MainZintuigViewController.m in Sources */,
 				92CF2C91194B0EB2007FB27F /* PeopleView.m in Sources */,
-				92148C8819487D56006A3AE5 /* Uitleg2View.m in Sources */,
 				92148C731948709F006A3AE5 /* UitlegView.m in Sources */,
 				92CF2C96194B0EB2007FB27F /* ShowPhotoViewController.m in Sources */,
 				92E91233194AEF040031FBCD /* AFHTTPSessionManager.m in Sources */,
@@ -739,7 +681,6 @@
 				92E91236194AEF040031FBCD /* AFURLConnectionOperation.m in Sources */,
 				92E91234194AEF040031FBCD /* AFNetworkReachabilityManager.m in Sources */,
 				92CF2C94194B0EB2007FB27F /* PhotoOverviewViewController.m in Sources */,
-				EC3285E2194B27EE005D6994 /* ZintuigenMapviewViewController.m in Sources */,
 				92148C8B1948A99E006A3AE5 /* CustomPhotoPicker.m in Sources */,
 				92148C971948D77E006A3AE5 /* PlaygroundView.m in Sources */,
 				92148C81194876E7006A3AE5 /* AnnotationObject.m in Sources */,
@@ -767,7 +708,6 @@
 				9258110C1949EA020040390F /* SaveOrRetakeImageView.m in Sources */,
 				92E91237194AEF040031FBCD /* AFURLRequestSerialization.m in Sources */,
 				EC53FAD7193F636B0056C41D /* RegisterView.m in Sources */,
-				EC3285E5194B27FB005D6994 /* ZintuigenMapviewView.m in Sources */,
 				920BF47D1947BFAE001BBAA6 /* EndDrawView.m in Sources */,
 				92E91232194AEF040031FBCD /* AFHTTPRequestOperationManager.m in Sources */,
 				920BF47A1947BFAE001BBAA6 /* SecondInfoViewController.m in Sources */,
