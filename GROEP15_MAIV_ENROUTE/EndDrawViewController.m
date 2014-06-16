@@ -35,7 +35,7 @@
 }
 
 - (void)btnSaveTapped:(id)sender{
-    
+    NSLog(@"btn save tapped");
     //added this; might cause problems
     //[self dismissViewControllerAnimated:YES completion:^{}];
     //[self.navigationController popViewControllerAnimated:YES];
@@ -43,6 +43,12 @@
 }
 
 - (void)uploadPost{
+    
+    // buttons weghalen en vervangen
+    [self.view changeButton];
+    [self.view.btnOk removeTarget:self action:@selector(btnSaveTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.btnAgain removeTarget:self action:@selector(btnAgainTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIImage *image = self.view.drawnImage;
     NSData *data = UIImagePNGRepresentation(image);
     
@@ -59,6 +65,7 @@
     [manager POST:@"http://student.howest.be/tim.beeckmans/20132014/MAIV/ENROUTE/uploads/index.php" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:data name:@"file" fileName:filename mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.view removeButtons];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"OP7_BTN_SAVE" object:nil];
         NSLog(@"Success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

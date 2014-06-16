@@ -23,6 +23,11 @@
         [self addSubview:bg];
         
         self.drawnImage = image;
+//        
+//        UIImage *buttonsIndicator = [UIImage imageNamed:@"buttons_indicator"];
+//        self.indicator = [[UIImageView alloc] initWithImage:buttonsIndicator];
+//        self.indicator.frame = CGRectMake(0, 418, buttonsIndicator.size.width, buttonsIndicator.size.height);
+//        [self addSubview:self.indicator];
         
         [self navigationBar];
         [self imageController];
@@ -66,6 +71,17 @@
     self.btnOk.frame = CGRectMake(self.btnAgain.frame.origin.x + againImage.size.width + 122, self.frame.size.height - okImage.size.height - 20, okImage.size.width, okImage.size.height);
     [self.btnOk setBackgroundImage:okImage forState:UIControlStateNormal];
     [self addSubview:self.btnOk];
+}
+
+-(void)removeButtons{
+    // bewaar button weghalen
+    //[self.btn_retake removeFromSuperview];
+    [self.btnOk removeFromSuperview];
+    [self.btnAgain removeFromSuperview];
+}
+
+-(void)changeButton{
+    [self.btnOk setBackgroundImage:[UIImage imageNamed:@"btn_wait_kleiner"] forState:UIControlStateNormal];
 }
 
 - (void) navigationBar{

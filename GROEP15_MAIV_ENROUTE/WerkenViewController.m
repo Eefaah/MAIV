@@ -227,7 +227,7 @@
 }
 
 - (void)btnSaveTapped:(id)sender{
-    NSLog(@"Werken view controller - btn save tapped");
+    NSLog(@"Werken view controller - save succes");
     self.drawingScrollVC = [[DrawingScrollViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:self.drawingScrollVC animated:YES];
 }

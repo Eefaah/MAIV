@@ -15,9 +15,13 @@
 @property (nonatomic, strong) UIButton *btnOk;
 @property (nonatomic, strong) UILabel *lblJouwTekening;
 @property (nonatomic,strong) NavigationBar *navBar;
+@property (nonatomic,strong) UIButton *btn_story;
+@property (nonatomic,strong) UIImageView *indicator;
 
 @property (nonatomic, strong) UIImage *drawnImage;
 
 - (id)initWithFrame:(CGRect)frame andImage:(UIImage *)image;
+-(void)removeButtons;
+-(void)changeButton;
 
 @end

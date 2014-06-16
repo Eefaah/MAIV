@@ -31,13 +31,13 @@
     UIImage *btn_retake = [UIImage imageNamed:@"btn_opnieuw"];
     self.btn_retake = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_retake setBackgroundImage:btn_retake forState:UIControlStateNormal];
-    self.btn_retake.frame = CGRectMake(32, self.frame.size.height-btn_retake.size.height - 20, btn_retake.size.width, btn_retake.size.height);
+    self.btn_retake.frame = CGRectMake(20, self.frame.size.height-btn_retake.size.height - 20, btn_retake.size.width, btn_retake.size.height);
     [self addSubview:self.btn_retake];
     
     UIImage *btn_ok = [UIImage imageNamed:@"btn_ok"];
     self.btn_use = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btn_use setBackgroundImage:btn_ok forState:UIControlStateNormal];
-    self.btn_use.frame = CGRectMake(self.btn_retake.frame.origin.x + btn_retake.size.width + 122, self.frame.size.height - btn_ok.size.height - 20, btn_ok.size.width, btn_ok.size.height);
+    self.btn_use.frame = CGRectMake(self.btn_retake.frame.origin.x + btn_retake.size.width + 144, self.frame.size.height - btn_ok.size.height - 20, btn_ok.size.width, btn_ok.size.height);
     [self addSubview:self.btn_use];
 }
 
